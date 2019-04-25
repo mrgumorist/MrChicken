@@ -8,5 +8,6 @@ namespace IServise
 {
     public class Class1
     {
+
     }
 }
