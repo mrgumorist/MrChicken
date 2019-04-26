@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IServise
+namespace Service
 {
     public class Class1
     {
-
     }
 }
