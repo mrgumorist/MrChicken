@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr. Chicken", "Mr. Chicken\Mr. Chicken.csproj", "{F6DCED10-60E6-488B-8412-43A2F05D3816}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodMaker", "FoodMaker\FoodMaker.csproj", "{032A3669-34FF-4B2A-8152-5DF5E8FDA449}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{F6DCED10-60E6-488B-8412-43A2F05D3816}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F6DCED10-60E6-488B-8412-43A2F05D3816}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F6DCED10-60E6-488B-8412-43A2F05D3816}.Release|Any CPU.Build.0 = Release|Any CPU
-		{032A3669-34FF-4B2A-8152-5DF5E8FDA449}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{032A3669-34FF-4B2A-8152-5DF5E8FDA449}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{032A3669-34FF-4B2A-8152-5DF5E8FDA449}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{032A3669-34FF-4B2A-8152-5DF5E8FDA449}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
