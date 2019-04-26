@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mr. Chicken", "Mr. Chicken\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "Host\Host.csproj", "{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IService", "IService\IService.csproj", "{4124C89B-174B-4C35-B163-CF1520293F4C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BE7E17A8-22DE-42EA-B9CA-3B8DC5980D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4124C89B-174B-4C35-B163-CF1520293F4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4124C89B-174B-4C35-B163-CF1520293F4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4124C89B-174B-4C35-B163-CF1520293F4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4124C89B-174B-4C35-B163-CF1520293F4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
