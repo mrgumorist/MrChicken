@@ -48,6 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\EmailAccept.cs" />
+    <Compile Include="Entities\Product.cs" />
+    <Compile Include="Entities\Types.cs" />
     <Compile Include="Entities\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
