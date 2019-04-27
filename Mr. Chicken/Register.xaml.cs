@@ -23,5 +23,27 @@ namespace Mr.Chicken
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            name.Text = "";
+            surname.Text = "";
+            login.Text = "";
+            password.Password = "";
+            email.Text = "";
+            birth.Text = "";
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            if(email.Text!="" && name.Text != "" && surname.Text != ""&& login.Text != "" && password.Password != ""&& birth.Text != "")
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("One or more of these textboxes are empty, please check and change it!");
+            }
+        }
     }
 }

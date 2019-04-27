@@ -12,20 +12,20 @@
         <Label Content="INFO" HorizontalAlignment="Left" Margin="417,51,0,0" VerticalAlignment="Top" Foreground="White" FontSize="50" FontWeight="Bold"/>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="32,202,0,0" VerticalAlignment="Top" Height="36" Width="100" FontSize="20" FontWeight="Bold" Foreground="White"/>
         <Label Content="Surname:" HorizontalAlignment="Left" Margin="315,202,0,0" VerticalAlignment="Top" Height="36" Width="100" FontSize="20" FontWeight="Bold" Foreground="White"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="137,208,0,0" Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="433,208,0,0"   Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
+        <TextBox Name="name" HorizontalAlignment="Left" Height="30" Margin="137,208,0,0" Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
+        <TextBox Name="surname" HorizontalAlignment="Left" Height="30" Margin="433,208,0,0"   Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="0,252,0,0" VerticalAlignment="Top" Width="598" Background="Wheat"/>
         <Label Content="Login:" HorizontalAlignment="Left" Margin="32,272,0,0" VerticalAlignment="Top" Height="36" Width="100" FontSize="20" FontWeight="Bold" Foreground="White"/>
         <Label Content="Password:" HorizontalAlignment="Left" Margin="315,272,0,0" VerticalAlignment="Top" Height="36" Width="113" FontSize="20" FontWeight="Bold" Foreground="White"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="137,278,0,0"   Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
+        <TextBox Name="login" HorizontalAlignment="Left" Height="30" Margin="137,278,0,0"   Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="0,322,0,0" VerticalAlignment="Top" Width="598" Background="Wheat"/>
         <Label Content="Login:" HorizontalAlignment="Left" Margin="32,272,0,0" VerticalAlignment="Top" Height="36" Width="100" FontSize="20" FontWeight="Bold" Foreground="White"/>
         <Label Content="Email:" HorizontalAlignment="Left" Margin="32,343,0,0" VerticalAlignment="Top" Height="36" Width="100" FontSize="20" FontWeight="Bold" Foreground="White"/>
         <Label Content="DateOfBirth:" HorizontalAlignment="Left" Margin="315,343,0,0" VerticalAlignment="Top" Height="36" Width="113" FontSize="17" FontWeight="Bold" Foreground="White"/>
-        <TextBox HorizontalAlignment="Left" Height="30" Margin="137,349,0,0"   Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
-        <PasswordBox HorizontalAlignment="Left" Height="30" Margin="433,278,0,0" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
+        <TextBox Name="email" HorizontalAlignment="Left" Height="30" Margin="137,349,0,0"   Text="" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
+        <PasswordBox Name="password" HorizontalAlignment="Left" Height="30" Margin="433,278,0,0" VerticalAlignment="Top" Width="140" FontSize="20" Background="{x:Null}" Foreground="White"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="0,393,0,0" VerticalAlignment="Top" Width="598" Background="Wheat"/>
-        <DatePicker HorizontalAlignment="Left" Margin="433,349,0,0" VerticalAlignment="Top" Width="155">
+        <DatePicker Name="birth" HorizontalAlignment="Left" Margin="433,349,0,0" VerticalAlignment="Top" Width="155">
             <DatePicker.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,0" StartPoint="0.5,1">
                     <GradientStop Color="#FFA3AEB9" Offset="0"/>
@@ -37,7 +37,7 @@
         </DatePicker>
         <Label Content="Label" HorizontalAlignment="Left" Height="204" Margin="300,193,0,0" VerticalAlignment="Top" Width="3" Background="#FFFDFDFD"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="0,189,0,0" VerticalAlignment="Top" Width="598" Background="Wheat"/>
-        <Button Content="Register" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="267" Margin="10,425,0,0" Height="69" Foreground="White" FontSize="30" />
-        <Button Content="Clear and close" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="267" Margin="321,425,0,0" Height="69" Foreground="White" FontSize="30" />
+        <Button Content="Register" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="267" Margin="10,425,0,0" Height="69" Foreground="White" FontSize="30" Click="Button_Click_1" />
+        <Button Content="Clear" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="267" Margin="321,425,0,0" Height="69" Foreground="White" FontSize="30" Click="Button_Click" />
     </Grid>
 </Window>
