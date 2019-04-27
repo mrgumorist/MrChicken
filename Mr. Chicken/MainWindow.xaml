@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mr.Chicken"
         mc:Ignorable="d"
-        Title="Mr. Chiken" Height="450" Width="800">
-    <Grid>
-        <Label>AndrewPidorAndMisha</Label>
+        Title="Mr. Chiken [LOGIN PAGE]" Height="491.977" Width="386.94" ResizeMode="NoResize" Icon="Resources/Logo.ico">
+    <Grid Background="#FF05191E" >
+        <Image HorizontalAlignment="Left" Height="161" Margin="103,10,0,0" VerticalAlignment="Top" Width="172" Source="Resources/Logo.png"/>
     </Grid>
 </Window>
