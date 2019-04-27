@@ -35,5 +35,13 @@ namespace Mr.Chicken
             recover.Show();
             Clear();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            Register register = new Register();
+            register.ShowDialog();
+            Show();
+        }
     }
 }
