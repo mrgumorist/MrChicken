@@ -57,9 +57,9 @@
     <Compile Include="Entities\Type.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserProducts.cs" />
-    <Compile Include="Migrations\201904271024357_kertfrdf.cs" />
-    <Compile Include="Migrations\201904271024357_kertfrdf.Designer.cs">
-      <DependentUpon>201904271024357_kertfrdf.cs</DependentUpon>
+    <Compile Include="Migrations\201904271149145_iservice migr.cs" />
+    <Compile Include="Migrations\201904271149145_iservice migr.Designer.cs">
+      <DependentUpon>201904271149145_iservice migr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,8 +69,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904271024357_kertfrdf.resx">
-      <DependentUpon>201904271024357_kertfrdf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904271149145_iservice migr.resx">
+      <DependentUpon>201904271149145_iservice migr.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
