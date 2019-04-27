@@ -41,7 +41,16 @@ namespace Mr.Chicken
             Hide();
             Register register = new Register();
             register.ShowDialog();
+            Clear();
             Show();
+        }
+        //Вхід в адмін панель
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.P&& (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                MessageBox.Show("You press Ctrl+P :) Welcome to admin panel");
+            }
         }
     }
 }

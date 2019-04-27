@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mr.Chicken"
         mc:Ignorable="d"
-        Title="Mr. Chiken [LOGIN PAGE]" Height="557.604" Width="386.94" ResizeMode="NoResize" Icon="Resources/Logo.ico" WindowStartupLocation="CenterScreen">
+        Title="Mr. Chiken [LOGIN PAGE]" Height="557.604" Width="386.94" ResizeMode="NoResize" Icon="Resources/Logo.ico" WindowStartupLocation="CenterScreen" KeyDown="Window_KeyDown">
     <Grid Background="#FF05191E" HorizontalAlignment="Right" Width="381" >
         <Image HorizontalAlignment="Left" Height="161" Margin="103,10,0,0" VerticalAlignment="Top" Width="172" Source="Resources/Logo.png"/>
         <TextBox Name="Login" HorizontalAlignment="Left" Height="37" Margin="42,234,0,0" Text="" VerticalAlignment="Top" Width="298" Background="{x:Null}" Foreground="White" FontSize="25"/>
