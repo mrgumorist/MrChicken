@@ -37,5 +37,7 @@
         </DatePicker>
         <Label Content="Label" HorizontalAlignment="Left" Height="204" Margin="300,193,0,0" VerticalAlignment="Top" Width="3" Background="#FFFDFDFD"/>
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="4" Margin="0,189,0,0" VerticalAlignment="Top" Width="598" Background="Wheat"/>
+        <Button Content="Register" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="267" Margin="10,425,0,0" Height="69" Foreground="White" FontSize="30" />
+        <Button Content="Clear and close" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="267" Margin="321,425,0,0" Height="69" Foreground="White" FontSize="30" />
     </Grid>
 </Window>
