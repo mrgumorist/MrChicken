@@ -1,9 +1,9 @@
-namespace IService.Migrations
+    namespace IService.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class kertfrdf : DbMigration
+    public partial class iservicemigr : DbMigration
     {
         public override void Up()
         {
@@ -67,6 +67,8 @@ namespace IService.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         Name = c.String(nullable: false),
                         Surname = c.String(nullable: false),
+                        Login = c.String(),
+                        Password = c.String(),
                         TelegramID = c.String(),
                         Email = c.String(),
                         ISConfirmed = c.Boolean(nullable: false),
