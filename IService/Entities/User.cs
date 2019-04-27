@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IService.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,5 +27,7 @@ namespace IService
         public DateTime DateOfBirth { get; set; }
         [Required]
         public bool DoesWantRecomendations { get; set; }
+        public virtual ICollection<EmailAccept> IEmails { get; set; }
+        public virtual ICollection<UserProducts> userProducts { get; set; }
     }
 }

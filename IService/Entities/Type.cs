@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 namespace IService.Entities
 {
     [Table("Types")]
-    class Types
+    public class Type
     {
         [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public virtual ICollection<Dish> IDishes { get; set; }
+        //None, Brekfast, dinner and others.
     }
 }

@@ -8,14 +8,19 @@ using System.Threading.Tasks;
 
 namespace IService.Entities
 {
-    [Table("Products")]
-    public class Product
+    [Table("Dishes")]
+   public class Dish
     {
         [Key]
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public string LittleDescription { get; set; }
+        public string Recept { get; set; }
+        public byte[] Image { get; set; }
+        [Required, ForeignKey("TypeV")]
+        public int TypeID { get; set; }
+        public virtual Type TypeV { get; set; }
         public virtual ICollection<Intermediate> intermediate { get; set; }
-        public virtual ICollection<UserProducts> userProducts { get; set; }
     }
 }
