@@ -24,5 +24,16 @@ namespace Mr.Chicken
         {
             InitializeComponent();
         }
+        void Clear()
+        {
+            Login.Text = "";
+            Password.Password = "";
+        }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Recover recover = new Recover();
+            recover.Show();
+            Clear();
+        }
     }
 }
