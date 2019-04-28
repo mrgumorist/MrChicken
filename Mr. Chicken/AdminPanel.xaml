@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mr.Chicken"
         mc:Ignorable="d"
-        Title="AdminPanel" Height="450" Width="819.756">
+        Title="AdminPanel" Height="450" Width="819.756" WindowStartupLocation="CenterScreen">
     <Grid>
         
     </Grid>
