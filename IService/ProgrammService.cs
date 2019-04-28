@@ -12,5 +12,9 @@ namespace IService
         {
             return msg;
         }
+        public User GetEmptyUser()
+        {
+            return new User();
+        }
     }
 }

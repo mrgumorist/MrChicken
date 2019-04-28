@@ -20,6 +20,7 @@ namespace Mr.Chicken
     /// </summary>
     public partial class Register : Window
     {
+        ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
         public Register()
         {
             InitializeComponent();
@@ -53,6 +54,7 @@ namespace Mr.Chicken
                         if (!Regex.Match(name.Text, "^[A-Z][a-zA-Z]*$").Success)
                         {
                             Console.WriteLine("Invalid Name");
+                            var User;
                         }
                         else
                         {
