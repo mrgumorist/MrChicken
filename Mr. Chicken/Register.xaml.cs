@@ -54,7 +54,7 @@ namespace Mr.Chicken
                         if (!Regex.Match(name.Text, "^[A-Z][a-zA-Z]*$").Success)
                         {
                             Console.WriteLine("Invalid Name");
-                            var User;
+                            var user = client;
                         }
                         else
                         {
