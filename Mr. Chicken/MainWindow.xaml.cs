@@ -27,7 +27,7 @@ namespace Mr.Chicken
         void Clear()
         {
             Login.Text = "";
-            Password.Password = "";
+            Password.Password = null;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -49,8 +49,18 @@ namespace Mr.Chicken
         {
             if (e.Key == Key.P&& (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
             {
-                MessageBox.Show("You press Ctrl+P :) Welcome to admin panel");
+                if(Login.Text=="Admin"&&Password.Password=="12345")
+                {
+                    MessageBox.Show("Welcome to admin panel.");
+                   
+                }
+                else
+                {
+                    MessageBox.Show("You press Ctrl+P :) You don't have premissions for it");
+                    
+                }
             }
+            Clear();
         }
     }
 }
