@@ -40,6 +40,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -57,11 +58,13 @@
     <Compile Include="Entities\Type.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserProducts.cs" />
+    <Compile Include="IProgrammService.cs" />
     <Compile Include="Migrations\201904271149145_iservice migr.cs" />
     <Compile Include="Migrations\201904271149145_iservice migr.Designer.cs">
       <DependentUpon>201904271149145_iservice migr.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="ProgrammService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -44,6 +44,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -61,7 +62,7 @@
             this.label1.ForeColor = System.Drawing.Color.Indigo;
             this.label1.Location = new System.Drawing.Point(-3, 68);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(300, 39);
+            this.label1.Size = new System.Drawing.Size(290, 38);
             this.label1.TabIndex = 1;
             this.label1.Text = "STATUS: OFFED";
             // 
@@ -80,7 +81,7 @@
             this.label2.ForeColor = System.Drawing.Color.Indigo;
             this.label2.Location = new System.Drawing.Point(401, 68);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 39);
+            this.label2.Size = new System.Drawing.Size(180, 38);
             this.label2.TabIndex = 3;
             this.label2.Text = "HISTORY:";
             // 

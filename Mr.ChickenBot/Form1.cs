@@ -16,5 +16,13 @@ namespace Mr.ChickenBot
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ServiceReferenceMrChickenBot.ProgrammServiceClient client = 
+                new ServiceReferenceMrChickenBot.ProgrammServiceClient();
+
+            MessageBox.Show(client.Msg("Privet Andrey!"));
+        }
     }
 }
