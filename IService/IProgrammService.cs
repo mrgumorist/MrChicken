@@ -12,6 +12,14 @@ namespace IService
     {
         [OperationContract]
         string Msg(string msg);
+        [OperationContract]
         User GetEmptyUser();
+        [OperationContract]
+        void AddUser(User user);
+        [OperationContract]
+        bool IsEmailUnique(string email);
+        [OperationContract]
+        int AccountId(string login, string password);
+
     }
 }

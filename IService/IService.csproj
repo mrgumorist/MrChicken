@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -65,9 +65,9 @@
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserProducts.cs" />
     <Compile Include="IProgrammService.cs" />
-    <Compile Include="Migrations\201904271149145_iservice migr.cs" />
-    <Compile Include="Migrations\201904271149145_iservice migr.Designer.cs">
-      <DependentUpon>201904271149145_iservice migr.cs</DependentUpon>
+    <Compile Include="Migrations\201904281928306_kek.cs" />
+    <Compile Include="Migrations\201904281928306_kek.Designer.cs">
+      <DependentUpon>201904281928306_kek.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProgrammService.cs" />
@@ -78,8 +78,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904271149145_iservice migr.resx">
-      <DependentUpon>201904271149145_iservice migr.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904281928306_kek.resx">
+      <DependentUpon>201904281928306_kek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

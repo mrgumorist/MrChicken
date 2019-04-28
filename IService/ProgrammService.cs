@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IService.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace IService
 {
     public class ProgrammService:IProgrammService
     {
+        Context context = new Context(); 
         public string Msg(string msg)
         {
             return msg;
@@ -16,6 +18,35 @@ namespace IService
         public User GetEmptyUser()
         {
             return new User();
+        }
+        public void AddUser(User user)
+        {
+            context.users.Add(user);
+            context.SaveChangesAsync();
+        }
+        public bool IsEmailUnique(string email)
+        {
+            foreach (var item in context.users)
+            {
+                if(item.Email== email)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public int AccountId(string login, string password)
+        {
+            int id = -1;
+            foreach (var item in context.users)
+            {
+                if (item.Login == login&& item.Password==password)
+                {
+                    id = item.ID;
+                    break;
+                }
+            }
+            return id;
         }
     }
 }
