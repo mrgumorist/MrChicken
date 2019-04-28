@@ -20,6 +20,7 @@ namespace Mr.Chicken
     /// </summary>
     public partial class MainWindow : Window
     {
+        ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
         public MainWindow()
         {
             InitializeComponent();

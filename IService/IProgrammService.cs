@@ -12,6 +12,6 @@ namespace IService
     {
         [OperationContract]
         string Msg(string msg);
-
+        User GetEmptyUser();
     }
 }
