@@ -9,6 +9,6 @@
       Title="Start">
 
     <Grid>
-        
+        <Image Margin="160,60" Source="Logo.png"></Image>
     </Grid>
 </Page>

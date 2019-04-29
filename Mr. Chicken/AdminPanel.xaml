@@ -31,7 +31,7 @@
             <Button Grid.Row="6" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20"></Button>
         </Grid>
         <Grid Grid.Column="2">
-            <Frame Name="MainFrame" Source="AdminPages/Start.xaml"></Frame>
+            <Frame Name="MainFrame" Source="AdminPages/Start.xaml" NavigationUIVisibility="Hidden"></Frame>
         </Grid>
     </Grid>
 </Window>

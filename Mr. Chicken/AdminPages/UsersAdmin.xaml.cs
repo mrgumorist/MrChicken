@@ -26,6 +26,8 @@ namespace Mr.Chicken
             ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
             var users = client.GetUsers();
             dataGrid.ItemsSource = users;
+            //TO DO! HIDE FIRST COLUMN
+            //dataGrid.Columns.Remove(dataGrid.Columns.First());
         }
     }
 }
