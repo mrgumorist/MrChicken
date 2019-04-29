@@ -1,4 +1,5 @@
 ﻿using IService.Entities;
+using IService.EntitiesReturn;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -11,7 +12,8 @@ namespace IService
 {
     public class ProgrammService:IProgrammService
     {
-        Context context = new Context(); 
+        Context context = new Context();
+       // List<UserS> users;
         public string Msg(string msg)
         {
             return msg;
@@ -49,9 +51,11 @@ namespace IService
             }
             return id;
         }
-        public List<User> GetUsers()
+        public List<UserS> GetUsers()
         {
-            var users = context.users.ToList();
+            
+            //var users1 = context.users.ToList();
+            var users= context.users.Select(t => new UserS() { ID =t.ID, Name=t.Name, Surname=t.Surname, Login=t.Login, Password=t.Password, TelegramID=t.TelegramID, Email=t.Email, ISConfirmed=t.ISConfirmed, DateOfBirth=t.DateOfBirth,DateOfRegister=t.DateOfRegister,DoesWantRecomendations=t.DoesWantRecomendations}).ToList();
             return users;
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IService.EntitiesReturn;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -22,6 +23,6 @@ namespace IService
         [OperationContract]
         int AccountId(string login, string password);
         [OperationContract]
-        List<User> GetUsers();
+        List<UserS> GetUsers();
     }
 }
