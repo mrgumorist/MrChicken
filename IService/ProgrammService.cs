@@ -9,6 +9,9 @@ namespace IService
 {
     public class ProgrammService:IProgrammService
     {
+        private static ITelegramBotClient botClient;
+        Telegram.Bot.Types.User me = botClient.GetMeAsync().Result;        
+           
         public string Msg(string msg)
         {
             return msg;
@@ -17,5 +20,8 @@ namespace IService
         {
             return new User();
         }
+        
+
+
     }
 }

@@ -127,6 +127,15 @@
     <None Include="Connected Services\ServiceReferenceMrChicken\item1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReferenceMrChicken\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMrChicken\item21.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\ServiceReferenceMrChicken\ProgrammService.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
