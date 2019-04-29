@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -20,6 +21,7 @@ namespace IService
         bool IsEmailUnique(string email);
         [OperationContract]
         int AccountId(string login, string password);
-
+        [OperationContract]
+        List<User> GetUsers();
     }
 }

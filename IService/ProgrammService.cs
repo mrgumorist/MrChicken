@@ -1,6 +1,7 @@
 ﻿using IService.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,6 +48,11 @@ namespace IService
                 }
             }
             return id;
+        }
+        public List<User> GetUsers()
+        {
+            var users = context.users.ToList();
+            return users;
         }
     }
 }

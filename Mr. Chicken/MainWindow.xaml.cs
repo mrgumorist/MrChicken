@@ -53,7 +53,11 @@ namespace Mr.Chicken
                 if(Login.Text=="Admin"&&Password.Password=="12345")
                 {
                     MessageBox.Show("Welcome to admin panel.");
-                   
+                    Clear();
+                    AdminPanel adminPanel = new AdminPanel();
+                    Hide();
+                    adminPanel.ShowDialog();
+                    Show();
                 }
                 else
                 {

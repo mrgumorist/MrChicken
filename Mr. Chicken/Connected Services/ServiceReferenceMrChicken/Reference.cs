@@ -937,6 +937,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AccountId", ReplyAction="http://tempuri.org/IProgrammService/AccountIdResponse")]
         System.Threading.Tasks.Task<int> AccountIdAsync(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsers", ReplyAction="http://tempuri.org/IProgrammService/GetUsersResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.User[] GetUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsers", ReplyAction="http://tempuri.org/IProgrammService/GetUsersResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User[]> GetUsersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1004,6 +1010,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<int> AccountIdAsync(string login, string password) {
             return base.Channel.AccountIdAsync(login, password);
+        }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.User[] GetUsers() {
+            return base.Channel.GetUsers();
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User[]> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
         }
     }
 }

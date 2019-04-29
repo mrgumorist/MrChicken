@@ -10,23 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Mr.Chicken
+namespace Mr.Chicken.AdminPages
 {
     /// <summary>
-    /// Interaction logic for AdminPanel.xaml
+    /// Interaction logic for Start.xaml
     /// </summary>
-    public partial class AdminPanel : Window
+    public partial class Start : Page
     {
-        public AdminPanel()
+        public Start()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new UsersAdmin();
         }
     }
 }
