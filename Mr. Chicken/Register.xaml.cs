@@ -39,27 +39,47 @@ namespace Mr.Chicken
         {
             return Regex.IsMatch(strIn, @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
         }
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if(email.Text!="" && name.Text != "" && surname.Text != ""&& login.Text != "" && password.Password != ""&& birth.Text != "")
             {
                 if (IsValidEmail(email.Text))
                 {
-                    if (!Regex.Match(surname.Text, "^[A-Z][a-zA-Z]*$").Success)
+                    if (await client.IsEmailUniqueAsync(email.Text))
                     {
-                        Console.WriteLine("Invalid Surname");
-                    }
-                    else
-                    {
-                        if (!Regex.Match(name.Text, "^[A-Z][a-zA-Z]*$").Success)
+                        if (!Regex.Match(surname.Text, "^[A-Z][a-zA-Z]*$").Success)
                         {
-                            Console.WriteLine("Invalid Name");
-                            var User;
+                            Console.WriteLine("Invalid Surname");
                         }
                         else
                         {
-
+                            if (Regex.Match(name.Text, "^[A-Z][a-zA-Z]*$").Success)
+                            {
+                                Console.WriteLine("Invalid Name");
+                                var user = client.GetEmptyUser();
+                                user.DateOfBirth = birth.SelectedDate.Value;
+                                user.Name = name.Text;
+                                user.Surname = surname.Text;
+                                user.Login = login.Text;
+                                user.Password = password.Password;
+                                user.DateOfRegister = DateTime.Now;
+                                user.DoesWantRecomendations = true;
+                                user.Email = email.Text;
+                                user.ISConfirmed = false;
+                                user.TelegramID = "-";
+                                await client.AddUserAsync(user);
+                                MessageBox.Show("Succesfull added. Insert data to text boxes");
+                                Close();
+                            }
+                            else
+                            {
+                                Console.WriteLine("Invalid Name");
+                            }
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("This email is already in use. Change it or recover password");
                     }
 
                 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using IService.Entities;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,9 +11,7 @@ namespace IService
 {
     public class ProgrammService:IProgrammService
     {
-        private static ITelegramBotClient botClient;
-        Telegram.Bot.Types.User me = botClient.GetMeAsync().Result;        
-           
+        Context context = new Context(); 
         public string Msg(string msg)
         {
             return msg;
@@ -20,8 +20,39 @@ namespace IService
         {
             return new User();
         }
-        
-
-
+        public void AddUser(User user)
+        {
+            context.users.Add(user);
+            context.SaveChangesAsync();
+        }
+        public bool IsEmailUnique(string email)
+        {
+            foreach (var item in context.users)
+            {
+                if(item.Email== email)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public int AccountId(string login, string password)
+        {
+            int id = -1;
+            foreach (var item in context.users)
+            {
+                if (item.Login == login&& item.Password==password)
+                {
+                    id = item.ID;
+                    break;
+                }
+            }
+            return id;
+        }
+        public List<User> GetUsers()
+        {
+            var users = context.users.ToList();
+            return users;
+        }
     }
 }

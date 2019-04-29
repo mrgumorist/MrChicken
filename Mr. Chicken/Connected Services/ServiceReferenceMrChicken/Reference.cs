@@ -920,23 +920,29 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyUser", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyUserResponse")]
         System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetEmptyUserAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartBot", ReplyAction="http://tempuri.org/IProgrammService/StartBotResponse")]
-        void StartBot(string BotToken);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddUser", ReplyAction="http://tempuri.org/IProgrammService/AddUserResponse")]
+        void AddUser(Mr.Chicken.ServiceReferenceMrChicken.User user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartBot", ReplyAction="http://tempuri.org/IProgrammService/StartBotResponse")]
-        System.Threading.Tasks.Task StartBotAsync(string BotToken);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddUser", ReplyAction="http://tempuri.org/IProgrammService/AddUserResponse")]
+        System.Threading.Tasks.Task AddUserAsync(Mr.Chicken.ServiceReferenceMrChicken.User user);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetBotID", ReplyAction="http://tempuri.org/IProgrammService/GetBotIDResponse")]
-        string GetBotID();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/IsEmailUnique", ReplyAction="http://tempuri.org/IProgrammService/IsEmailUniqueResponse")]
+        bool IsEmailUnique(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetBotID", ReplyAction="http://tempuri.org/IProgrammService/GetBotIDResponse")]
-        System.Threading.Tasks.Task<string> GetBotIDAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/IsEmailUnique", ReplyAction="http://tempuri.org/IProgrammService/IsEmailUniqueResponse")]
+        System.Threading.Tasks.Task<bool> IsEmailUniqueAsync(string email);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetBotFirstName", ReplyAction="http://tempuri.org/IProgrammService/GetBotFirstNameResponse")]
-        string GetBotFirstName();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AccountId", ReplyAction="http://tempuri.org/IProgrammService/AccountIdResponse")]
+        int AccountId(string login, string password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetBotFirstName", ReplyAction="http://tempuri.org/IProgrammService/GetBotFirstNameResponse")]
-        System.Threading.Tasks.Task<string> GetBotFirstNameAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AccountId", ReplyAction="http://tempuri.org/IProgrammService/AccountIdResponse")]
+        System.Threading.Tasks.Task<int> AccountIdAsync(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsers", ReplyAction="http://tempuri.org/IProgrammService/GetUsersResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.User[] GetUsers();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsers", ReplyAction="http://tempuri.org/IProgrammService/GetUsersResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User[]> GetUsersAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -982,28 +988,36 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.GetEmptyUserAsync();
         }
         
-        public void StartBot(string BotToken) {
-            base.Channel.StartBot(BotToken);
+        public void AddUser(Mr.Chicken.ServiceReferenceMrChicken.User user) {
+            base.Channel.AddUser(user);
         }
         
-        public System.Threading.Tasks.Task StartBotAsync(string BotToken) {
-            return base.Channel.StartBotAsync(BotToken);
+        public System.Threading.Tasks.Task AddUserAsync(Mr.Chicken.ServiceReferenceMrChicken.User user) {
+            return base.Channel.AddUserAsync(user);
         }
         
-        public string GetBotID() {
-            return base.Channel.GetBotID();
+        public bool IsEmailUnique(string email) {
+            return base.Channel.IsEmailUnique(email);
         }
         
-        public System.Threading.Tasks.Task<string> GetBotIDAsync() {
-            return base.Channel.GetBotIDAsync();
+        public System.Threading.Tasks.Task<bool> IsEmailUniqueAsync(string email) {
+            return base.Channel.IsEmailUniqueAsync(email);
         }
         
-        public string GetBotFirstName() {
-            return base.Channel.GetBotFirstName();
+        public int AccountId(string login, string password) {
+            return base.Channel.AccountId(login, password);
         }
         
-        public System.Threading.Tasks.Task<string> GetBotFirstNameAsync() {
-            return base.Channel.GetBotFirstNameAsync();
+        public System.Threading.Tasks.Task<int> AccountIdAsync(string login, string password) {
+            return base.Channel.AccountIdAsync(login, password);
+        }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.User[] GetUsers() {
+            return base.Channel.GetUsers();
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User[]> GetUsersAsync() {
+            return base.Channel.GetUsersAsync();
         }
     }
 }

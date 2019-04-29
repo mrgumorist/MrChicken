@@ -10,23 +10,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Mr.Chicken
 {
     /// <summary>
-    /// Interaction logic for AdminPanel.xaml
+    /// Interaction logic for UsersAdmin.xaml
     /// </summary>
-    public partial class AdminPanel : Window
+    public partial class UsersAdmin : Page
     {
-        public AdminPanel()
+        public  UsersAdmin()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            MainFrame.Content = new UsersAdmin();
+            ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
+            var users = client.GetUsers();
+            dataGrid.ItemsSource = users;
         }
     }
 }

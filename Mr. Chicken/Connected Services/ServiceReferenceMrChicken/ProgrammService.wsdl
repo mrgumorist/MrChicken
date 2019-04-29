@@ -2,10 +2,10 @@
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProgrammService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8100/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8100/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8100/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IService" />
-      <xsd:import schemaLocation="http://localhost:8100/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IService.Entities" />
+      <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IService" />
+      <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IService.Entities" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IProgrammService_Msg_InputMessage">
@@ -20,23 +20,29 @@
   <wsdl:message name="IProgrammService_GetEmptyUser_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEmptyUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_StartBot_InputMessage">
-    <wsdl:part name="parameters" element="tns:StartBot" />
+  <wsdl:message name="IProgrammService_AddUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUser" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_StartBot_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StartBotResponse" />
+  <wsdl:message name="IProgrammService_AddUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_GetBotID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBotID" />
+  <wsdl:message name="IProgrammService_IsEmailUnique_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailUnique" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_GetBotID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBotIDResponse" />
+  <wsdl:message name="IProgrammService_IsEmailUnique_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsEmailUniqueResponse" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_GetBotFirstName_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetBotFirstName" />
+  <wsdl:message name="IProgrammService_AccountId_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccountId" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_GetBotFirstName_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetBotFirstNameResponse" />
+  <wsdl:message name="IProgrammService_AccountId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
   </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="Msg">
@@ -47,17 +53,21 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetEmptyUser" message="tns:IProgrammService_GetEmptyUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetEmptyUserResponse" message="tns:IProgrammService_GetEmptyUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="StartBot">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StartBot" message="tns:IProgrammService_StartBot_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StartBotResponse" message="tns:IProgrammService_StartBot_OutputMessage" />
+    <wsdl:operation name="AddUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/AddUser" message="tns:IProgrammService_AddUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/AddUserResponse" message="tns:IProgrammService_AddUser_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetBotID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetBotID" message="tns:IProgrammService_GetBotID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetBotIDResponse" message="tns:IProgrammService_GetBotID_OutputMessage" />
+    <wsdl:operation name="IsEmailUnique">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/IsEmailUnique" message="tns:IProgrammService_IsEmailUnique_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/IsEmailUniqueResponse" message="tns:IProgrammService_IsEmailUnique_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetBotFirstName">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetBotFirstName" message="tns:IProgrammService_GetBotFirstName_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetBotFirstNameResponse" message="tns:IProgrammService_GetBotFirstName_OutputMessage" />
+    <wsdl:operation name="AccountId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/AccountId" message="tns:IProgrammService_AccountId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/AccountIdResponse" message="tns:IProgrammService_AccountId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetUsers" message="tns:IProgrammService_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetUsersResponse" message="tns:IProgrammService_GetUsers_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
@@ -80,8 +90,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="StartBot">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/StartBot" style="document" />
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/AddUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -89,8 +99,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetBotID">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetBotID" style="document" />
+    <wsdl:operation name="IsEmailUnique">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/IsEmailUnique" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -98,8 +108,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetBotFirstName">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetBotFirstName" style="document" />
+    <wsdl:operation name="AccountId">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/AccountId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetUsers" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -110,7 +129,7 @@
   </wsdl:binding>
   <wsdl:service name="ProgrammService">
     <wsdl:port name="BasicHttpBinding_IProgrammService" binding="tns:BasicHttpBinding_IProgrammService">
-      <soap:address location="http://localhost:8100/IService" />
+      <soap:address location="http://localhost:8099/IService" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

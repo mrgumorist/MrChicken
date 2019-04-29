@@ -53,15 +53,33 @@ namespace Mr.Chicken
                 if(Login.Text=="Admin"&&Password.Password=="12345")
                 {
                     MessageBox.Show("Welcome to admin panel.");
-                   
+                    Clear();
+                    AdminPanel adminPanel = new AdminPanel();
+                    Hide();
+                    adminPanel.ShowDialog();
+                    Show();
                 }
                 else
                 {
                     MessageBox.Show("You press Ctrl+P :) You don't have premissions for it");
                     
                 }
+                Clear();
             }
-            Clear();
+            
+        }
+
+        private async void  Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            int id = await client.AccountIdAsync(Login.Text, Password.Password);
+            if (id != -1)
+            {
+                MessageBox.Show("Succesfull!");
+            }
+            else
+            {
+                MessageBox.Show("Error. Please, check your data");
+            }
         }
     }
 }
