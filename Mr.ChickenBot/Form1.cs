@@ -1,5 +1,4 @@
-﻿using ApiAiSDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +19,6 @@ namespace Mr.ChickenBot
     public partial class Form1 : Form
     {
         private static ITelegramBotClient botClient;
-        private static ApiAi apiAi;
         private string BotToken = "826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE";
         private string DialogFlowToken = "dfe5887f46c54f69bb6da15ce1b67da5";
             //ServiceReferenceMrChickenBot.ProgrammServiceClient client =
@@ -36,8 +34,6 @@ namespace Mr.ChickenBot
             lblStatus.Text = "STATUS ON";
            
             botClient = new TelegramBotClient(BotToken) { Timeout = TimeSpan.FromSeconds(10) };
-            AIConfiguration config = new AIConfiguration(DialogFlowToken, SupportedLanguage.Russian);
-            apiAi = new ApiAi(config);
             var me = botClient.GetMeAsync().Result;
             txtStatus.Text += $"Bot id: {me.Id}. Bot name: {me.FirstName}" + Environment.NewLine;
 
@@ -101,13 +97,13 @@ namespace Mr.ChickenBot
                     {
                         new[]
                         {
-                            new KeyboardButton("hello"),
-                            new KeyboardButton("Як справи")
+                            new KeyboardButton("Get the recipe"+"\U0001F34F"),
+                            new KeyboardButton("Add product"+"\U0001F4E6")
                         },
                         new[]
                         {
-                            new KeyboardButton("Контакт") { RequestContact = true},
-                            new KeyboardButton("Геолокація") {RequestLocation = true}
+                            new KeyboardButton("button3") ,
+                            new KeyboardButton("button4") 
                         }
                         
                         
@@ -116,7 +112,7 @@ namespace Mr.ChickenBot
                         replyMarkup: replyKeyboard);                             
                     break;
                 case "/created":
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "Створено поцами");
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "©Mr.Chicken");
                     break;
                 default:                   
                     //var responce = apiAi.TextRequest(message.Text);
@@ -153,6 +149,7 @@ namespace Mr.ChickenBot
         private void button2_Click(object sender, EventArgs e)
         {
             lblStatus.Text = "STATUS OFFED";
+            txtStatus.Text += Environment.NewLine + "BOT STOPED" +Environment.NewLine;
             botClient.StopReceiving();
             
         }
