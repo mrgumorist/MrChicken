@@ -32,12 +32,25 @@ namespace Mr.Chicken
             {
                 users.Add(item);
             }
-
+            var Users_ = users.Select(u => new
+            {
+                u.ID,
+                u.Name,
+                u.Surname,
+                u.Login,
+                u.Password,
+                u.TelegramID,
+                u.Email,
+                u.ISConfirmed,
+                u.DateOfRegister,
+                u.DoesWantRecomendations
+            }
+            );
             //var Users = client.GetUsers();
-            dataGrid.ItemsSource = users;
+            dataGrid.ItemsSource = Users_;
 
             //TO DO! HIDE FIRST COLUMN
-            //dataGrid.Columns.Remove(dataGrid.Columns.First())
+            //dataGrid.Columns.Remove(dataGrid.Columns.First());
             //dataGrid.Columns[$"{dataGrid.Columns.First().Header.ToString()}"].Visibility = Visibility.Hidden;
             MessageBox.Show(dataGrid.Columns.Count.ToString());
         }
