@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Mr.Chicken.ServiceReferenceMrChicken;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +22,25 @@ namespace Mr.Chicken
     /// </summary>
     public partial class UsersAdmin : Page
     {
-        public  UsersAdmin()
+        ObservableCollection<UserS> users = new ObservableCollection<UserS>();
+        public UsersAdmin()
         {
             InitializeComponent();
             ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
-            var users = client.GetUsers();
+            var Users = client.GetUsers();
+            foreach (var item in Users)
+            {
+                users.Add(item);
+            }
+
+            //var Users = client.GetUsers();
             dataGrid.ItemsSource = users;
+
             //TO DO! HIDE FIRST COLUMN
-            //dataGrid.Columns.Remove(dataGrid.Columns.First());
+            //dataGrid.Columns.Remove(dataGrid.Columns.First())
+            //dataGrid.Columns[$"{dataGrid.Columns.First().Header.ToString()}"].Visibility = Visibility.Hidden;
+            MessageBox.Show(dataGrid.Columns.Count.ToString());
         }
+
     }
 }
