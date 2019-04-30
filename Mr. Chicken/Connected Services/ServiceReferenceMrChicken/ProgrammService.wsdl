@@ -6,6 +6,7 @@
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IService" />
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IService.Entities" />
+      <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IProgrammService_Msg_InputMessage">
