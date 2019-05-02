@@ -1148,6 +1148,18 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsers", ReplyAction="http://tempuri.org/IProgrammService/GetUsersResponse")]
         System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> GetUsersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/RemoveUserS", ReplyAction="http://tempuri.org/IProgrammService/RemoveUserSResponse")]
+        void RemoveUserS(Mr.Chicken.ServiceReferenceMrChicken.UserS user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/RemoveUserS", ReplyAction="http://tempuri.org/IProgrammService/RemoveUserSResponse")]
+        System.Threading.Tasks.Task RemoveUserSAsync(Mr.Chicken.ServiceReferenceMrChicken.UserS user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/FindUsersByProp", ReplyAction="http://tempuri.org/IProgrammService/FindUsersByPropResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.UserS[] FindUsersByProp(string prop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/FindUsersByProp", ReplyAction="http://tempuri.org/IProgrammService/FindUsersByPropResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1223,6 +1235,22 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> GetUsersAsync() {
             return base.Channel.GetUsersAsync();
+        }
+        
+        public void RemoveUserS(Mr.Chicken.ServiceReferenceMrChicken.UserS user) {
+            base.Channel.RemoveUserS(user);
+        }
+        
+        public System.Threading.Tasks.Task RemoveUserSAsync(Mr.Chicken.ServiceReferenceMrChicken.UserS user) {
+            return base.Channel.RemoveUserSAsync(user);
+        }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.UserS[] FindUsersByProp(string prop) {
+            return base.Channel.FindUsersByProp(prop);
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop) {
+            return base.Channel.FindUsersByPropAsync(prop);
         }
     }
 }

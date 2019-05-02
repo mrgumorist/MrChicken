@@ -45,6 +45,18 @@
   <wsdl:message name="IProgrammService_GetUsers_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersResponse" />
   </wsdl:message>
+  <wsdl:message name="IProgrammService_RemoveUserS_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserS" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_RemoveUserS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveUserSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_FindUsersByProp_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByProp" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_FindUsersByProp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindUsersByPropResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="Msg">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/Msg" message="tns:IProgrammService_Msg_InputMessage" />
@@ -69,6 +81,14 @@
     <wsdl:operation name="GetUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetUsers" message="tns:IProgrammService_GetUsers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetUsersResponse" message="tns:IProgrammService_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserS">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/RemoveUserS" message="tns:IProgrammService_RemoveUserS_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/RemoveUserSResponse" message="tns:IProgrammService_RemoveUserS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByProp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/FindUsersByProp" message="tns:IProgrammService_FindUsersByProp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/FindUsersByPropResponse" message="tns:IProgrammService_FindUsersByProp_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
@@ -120,6 +140,24 @@
     </wsdl:operation>
     <wsdl:operation name="GetUsers">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveUserS">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/RemoveUserS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersByProp">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/FindUsersByProp" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

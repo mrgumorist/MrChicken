@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="4VQSikN3j4aAoYKY5HVn7rHJEEI=">
+<SavedWcfConfigurationInformation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="9.1" CheckSum="Em9icQnKHI4KuQTj6GlYRsWSpnU=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IProgrammService">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IProgrammService" contract="ServiceReferenceMrChicken.IProgrammService" bindingType="basicHttpBinding" address="http://localhost:8100/IService" bindingConfiguration="BasicHttpBinding_IProgrammService">
+    <endpoint name="BasicHttpBinding_IProgrammService" contract="ServiceReferenceMrChicken.IProgrammService" bindingType="basicHttpBinding" address="http://localhost:8099/IService" bindingConfiguration="BasicHttpBinding_IProgrammService">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:8100/IService</serializedValue>
+          <serializedValue>http://localhost:8099/IService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

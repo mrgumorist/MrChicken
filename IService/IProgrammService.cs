@@ -24,5 +24,9 @@ namespace IService
         int AccountId(string login, string password);
         [OperationContract]
         List<UserS> GetUsers();
+        [OperationContract]
+        void RemoveUserS(UserS user);
+        [OperationContract]
+        List<UserS> FindUsersByProp(string prop);
     }
 }
