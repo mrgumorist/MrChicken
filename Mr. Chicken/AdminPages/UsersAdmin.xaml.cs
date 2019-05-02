@@ -117,7 +117,8 @@ namespace Mr.Chicken
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             //ChangeInfo
-           
+           //Ти маєш витягнути айді виділеного. І визвати Update up = new Update(id); 
+           //Дві кнопки, там має бути, зберегти або видалити
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
