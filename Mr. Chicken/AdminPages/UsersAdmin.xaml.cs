@@ -93,6 +93,7 @@ namespace Mr.Chicken
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            //DELETE
             var Users = client.GetUsers();
             var rowView = dataGrid.SelectedItem as DataRowView;
             if (rowView != null)
