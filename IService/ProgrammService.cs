@@ -58,10 +58,9 @@ namespace IService
             var users= context.users.Select(t => new UserS() { ID =t.ID, Name=t.Name, Surname=t.Surname, Login=t.Login, Password=t.Password, TelegramID=t.TelegramID, Email=t.Email, ISConfirmed=t.ISConfirmed, DateOfBirth=t.DateOfBirth,DateOfRegister=t.DateOfRegister,DoesWantRecomendations=t.DoesWantRecomendations}).ToList();
             return users;
         }
-        public void RemoveUserS(UserS user)
+        public void RemoveUserS(int currentID)
         {
-            int ID = user.ID;
-            context.users.Remove(context.users.Where(item=>item.ID==ID).First());
+            context.users.Remove(context.users.Where(u => u.ID == currentID).FirstOrDefault());
             context.SaveChanges();
         }
         public List<UserS> FindUsersByProp(string prop)

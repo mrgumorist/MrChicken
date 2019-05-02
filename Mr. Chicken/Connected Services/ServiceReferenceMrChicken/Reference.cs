@@ -1150,10 +1150,10 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> GetUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/RemoveUserS", ReplyAction="http://tempuri.org/IProgrammService/RemoveUserSResponse")]
-        void RemoveUserS(Mr.Chicken.ServiceReferenceMrChicken.UserS user);
+        void RemoveUserS(int currentID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/RemoveUserS", ReplyAction="http://tempuri.org/IProgrammService/RemoveUserSResponse")]
-        System.Threading.Tasks.Task RemoveUserSAsync(Mr.Chicken.ServiceReferenceMrChicken.UserS user);
+        System.Threading.Tasks.Task RemoveUserSAsync(int currentID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/FindUsersByProp", ReplyAction="http://tempuri.org/IProgrammService/FindUsersByPropResponse")]
         Mr.Chicken.ServiceReferenceMrChicken.UserS[] FindUsersByProp(string prop);
@@ -1237,12 +1237,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.GetUsersAsync();
         }
         
-        public void RemoveUserS(Mr.Chicken.ServiceReferenceMrChicken.UserS user) {
-            base.Channel.RemoveUserS(user);
+        public void RemoveUserS(int currentID) {
+            base.Channel.RemoveUserS(currentID);
         }
         
-        public System.Threading.Tasks.Task RemoveUserSAsync(Mr.Chicken.ServiceReferenceMrChicken.UserS user) {
-            return base.Channel.RemoveUserSAsync(user);
+        public System.Threading.Tasks.Task RemoveUserSAsync(int currentID) {
+            return base.Channel.RemoveUserSAsync(currentID);
         }
         
         public Mr.Chicken.ServiceReferenceMrChicken.UserS[] FindUsersByProp(string prop) {
