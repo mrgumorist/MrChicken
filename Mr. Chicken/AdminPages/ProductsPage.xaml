@@ -21,7 +21,7 @@
             <Button FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" Click="Button_Click">UPDATE</Button>
             <Button Grid.Column="1" FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" Click="Button_Click_1">CREATE</Button>
         </Grid>
-        <DataGrid Grid.Row="1" Background="{x:Null}" Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False">
+        <DataGrid Grid.Row="1" Background="{x:Null}" Name="dataGrid" AutoGenerateColumns="False" CanUserAddRows="False" CanUserSortColumns="False" ScrollViewer.CanContentScroll="True">
             <DataGrid.ContextMenu>
             <ContextMenu>
                 <MenuItem Header="Change Info" Click="MenuItem_Click" />
