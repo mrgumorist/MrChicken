@@ -2,7 +2,6 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8099/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IService" />
   <xs:import schemaLocation="http://localhost:8099/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" />
-  <xs:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IService.Entities" />
   <xs:element name="Msg">
     <xs:complexType>
       <xs:sequence>
@@ -140,14 +139,14 @@
   <xs:element name="GetEmptyProductResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IService.Entities" minOccurs="0" name="GetEmptyProductResult" nillable="true" type="q7:Product" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="GetEmptyProductResult" nillable="true" type="q7:ProductS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddProduct">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IService.Entities" minOccurs="0" name="product" nillable="true" type="q8:Product" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="product" nillable="true" type="q8:ProductS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

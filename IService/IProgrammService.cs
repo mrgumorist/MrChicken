@@ -35,9 +35,9 @@ namespace IService
         [OperationContract]
         void UpdateProducts(List<ProductS> productS);
         [OperationContract]
-        Product GetEmptyProduct();
+        ProductS GetEmptyProduct();
         [OperationContract]
-        void AddProduct(Product product);
+        void AddProduct(ProductS product);
         [OperationContract]
         void DeleteProduct(int ID);
         [OperationContract]

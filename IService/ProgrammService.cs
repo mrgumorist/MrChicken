@@ -83,15 +83,16 @@ namespace IService
                // context.product
             }
         }
-        public Product GetEmptyProduct()
+        public ProductS GetEmptyProduct()
         {
-            return new Product();
+            return new ProductS();
         }
-        public void AddProduct(Product product)
+        public void AddProduct(ProductS product)
         {
-            context.products.Add(product);
+            context.products.Add(new Product() { Name = product.Name });
             context.SaveChanges();
         }
+        //TO DO
         public void DeleteProduct(int ID)
         {
             context.products.Remove(context.products.Where(t=>t.ID==ID).First());

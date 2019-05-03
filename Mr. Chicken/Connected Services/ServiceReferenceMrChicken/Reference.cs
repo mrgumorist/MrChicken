@@ -1235,16 +1235,16 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         System.Threading.Tasks.Task UpdateProductsAsync(Mr.Chicken.ServiceReferenceMrChicken.ProductS[] productS);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyProduct", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyProductResponse")]
-        Mr.Chicken.ServiceReferenceMrChicken.Product GetEmptyProduct();
+        Mr.Chicken.ServiceReferenceMrChicken.ProductS GetEmptyProduct();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyProduct", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyProductResponse")]
-        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.Product> GetEmptyProductAsync();
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.ProductS> GetEmptyProductAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddProduct", ReplyAction="http://tempuri.org/IProgrammService/AddProductResponse")]
-        void AddProduct(Mr.Chicken.ServiceReferenceMrChicken.Product product);
+        void AddProduct(Mr.Chicken.ServiceReferenceMrChicken.ProductS product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddProduct", ReplyAction="http://tempuri.org/IProgrammService/AddProductResponse")]
-        System.Threading.Tasks.Task AddProductAsync(Mr.Chicken.ServiceReferenceMrChicken.Product product);
+        System.Threading.Tasks.Task AddProductAsync(Mr.Chicken.ServiceReferenceMrChicken.ProductS product);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteProduct", ReplyAction="http://tempuri.org/IProgrammService/DeleteProductResponse")]
         void DeleteProduct(int ID);
@@ -1366,19 +1366,19 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.UpdateProductsAsync(productS);
         }
         
-        public Mr.Chicken.ServiceReferenceMrChicken.Product GetEmptyProduct() {
+        public Mr.Chicken.ServiceReferenceMrChicken.ProductS GetEmptyProduct() {
             return base.Channel.GetEmptyProduct();
         }
         
-        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.Product> GetEmptyProductAsync() {
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.ProductS> GetEmptyProductAsync() {
             return base.Channel.GetEmptyProductAsync();
         }
         
-        public void AddProduct(Mr.Chicken.ServiceReferenceMrChicken.Product product) {
+        public void AddProduct(Mr.Chicken.ServiceReferenceMrChicken.ProductS product) {
             base.Channel.AddProduct(product);
         }
         
-        public System.Threading.Tasks.Task AddProductAsync(Mr.Chicken.ServiceReferenceMrChicken.Product product) {
+        public System.Threading.Tasks.Task AddProductAsync(Mr.Chicken.ServiceReferenceMrChicken.ProductS product) {
             return base.Channel.AddProductAsync(product);
         }
         
