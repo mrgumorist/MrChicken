@@ -7,6 +7,7 @@
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" />
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IService" />
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/IService.Entities" />
+      <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IProgrammService_Msg_InputMessage">
@@ -111,6 +112,12 @@
   <wsdl:message name="IProgrammService_GetEmailAcceptS_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEmailAcceptSResponse" />
   </wsdl:message>
+  <wsdl:message name="IProgrammService_GetEmails_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmails" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetEmails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmailsResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="Msg">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/Msg" message="tns:IProgrammService_Msg_InputMessage" />
@@ -179,6 +186,10 @@
     <wsdl:operation name="GetEmailAcceptS">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetEmailAcceptS" message="tns:IProgrammService_GetEmailAcceptS_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetEmailAcceptSResponse" message="tns:IProgrammService_GetEmailAcceptS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEmails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetEmails" message="tns:IProgrammService_GetEmails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetEmailsResponse" message="tns:IProgrammService_GetEmails_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
@@ -329,6 +340,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetEmailAcceptS">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/GetEmailAcceptS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEmails">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetEmails" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

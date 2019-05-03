@@ -12,7 +12,7 @@
             <RowDefinition Height="41"/>
             <RowDefinition Height="409*"/>
         </Grid.RowDefinitions>
-        <DataGrid Name="dataGrid" Grid.Row="1" Background="{x:Null}" ColumnWidth="*" MouseDoubleClick="dataGrid_MouseDoubleClick" ScrollViewer.CanContentScroll="True"></DataGrid>
+        <DataGrid Name="dataGrid" Grid.Row="1" Background="{x:Null}" ColumnWidth="*" MouseDoubleClick="dataGrid_MouseDoubleClick" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"></DataGrid>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

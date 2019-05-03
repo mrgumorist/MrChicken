@@ -21,19 +21,20 @@ namespace Mr.Chicken.AdminPages
     /// Gridd
     public partial class PromotionPage : Page
     {
+        ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
         public PromotionPage()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             //Start promotion
+            List <string> emails = (await client.GetEmailsAsync()).ToList();
+            //Дістати повідомлення з текстового поля і почати розсилку
+
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-           
-        }
+      
     }
 }
