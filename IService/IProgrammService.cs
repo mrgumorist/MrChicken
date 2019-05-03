@@ -50,5 +50,6 @@ namespace IService
         List<EmailAcceptS> GetEmailAcceptS();
         [OperationContract]
         List<string> GetEmails();
+
     }
 }
