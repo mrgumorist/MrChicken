@@ -2,6 +2,7 @@
 using IService.EntitiesReturn;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -67,6 +68,18 @@ namespace IService
         {
             var users = context.users.Where(t=>t.ID.ToString().Contains(prop) || t.Name.Contains(prop)||t.DateOfBirth.ToLongDateString().Contains(prop)||t.Email.Contains(prop)||t.Surname.Contains(prop)||t.Password.Contains(prop)||t.TelegramID.Contains(prop)).Select(t => new UserS() { ID = t.ID, Name = t.Name, Surname = t.Surname, Login = t.Login, Password = t.Password, TelegramID = t.TelegramID, Email = t.Email, ISConfirmed = t.ISConfirmed, DateOfBirth = t.DateOfBirth, DateOfRegister = t.DateOfRegister, DoesWantRecomendations = t.DoesWantRecomendations }).ToList();
             return users;
+        }
+        public List<ProductS> GetProductSS()
+        { 
+            var products = context.products.Select(t => new ProductS() { ID = t.ID, Name = t.Name }).ToList();
+            return products;
+        }
+        public void UpdateProducts(List<ProductS> productS)
+        {
+            foreach(var item in productS)
+            {
+               // context.product
+            }
         }
     }
 }

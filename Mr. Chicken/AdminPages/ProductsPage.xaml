@@ -21,8 +21,10 @@
                     <MenuItem Header="Delete" Click="MenuItem_Click_1"/>
                 </ContextMenu>
             </DataGrid.ContextMenu>
-            <DataGridTextColumn Header="Name" Width="30" FontSize="20" Binding="{Binding Path=ID}" ></DataGridTextColumn>
-            <DataGridTextColumn Header="Name" Width="*"  FontSize="20" Binding="{Binding Path=Name}" ></DataGridTextColumn>
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" FontWeight="Bold"  FontSize="20" Width="100"  Header="ID" Binding="{Binding Path=ID}" ></DataGridTextColumn>
+                <DataGridTextColumn  FontSize="20" Width="*"  Header="Name" Binding="{Binding Path=Name}" ></DataGridTextColumn>
+            </DataGrid.Columns>
         </DataGrid>
     </Grid>
 </Page>
