@@ -15,13 +15,8 @@
         </Grid.RowDefinitions>
         <Label Foreground="White" FontWeight="Bold" FontSize="20" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" >PROMOTIONS MENU</Label>
         <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
             <Button Background="{x:Null}" Foreground="White" FontSize="40" Click="Button_Click">Start Promotion</Button>
-            <Button Grid.Column="1" Background="{x:Null}" Foreground="White" FontSize="40">Exit</Button>
-          
+         
         </Grid>
        
     </Grid>
