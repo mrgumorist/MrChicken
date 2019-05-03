@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace IService.EntitiesReturn
 {
     [DataContract]
-    class EmailAcceptS
+    public class EmailAcceptS
     {
         [DataMember]
         public int ID { get; set; }

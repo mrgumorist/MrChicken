@@ -46,6 +46,7 @@ namespace IService
         void UpdateUserInfo(int userID, User user);
         [OperationContract]
         UserS GetUser(int ID);
-
+        [OperationContract]
+        List<EmailAcceptS> GetEmailAcceptS();
     }
 }

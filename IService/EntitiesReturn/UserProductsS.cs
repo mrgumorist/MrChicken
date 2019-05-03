@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace IService.EntitiesReturn
 {
     [DataContract]
-    class UserProductsS
+    public class UserProductsS
     {
        [DataMember]
         public int ID { get; set; }

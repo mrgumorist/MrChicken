@@ -35,4 +35,18 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ProductS" nillable="true" type="tns:ProductS" />
+  <xs:complexType name="ArrayOfEmailAcceptS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EmailAcceptS" nillable="true" type="tns:EmailAcceptS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEmailAcceptS" nillable="true" type="tns:ArrayOfEmailAcceptS" />
+  <xs:complexType name="EmailAcceptS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="VerificationCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EmailAcceptS" nillable="true" type="tns:EmailAcceptS" />
 </xs:schema>

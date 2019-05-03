@@ -6,9 +6,19 @@
       xmlns:local="clr-namespace:Mr.Chicken.AdminPages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="EmailPage">
-
+      Title="EmailPage" Background="{x:Null}">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="67*"/>
+        </Grid.RowDefinitions>
+        <Button Background="{x:Null}" Foreground="White" FontSize="20" FontWeight="Bold" Click="Button_Click" >UPDATE</Button>
+        <DataGrid Grid.Row="1" Background="{x:Null}" AutoGenerateColumns="False" Name="Gridd">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="60" Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                <DataGridTextColumn Width="120"  Header="UserID" Binding="{Binding UserID}"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="VerificationCode" Binding="{Binding VerificationCode}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

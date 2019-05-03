@@ -207,4 +207,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetEmailAcceptS">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailAcceptSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="GetEmailAcceptSResult" nillable="true" type="q11:ArrayOfEmailAcceptS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

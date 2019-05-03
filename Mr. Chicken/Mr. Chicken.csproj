@@ -73,8 +73,14 @@
     <Compile Include="AdminPages\ProductsPage.xaml.cs">
       <DependentUpon>ProductsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminPages\PromotionPage.xaml.cs">
+      <DependentUpon>PromotionPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\Start.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\Update.xaml.cs">
+      <DependentUpon>Update.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
@@ -110,7 +116,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="AdminPages\PromotionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminPages\Start.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminPages\Update.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -187,6 +201,9 @@
     </None>
     <None Include="Connected Services\ServiceReferenceMrChicken\item3.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.ProductS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

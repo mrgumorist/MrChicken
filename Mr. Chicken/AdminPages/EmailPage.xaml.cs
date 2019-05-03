@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Mr.Chicken.ServiceReferenceMrChicken;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +22,27 @@ namespace Mr.Chicken.AdminPages
     /// </summary>
     public partial class EmailPage : Page
     {
+       ProgrammServiceClient client = new ProgrammServiceClient();
+        ObservableCollection<EmailAcceptS> emails = new ObservableCollection<EmailAcceptS>();
         public EmailPage()
         {
             InitializeComponent();
+            Download();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Download();
+        }
+        private async void Download()
+        {
+            var list = await client.GetEmailAcceptSAsync();
+            emails.Clear();
+            foreach (var item in list)
+            {
+                emails.Add(item);
+            }
+            Gridd.ItemsSource = null;
         }
     }
 }

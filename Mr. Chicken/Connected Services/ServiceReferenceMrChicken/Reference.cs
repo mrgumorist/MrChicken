@@ -1170,6 +1170,83 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="EmailAcceptS", Namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn")]
+    [System.SerializableAttribute()]
+    public partial class EmailAcceptS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int UserIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string VerificationCodeField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int UserID {
+            get {
+                return this.UserIDField;
+            }
+            set {
+                if ((this.UserIDField.Equals(value) != true)) {
+                    this.UserIDField = value;
+                    this.RaisePropertyChanged("UserID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string VerificationCode {
+            get {
+                return this.VerificationCodeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.VerificationCodeField, value) != true)) {
+                    this.VerificationCodeField = value;
+                    this.RaisePropertyChanged("VerificationCode");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceMrChicken.IProgrammService")]
     public interface IProgrammService {
@@ -1269,6 +1346,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUser", ReplyAction="http://tempuri.org/IProgrammService/GetUserResponse")]
         System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS> GetUserAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmailAcceptS", ReplyAction="http://tempuri.org/IProgrammService/GetEmailAcceptSResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS[] GetEmailAcceptS();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmailAcceptS", ReplyAction="http://tempuri.org/IProgrammService/GetEmailAcceptSResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS[]> GetEmailAcceptSAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1424,6 +1507,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS> GetUserAsync(int ID) {
             return base.Channel.GetUserAsync(ID);
+        }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS[] GetEmailAcceptS() {
+            return base.Channel.GetEmailAcceptS();
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS[]> GetEmailAcceptSAsync() {
+            return base.Channel.GetEmailAcceptSAsync();
         }
     }
 }

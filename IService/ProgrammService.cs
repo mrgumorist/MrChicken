@@ -163,6 +163,10 @@ namespace IService
             User.TelegramID = user.TelegramID;
             context.SaveChanges();
         }
+        public List<EmailAcceptS> GetEmailAcceptS()
+        {
+            return (context.emailAccepts.Select(t => new EmailAcceptS() { ID = t.ID, VerificationCode = t.VerificationCode, UserID = t.UserID }).ToList());
+        }
 
     }
 }
