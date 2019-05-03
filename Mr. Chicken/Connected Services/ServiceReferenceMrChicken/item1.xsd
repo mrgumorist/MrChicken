@@ -2,6 +2,7 @@
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8099/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" />
   <xs:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IService" />
+  <xs:import schemaLocation="http://localhost:8099/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="Msg">
     <xs:complexType>
       <xs:sequence>
@@ -216,6 +217,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="GetEmailAcceptSResult" nillable="true" type="q11:ArrayOfEmailAcceptS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmails">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmailsResult" nillable="true" type="q12:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -209,6 +209,9 @@
     <None Include="Connected Services\ServiceReferenceMrChicken\item3.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReferenceMrChicken\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

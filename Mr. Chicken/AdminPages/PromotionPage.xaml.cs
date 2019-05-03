@@ -40,8 +40,27 @@ namespace Mr.Chicken.AdminPages
             List <string> emails = (await client.GetEmailsAsync()).ToList();
             string textToSend = PromotionText.Text;
 
-           
 
-      
+            SmtpClient smtp = new SmtpClient();
+            smtp.Credentials = new NetworkCredential("mrgumor@gmail.com", "zxcv42177");
+            smtp.Port = 587;
+            smtp.Host = "smtp.gmail.com";
+            smtp.EnableSsl = true;
+
+            for (int i = 0; i < emails.Count; i++)
+            {
+
+                MailMessage mail = new MailMessage();
+                mail.To.Add(emails[i]);
+                mail.IsBodyHtml = true;
+                mail.From = new MailAddress("mrgumor@gmail.com", "Mr.Chicken", System.Text.Encoding.UTF8);
+
+                //mail.Subject = richTextBox1.Text;
+                string Mesage = PromotionText.Text;
+                mail.Body = Mesage;
+                smtp.Send(mail);
+            }
+        }
+
     }
 }
