@@ -50,5 +50,11 @@ namespace Mr.Chicken
             MainFrame.Content = null;
             MainFrame.Content = new PromotionPage();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = null;
+            MainFrame.Content = new DishesPage();
+        }
     }
 }
