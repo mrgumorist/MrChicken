@@ -24,6 +24,7 @@ namespace Mr.Chicken
     public partial class UsersAdmin : Page
     {
         ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
+        int currentID;
       //  ObservableCollection<UserS> users = new ObservableCollection<UserS>();
         public UsersAdmin()
         {
@@ -93,26 +94,27 @@ namespace Mr.Chicken
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //DELETE
-            var Users = client.GetUsers();
-            var rowView = dataGrid.SelectedItem as DataRowView;
-            if (rowView != null)
+                                
+            int testID = dataGrid.SelectedIndex;
+            IDforDeleteUser idWindow = new IDforDeleteUser();
+            idWindow.ShowDialog();
+            try
             {
-                DataRow row = rowView.Row;
-                
-                for (int i = 0; i < Users.Count(); i++)
+                if (MessageBox.Show("Are You sure to delete this record ? ", "EF CRUD Operation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    if (Users[i].ID == int.Parse(row["ID"].ToString()))
-                    {
-                        //remote method
-                        client.RemoveUserS(Users[i]);
-                        MessageBox.Show("Succesfull deleted. Press update button");
-                        break;
-
-                    }
+                    client.RemoveUserS(idWindow.GetID());
+                    MessageBox.Show("Deleted Successfully");
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Wrong ID!!!");
+            }
+
+
         }
+
+    
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
@@ -149,6 +151,14 @@ namespace Mr.Chicken
             {
                 MessageBox.Show("Nothing finded with this property");
             }
+        }
+
+        private void dataGrid_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            
+         
+           
+                       
         }
     }
 }

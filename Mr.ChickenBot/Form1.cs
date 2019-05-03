@@ -20,7 +20,6 @@ namespace Mr.ChickenBot
     {
         private static ITelegramBotClient botClient;
         private string BotToken = "826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE";
-        private string DialogFlowToken = "dfe5887f46c54f69bb6da15ce1b67da5";
             //ServiceReferenceMrChickenBot.ProgrammServiceClient client =
             //    new ServiceReferenceMrChickenBot.ProgrammServiceClient();
 
@@ -48,7 +47,7 @@ namespace Mr.ChickenBot
             var message = e.Message;           
             int UserId = e.Message.From.Id;
 
-            if (e.Message.Text.ToLower() == "hello")//Обробка кнопки
+            if (e.Message.Text == "Get the recipe" + "\U0001F34F")//Обробка кнопки
             {
                 await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки:)");
             }
@@ -102,8 +101,8 @@ namespace Mr.ChickenBot
                         },
                         new[]
                         {
-                            new KeyboardButton("button3") ,
-                            new KeyboardButton("button4") 
+                            new KeyboardButton("Get my ID"+"") ,
+                            new KeyboardButton("Delete product"+"") 
                         }
                         
                         
