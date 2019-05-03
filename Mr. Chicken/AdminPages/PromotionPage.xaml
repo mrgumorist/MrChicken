@@ -19,12 +19,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Background="{x:Null}" Foreground="White" FontSize="40">Start Promotion</Button>
+            <Button Background="{x:Null}" Foreground="White" FontSize="40" Click="Button_Click">Start Promotion</Button>
             <Button Grid.Column="1" Background="{x:Null}" Foreground="White" FontSize="40">Exit</Button>
           
         </Grid>
-        <DataGrid Background="{x:Null}" Grid.Row="1" >
-            
-        </DataGrid>
+       
     </Grid>
 </Page>

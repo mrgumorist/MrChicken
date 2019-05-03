@@ -18,11 +18,17 @@ namespace Mr.Chicken.AdminPages
     /// <summary>
     /// Interaction logic for PromotionPage.xaml
     /// </summary>
+    /// Gridd
     public partial class PromotionPage : Page
     {
         public PromotionPage()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //Start promotion
         }
     }
 }
