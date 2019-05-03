@@ -1,4 +1,6 @@
-﻿using Mr.Chicken.ServiceReferenceMrChicken;
+﻿using Microsoft.VisualBasic;
+using Mr.Chicken.ServiceReferenceMrChicken;
+//using Mr.Chicken.ServiceReferenceMrChicken;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -14,7 +16,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 namespace Mr.Chicken.AdminPages
 {
     /// <summary>
@@ -40,11 +41,11 @@ namespace Mr.Chicken.AdminPages
         }
         private async void Load()
         {
-
+           
             //TODO LOADING PRODUCTS FROM LIST
             var products = await client.GetProductSSAsync();
             productS.Clear();
-            
+
             foreach (var item in products)
             {
                 productS.Add(item);
@@ -56,20 +57,51 @@ namespace Mr.Chicken.AdminPages
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(dataGrid.SelectedIndex.ToString());
-        }
+            // MessageBox.Show(dataGrid.SelectedIndex.ToString());
+            // MessageBox.Show(productS[dataGrid.SelectedIndex].Name);
+            var res = Interaction.InputBox("Enter name of product","Enter", $"{productS[dataGrid.SelectedIndex].Name}");
+            if (res != "")
+            {
+               //productS[dataGrid.SelectedIndex].Name = res;
+                client.ChangeProduct(productS[dataGrid.SelectedIndex].ID, productS[dataGrid.SelectedIndex].Name);
+                Load();
+                MessageBox.Show("Succesfull changed");
+            }
+          
+                //MessageBox.Show(res);
+            }
+            
+           
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(dataGrid.SelectedIndex.ToString());
+            // MessageBox.Show(dataGrid.SelectedIndex.ToString());
+            client.DeleteProduct(productS[dataGrid.SelectedIndex].ID);
+            Load();
+            MessageBox.Show("Succesfull deleted");
         }
 
         private void DataGrid_AddingNewItem(object sender, AddingNewItemEventArgs e)
         {
-            if (e.NewItem != null)
+            //if (e.NewItem != null)
+            //{
+            //    MessageBox.Show(((ProductS)e.NewItem).Name);
+            //}
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Create
+            var res = Interaction.InputBox("Enter name of product", "Product", "");
+            if (res != "")
             {
-                MessageBox.Show(((ProductS)e.NewItem).Name);
+                var Product = await client.GetEmptyProductAsync();
+                Product.Name = res;
+                client.AddProduct(Product);
+                MessageBox.Show("Succesfull added");
+                //MessageBox.Show(res);
             }
+            Load();
         }
     }
 }

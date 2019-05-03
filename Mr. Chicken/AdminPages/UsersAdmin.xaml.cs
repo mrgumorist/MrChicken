@@ -1,4 +1,5 @@
-﻿using Mr.Chicken.ServiceReferenceMrChicken;
+﻿using Mr.Chicken.AdminPages;
+using Mr.Chicken.ServiceReferenceMrChicken;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -119,8 +120,9 @@ namespace Mr.Chicken
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             //ChangeInfo
-           //Ти маєш витягнути айді виділеного. І визвати Update up = new Update(id); 
-           //Дві кнопки, там має бути, зберегти або видалити
+            //Ти маєш витягнути айді виділеного. І визвати Update up = new Update(id); 
+            //Дві кнопки, там має бути, зберегти або видалити
+            Content = new Update(1);
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)

@@ -1,4 +1,5 @@
-﻿using IService.EntitiesReturn;
+﻿using IService.Entities;
+using IService.EntitiesReturn;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -33,5 +34,13 @@ namespace IService
         List<ProductS> GetProductSS();
         [OperationContract]
         void UpdateProducts(List<ProductS> productS);
+        [OperationContract]
+        Product GetEmptyProduct();
+        [OperationContract]
+        void AddProduct(Product product);
+        [OperationContract]
+        void DeleteProduct(int ID);
+        [OperationContract]
+        void ChangeProduct(int ID, string Name);
     }
 }
