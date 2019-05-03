@@ -68,7 +68,7 @@ namespace IService
                 DateOfRegister = t.DateOfRegister,
                 DoesWantRecomendations = t.DoesWantRecomendations
             }).ToList();
-            return users.Where(t=>t.ID==ID).First();
+            return users.Where(t=>t.ID==ID).FirstOrDefault();
         }
 
         public List<UserS> GetUsers()
