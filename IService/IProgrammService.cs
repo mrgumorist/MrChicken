@@ -28,5 +28,10 @@ namespace IService
         void RemoveUserS(int currentID);
         [OperationContract]
         List<UserS> FindUsersByProp(string prop);
+        [OperationContract]
+        void UpdateUserInfo(int userID, User user);
+        [OperationContract]
+        User GetUser(int ID);
+
     }
 }

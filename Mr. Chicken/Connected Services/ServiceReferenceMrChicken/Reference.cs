@@ -1160,6 +1160,18 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/FindUsersByProp", ReplyAction="http://tempuri.org/IProgrammService/FindUsersByPropResponse")]
         System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateUserInfo", ReplyAction="http://tempuri.org/IProgrammService/UpdateUserInfoResponse")]
+        void UpdateUserInfo(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateUserInfo", ReplyAction="http://tempuri.org/IProgrammService/UpdateUserInfoResponse")]
+        System.Threading.Tasks.Task UpdateUserInfoAsync(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUser", ReplyAction="http://tempuri.org/IProgrammService/GetUserResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.User GetUser(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUser", ReplyAction="http://tempuri.org/IProgrammService/GetUserResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetUserAsync(int ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1251,6 +1263,22 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop) {
             return base.Channel.FindUsersByPropAsync(prop);
+        }
+        
+        public void UpdateUserInfo(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user) {
+            base.Channel.UpdateUserInfo(userID, user);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserInfoAsync(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user) {
+            return base.Channel.UpdateUserInfoAsync(userID, user);
+        }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.User GetUser(int ID) {
+            return base.Channel.GetUser(ID);
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetUserAsync(int ID) {
+            return base.Channel.GetUserAsync(ID);
         }
     }
 }

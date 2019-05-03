@@ -1,4 +1,5 @@
-﻿using Mr.Chicken.ServiceReferenceMrChicken;
+﻿using Mr.Chicken.AdminPages;
+using Mr.Chicken.ServiceReferenceMrChicken;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -24,7 +25,6 @@ namespace Mr.Chicken
     public partial class UsersAdmin : Page
     {
         ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
-        int currentID;
       //  ObservableCollection<UserS> users = new ObservableCollection<UserS>();
         public UsersAdmin()
         {
@@ -119,8 +119,14 @@ namespace Mr.Chicken
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
             //ChangeInfo
-           //Ти маєш витягнути айді виділеного. І визвати Update up = new Update(id); 
-           //Дві кнопки, там має бути, зберегти або видалити
+            //Ти маєш витягнути айді виділеного. І визвати Update up = new Update(id); 
+            //Дві кнопки, там має бути, зберегти або видалити
+            IDforDeleteUser IDWindor = new IDforDeleteUser();
+            IDWindor.ShowDialog();
+            int ID = IDWindor.GetID();
+            EditUserInfo editUserInfo = new EditUserInfo(ID);            
+            editUserInfo.ShowDialog();
+
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
