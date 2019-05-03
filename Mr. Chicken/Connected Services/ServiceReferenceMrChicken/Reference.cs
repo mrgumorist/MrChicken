@@ -1352,12 +1352,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmailAcceptS", ReplyAction="http://tempuri.org/IProgrammService/GetEmailAcceptSResponse")]
         System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS[]> GetEmailAcceptSAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmails", ReplyAction="http://tempuri.org/IProgrammService/GetEmailsResponse")]
-        string[] GetEmails();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmails", ReplyAction="http://tempuri.org/IProgrammService/GetEmailsResponse")]
-        System.Threading.Tasks.Task<string[]> GetEmailsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1521,14 +1515,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS[]> GetEmailAcceptSAsync() {
             return base.Channel.GetEmailAcceptSAsync();
-        }
-        
-        public string[] GetEmails() {
-            return base.Channel.GetEmails();
-        }
-        
-        public System.Threading.Tasks.Task<string[]> GetEmailsAsync() {
-            return base.Channel.GetEmailsAsync();
         }
     }
 }

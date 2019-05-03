@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,13 +29,18 @@ namespace Mr.Chicken.AdminPages
             InitializeComponent();
         }
 
+        private void StaticMethod()
+        {
+            
+        }
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             //Start promotion
             List <string> emails = (await client.GetEmailsAsync()).ToList();
-            //Дістати повідомлення з текстового поля і почати розсилку
+            string textToSend = PromotionText.Text;
 
-        }
+           
 
       
     }

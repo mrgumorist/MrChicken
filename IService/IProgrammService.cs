@@ -48,7 +48,5 @@ namespace IService
         UserS GetUser(int ID);
         [OperationContract]
         List<EmailAcceptS> GetEmailAcceptS();
-        [OperationContract]
-        List<string> GetEmails();
     }
 }
