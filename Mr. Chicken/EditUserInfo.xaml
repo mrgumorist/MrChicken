@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mr.Chicken"
         mc:Ignorable="d"
-        Title="EditUserInfo" Height="450" Width="800">
+        Title="EditUserInfo" Height="450" Width="800"  WindowStartupLocation="CenterScreen" Background="#FF05191E" Icon="Resources/Logo.ico" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
@@ -27,10 +27,10 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0"  Margin="10,15,10,15" FontWeight="Bold" FontSize="20">Name:</Label>
-            <Label Grid.Row="1" Grid.Column="0"  Margin="10,15,10,15" FontWeight="Bold" FontSize="20">Surname:</Label>
-            <TextBox Name="txtName" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></TextBox>
-            <TextBox Name="txtSurname" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></TextBox>
+            <Label Foreground="White" Grid.Row="0" Grid.Column="0"  Margin="10,15,10,15" FontWeight="Bold" FontSize="20">Name:</Label>
+            <Label Foreground="White"  Grid.Row="1" Grid.Column="0"  Margin="10,15,10,15" FontWeight="Bold" FontSize="20">Surname:</Label>
+            <TextBox Name="txtName" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15" FontSize="30"></TextBox>
+            <TextBox FontSize="30" Name="txtSurname" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></TextBox>
 
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
@@ -42,8 +42,8 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">TelegramID:</Label>
-            <TextBox Name="txtTelegramID" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></TextBox>
+            <Label Foreground="White"  Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">TelegramID:</Label>
+            <TextBox FontSize="30" Name="txtTelegramID" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></TextBox>
 
 
         </Grid>
@@ -59,10 +59,10 @@
                 <ColumnDefinition></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Login:</Label>
-            <Label Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Password:</Label>
-            <TextBox Name="txtLogin" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></TextBox>
-            <TextBox Name="txtPassword" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></TextBox>
+            <Label Foreground="White"  Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Login:</Label>
+            <Label Foreground="White"  Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Password:</Label>
+            <TextBox FontSize="30" Name="txtLogin" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></TextBox>
+            <TextBox FontSize="30" Name="txtPassword" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></TextBox>
 
 
 
@@ -79,10 +79,10 @@
                 <ColumnDefinition></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Register:</Label>
-            <Label Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Birth:</Label>
+            <Label Foreground="White"  Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Register:</Label>
+            <Label Foreground="White"  Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Birth:</Label>
             <DatePicker Name="datePickerRegister" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></DatePicker>
-            <DatePicker Name="datePickerBirth" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></DatePicker>
+            <DatePicker  Name="datePickerBirth" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></DatePicker>
 
         </Grid>
 
@@ -97,7 +97,7 @@
                 <ColumnDefinition></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Email:</Label>
+            <Label Foreground="White"  Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Email:</Label>
             <TextBox Name="txtEmail" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></TextBox>
 
 

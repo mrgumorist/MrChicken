@@ -63,7 +63,8 @@ namespace Mr.Chicken.AdminPages
             if (res != "")
             {
                //productS[dataGrid.SelectedIndex].Name = res;
-                client.ChangeProduct(productS[dataGrid.SelectedIndex].ID, productS[dataGrid.SelectedIndex].Name);
+                client.ChangeProduct(productS[dataGrid.SelectedIndex].ID, res);
+                MessageBox.Show(productS[dataGrid.SelectedIndex].ID.ToString());
                 Load();
                 MessageBox.Show("Succesfull changed");
             }

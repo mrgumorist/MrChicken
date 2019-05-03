@@ -17,9 +17,9 @@ namespace IService
         [OperationContract]
         string Msg(string msg);
         [OperationContract]
-        User GetEmptyUser();
+        UserS GetEmptyUser();
         [OperationContract]
-        void AddUser(User user);
+        void AddUser(UserS user);
         [OperationContract]
         bool IsEmailUnique(string email);
         [OperationContract]
@@ -35,9 +35,9 @@ namespace IService
         [OperationContract]
         void UpdateProducts(List<ProductS> productS);
         [OperationContract]
-        Product GetEmptyProduct();
+        ProductS GetEmptyProduct();
         [OperationContract]
-        void AddProduct(Product product);
+        void AddProduct(ProductS product);
         [OperationContract]
         void DeleteProduct(int ID);
         [OperationContract]
@@ -45,7 +45,7 @@ namespace IService
         [OperationContract]
         void UpdateUserInfo(int userID, User user);
         [OperationContract]
-        User GetUser(int ID);
+        UserS GetUser(int ID);
 
     }
 }
