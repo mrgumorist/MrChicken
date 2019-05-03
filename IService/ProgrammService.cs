@@ -153,7 +153,15 @@ namespace IService
         public void UpdateUserInfo(int userID, User user)
         {
             var User = context.users.Where(u => u.ID == userID).FirstOrDefault();
-            
+
+            User.DateOfBirth = user.DateOfBirth;
+            User.Email = user.Email;
+            User.Login = user.Login;
+            User.Password = user.Password;
+            User.Surname = user.Surname;
+            User.Name = user.Name;
+            User.TelegramID = user.TelegramID;
+            context.SaveChanges();
         }
 
     }

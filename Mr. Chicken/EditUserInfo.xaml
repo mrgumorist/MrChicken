@@ -44,7 +44,8 @@
             </Grid.ColumnDefinitions>
             <Label Foreground="White"  Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">TelegramID:</Label>
             <TextBox FontSize="30" Name="txtTelegramID" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></TextBox>
-
+            <Label Foreground="White"  Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Email:</Label>
+            <TextBox Name="txtEmail" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></TextBox>
 
         </Grid>
         
@@ -79,9 +80,7 @@
                 <ColumnDefinition></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
-            <Label Foreground="White"  Grid.Row="0" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Register:</Label>
             <Label Foreground="White"  Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Birth:</Label>
-            <DatePicker Name="datePickerRegister" Grid.Row="0" Grid.Column="1" Margin="0,15,0,15"></DatePicker>
             <DatePicker  Name="datePickerBirth" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></DatePicker>
 
         </Grid>
@@ -97,8 +96,7 @@
                 <ColumnDefinition></ColumnDefinition>
 
             </Grid.ColumnDefinitions>
-            <Label Foreground="White"  Grid.Row="1" Grid.Column="0"  Margin="0,15,0,15" FontWeight="Bold" FontSize="20">Email:</Label>
-            <TextBox Name="txtEmail" Grid.Row="1" Grid.Column="1" Margin="0,15,0,15"></TextBox>
+            
 
 
         </Grid>

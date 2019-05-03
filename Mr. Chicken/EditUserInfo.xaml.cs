@@ -30,7 +30,6 @@ namespace Mr.Chicken
             InitializeComponent();
             ShowInfo();
         }
-
         void ShowInfo()
         {
             var user = client.GetUser(userID);
@@ -41,13 +40,12 @@ namespace Mr.Chicken
             txtSurname.Text = user.Surname;
             txtTelegramID.Text = user.TelegramID;
             datePickerBirth.Text = user.DateOfBirth.ToString();
-            datePickerRegister.Text = user.ToString();
         }
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+
             var user = new User();
             user.DateOfBirth = datePickerBirth.SelectedDate.Value;
-            user.DateOfRegister = datePickerRegister.SelectedDate.Value;
             user.Email = txtEmail.Text;
             user.Login = txtLogin.Text;
             user.Password = txtPassword.Text;
@@ -56,6 +54,8 @@ namespace Mr.Chicken
             user.TelegramID = txtTelegramID.Text;
 
             client.UpdateUserInfo(userID, user);
+            MessageBox.Show("Changed");
+            this.Close();
         }
 
         private void btnClose_Click(object sender, RoutedEventArgs e)
