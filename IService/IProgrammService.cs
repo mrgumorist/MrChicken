@@ -17,9 +17,9 @@ namespace IService
         [OperationContract]
         string Msg(string msg);
         [OperationContract]
-        User GetEmptyUser();
+        UserS GetEmptyUser();
         [OperationContract]
-        void AddUser(User user);
+        void AddUser(UserS user);
         [OperationContract]
         bool IsEmailUnique(string email);
         [OperationContract]
@@ -45,7 +45,7 @@ namespace IService
         [OperationContract]
         void UpdateUserInfo(int userID, User user);
         [OperationContract]
-        User GetUser(int ID);
+        UserS GetUser(int ID);
 
     }
 }

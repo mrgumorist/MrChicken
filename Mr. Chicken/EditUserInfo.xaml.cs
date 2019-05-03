@@ -33,7 +33,7 @@ namespace Mr.Chicken
 
         void ShowInfo()
         {
-            User user = client.GetUser(userID);
+            var user = client.GetUser(userID);
             txtEmail.Text = user.Email;
             txtLogin.Text = user.Password;
             txtName.Text = user.Name;
@@ -45,7 +45,7 @@ namespace Mr.Chicken
         }
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
+            var user = new User();
             user.DateOfBirth = datePickerBirth.SelectedDate.Value;
             user.DateOfRegister = datePickerRegister.SelectedDate.Value;
             user.Email = txtEmail.Text;

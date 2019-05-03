@@ -19,13 +19,13 @@ namespace IService
         {
             return msg;
         }
-        public User GetEmptyUser()
+        public UserS GetEmptyUser()
         {
-            return new User();
+            return new UserS();
         }
-        public void AddUser(User user)
+        public void AddUser(UserS user)
         {
-            context.users.Add(user);
+            context.users.Add(new User() { Name = user.Name, Login=user.Login, DateOfBirth=user.DateOfBirth, DateOfRegister=user.DateOfRegister, Email=user.Email, ISConfirmed=user.ISConfirmed, Password=user.Password, Surname=user.Surname, TelegramID=user.TelegramID, DoesWantRecomendations=user.DoesWantRecomendations });
             context.SaveChangesAsync();
         }
         public bool IsEmailUnique(string email)
@@ -52,10 +52,23 @@ namespace IService
             }
             return id;
         }
-        public User GetUser(int ID)
+        public UserS GetUser(int ID)
         {
-            var user = context.users.FirstOrDefault(t => t.ID == ID);
-            return user;
+            var users = context.users.Select(t => new UserS()
+            {
+                ID = t.ID,
+                Name = t.Name,
+                Surname = t.Surname,
+                Login = t.Login,
+                Password = t.Password,
+                TelegramID = t.TelegramID,
+                Email = t.Email,
+                ISConfirmed = t.ISConfirmed,
+                DateOfBirth = t.DateOfBirth,
+                DateOfRegister = t.DateOfRegister,
+                DoesWantRecomendations = t.DoesWantRecomendations
+            }).ToList();
+            return users.Where(t=>t.ID==ID).First();
         }
 
         public List<UserS> GetUsers()
