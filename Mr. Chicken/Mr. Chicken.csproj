@@ -191,9 +191,6 @@
     <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.ProductS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.User.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.UserS.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

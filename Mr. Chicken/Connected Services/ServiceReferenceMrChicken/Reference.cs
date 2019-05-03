@@ -15,6 +15,272 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserS", Namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn")]
+    [System.SerializableAttribute()]
+    public partial class UserS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateOfBirthField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DateOfRegisterField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool DoesWantRecomendationsField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ISConfirmedField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LoginField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string SurnameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TelegramIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateOfBirth {
+            get {
+                return this.DateOfBirthField;
+            }
+            set {
+                if ((this.DateOfBirthField.Equals(value) != true)) {
+                    this.DateOfBirthField = value;
+                    this.RaisePropertyChanged("DateOfBirth");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DateOfRegister {
+            get {
+                return this.DateOfRegisterField;
+            }
+            set {
+                if ((this.DateOfRegisterField.Equals(value) != true)) {
+                    this.DateOfRegisterField = value;
+                    this.RaisePropertyChanged("DateOfRegister");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool DoesWantRecomendations {
+            get {
+                return this.DoesWantRecomendationsField;
+            }
+            set {
+                if ((this.DoesWantRecomendationsField.Equals(value) != true)) {
+                    this.DoesWantRecomendationsField = value;
+                    this.RaisePropertyChanged("DoesWantRecomendations");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool ISConfirmed {
+            get {
+                return this.ISConfirmedField;
+            }
+            set {
+                if ((this.ISConfirmedField.Equals(value) != true)) {
+                    this.ISConfirmedField = value;
+                    this.RaisePropertyChanged("ISConfirmed");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Login {
+            get {
+                return this.LoginField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
+                    this.LoginField = value;
+                    this.RaisePropertyChanged("Login");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Surname {
+            get {
+                return this.SurnameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.SurnameField, value) != true)) {
+                    this.SurnameField = value;
+                    this.RaisePropertyChanged("Surname");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string TelegramID {
+            get {
+                return this.TelegramIDField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TelegramIDField, value) != true)) {
+                    this.TelegramIDField = value;
+                    this.RaisePropertyChanged("TelegramID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductS", Namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn")]
+    [System.SerializableAttribute()]
+    public partial class ProductS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/IService")]
     [System.SerializableAttribute()]
     public partial class User : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -904,272 +1170,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         }
     }
     
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="UserS", Namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn")]
-    [System.SerializableAttribute()]
-    public partial class UserS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DateOfBirthField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime DateOfRegisterField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool DoesWantRecomendationsField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string EmailField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private bool ISConfirmedField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string LoginField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string SurnameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string TelegramIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DateOfBirth {
-            get {
-                return this.DateOfBirthField;
-            }
-            set {
-                if ((this.DateOfBirthField.Equals(value) != true)) {
-                    this.DateOfBirthField = value;
-                    this.RaisePropertyChanged("DateOfBirth");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime DateOfRegister {
-            get {
-                return this.DateOfRegisterField;
-            }
-            set {
-                if ((this.DateOfRegisterField.Equals(value) != true)) {
-                    this.DateOfRegisterField = value;
-                    this.RaisePropertyChanged("DateOfRegister");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool DoesWantRecomendations {
-            get {
-                return this.DoesWantRecomendationsField;
-            }
-            set {
-                if ((this.DoesWantRecomendationsField.Equals(value) != true)) {
-                    this.DoesWantRecomendationsField = value;
-                    this.RaisePropertyChanged("DoesWantRecomendations");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Email {
-            get {
-                return this.EmailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
-                    this.EmailField = value;
-                    this.RaisePropertyChanged("Email");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public bool ISConfirmed {
-            get {
-                return this.ISConfirmedField;
-            }
-            set {
-                if ((this.ISConfirmedField.Equals(value) != true)) {
-                    this.ISConfirmedField = value;
-                    this.RaisePropertyChanged("ISConfirmed");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Login {
-            get {
-                return this.LoginField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.LoginField, value) != true)) {
-                    this.LoginField = value;
-                    this.RaisePropertyChanged("Login");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Password {
-            get {
-                return this.PasswordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
-                    this.PasswordField = value;
-                    this.RaisePropertyChanged("Password");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Surname {
-            get {
-                return this.SurnameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SurnameField, value) != true)) {
-                    this.SurnameField = value;
-                    this.RaisePropertyChanged("Surname");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string TelegramID {
-            get {
-                return this.TelegramIDField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.TelegramIDField, value) != true)) {
-                    this.TelegramIDField = value;
-                    this.RaisePropertyChanged("TelegramID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductS", Namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn")]
-    [System.SerializableAttribute()]
-    public partial class ProductS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceMrChicken.IProgrammService")]
     public interface IProgrammService {
@@ -1181,16 +1181,16 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         System.Threading.Tasks.Task<string> MsgAsync(string msg);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyUser", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyUserResponse")]
-        Mr.Chicken.ServiceReferenceMrChicken.User GetEmptyUser();
+        Mr.Chicken.ServiceReferenceMrChicken.UserS GetEmptyUser();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyUser", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyUserResponse")]
-        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetEmptyUserAsync();
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS> GetEmptyUserAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddUser", ReplyAction="http://tempuri.org/IProgrammService/AddUserResponse")]
-        void AddUser(Mr.Chicken.ServiceReferenceMrChicken.User user);
+        void AddUser(Mr.Chicken.ServiceReferenceMrChicken.UserS user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddUser", ReplyAction="http://tempuri.org/IProgrammService/AddUserResponse")]
-        System.Threading.Tasks.Task AddUserAsync(Mr.Chicken.ServiceReferenceMrChicken.User user);
+        System.Threading.Tasks.Task AddUserAsync(Mr.Chicken.ServiceReferenceMrChicken.UserS user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/IsEmailUnique", ReplyAction="http://tempuri.org/IProgrammService/IsEmailUniqueResponse")]
         bool IsEmailUnique(string email);
@@ -1265,10 +1265,10 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         System.Threading.Tasks.Task UpdateUserInfoAsync(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUser", ReplyAction="http://tempuri.org/IProgrammService/GetUserResponse")]
-        Mr.Chicken.ServiceReferenceMrChicken.User GetUser(int ID);
+        Mr.Chicken.ServiceReferenceMrChicken.UserS GetUser(int ID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUser", ReplyAction="http://tempuri.org/IProgrammService/GetUserResponse")]
-        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetUserAsync(int ID);
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS> GetUserAsync(int ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1306,19 +1306,19 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.MsgAsync(msg);
         }
         
-        public Mr.Chicken.ServiceReferenceMrChicken.User GetEmptyUser() {
+        public Mr.Chicken.ServiceReferenceMrChicken.UserS GetEmptyUser() {
             return base.Channel.GetEmptyUser();
         }
         
-        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetEmptyUserAsync() {
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS> GetEmptyUserAsync() {
             return base.Channel.GetEmptyUserAsync();
         }
         
-        public void AddUser(Mr.Chicken.ServiceReferenceMrChicken.User user) {
+        public void AddUser(Mr.Chicken.ServiceReferenceMrChicken.UserS user) {
             base.Channel.AddUser(user);
         }
         
-        public System.Threading.Tasks.Task AddUserAsync(Mr.Chicken.ServiceReferenceMrChicken.User user) {
+        public System.Threading.Tasks.Task AddUserAsync(Mr.Chicken.ServiceReferenceMrChicken.UserS user) {
             return base.Channel.AddUserAsync(user);
         }
         
@@ -1418,11 +1418,11 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.UpdateUserInfoAsync(userID, user);
         }
         
-        public Mr.Chicken.ServiceReferenceMrChicken.User GetUser(int ID) {
+        public Mr.Chicken.ServiceReferenceMrChicken.UserS GetUser(int ID) {
             return base.Channel.GetUser(ID);
         }
         
-        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetUserAsync(int ID) {
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS> GetUserAsync(int ID) {
             return base.Channel.GetUserAsync(ID);
         }
     }
