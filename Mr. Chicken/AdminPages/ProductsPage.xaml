@@ -1,0 +1,28 @@
+﻿<Page x:Class="Mr.Chicken.AdminPages.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Mr.Chicken.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ProductsPage">
+
+    <Grid Background="{x:Null}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="41*"/>
+        </Grid.RowDefinitions>
+        <Button FontSize="20" FontWeight="Bold" Background="{x:Null}" Foreground="White" Click="Button_Click">UPDATE</Button>
+        <DataGrid Grid.Row="1" Background="{x:Null}" Name="dataGrid" AutoGenerateColumns="False" >
+            <DataGrid.ContextMenu>
+            <ContextMenu>
+                <MenuItem Header="Update" Click="MenuItem_Click" />
+                    <MenuItem Header="Delete" Click="MenuItem_Click_1"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <DataGridTextColumn Header="Name" Width="30" FontSize="20" Binding="{Binding Path=ID}" ></DataGridTextColumn>
+            <DataGridTextColumn Header="Name" Width="*"  FontSize="20" Binding="{Binding Path=Name}" ></DataGridTextColumn>
+        </DataGrid>
+    </Grid>
+</Page>

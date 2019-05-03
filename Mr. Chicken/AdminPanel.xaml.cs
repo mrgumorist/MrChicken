@@ -30,5 +30,11 @@ namespace Mr.Chicken
             MainFrame.Content = null;
             MainFrame.Content = new UsersAdmin();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = null;
+            //MainFrame.Content;
+        }
     }
 }
