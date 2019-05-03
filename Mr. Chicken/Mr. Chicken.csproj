@@ -84,6 +84,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="EditUserInfo.xaml.cs">
+      <DependentUpon>EditUserInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="IDforDeleteUser.xaml.cs">
       <DependentUpon>IDforDeleteUser.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditUserInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

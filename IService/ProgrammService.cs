@@ -52,11 +52,30 @@ namespace IService
             }
             return id;
         }
+        public User GetUser(int ID)
+        {
+            var user = context.users.FirstOrDefault(t => t.ID == ID);
+            return user;
+        }
+
         public List<UserS> GetUsers()
         {
             
             //var users1 = context.users.ToList();
-            var users= context.users.Select(t => new UserS() { ID =t.ID, Name=t.Name, Surname=t.Surname, Login=t.Login, Password=t.Password, TelegramID=t.TelegramID, Email=t.Email, ISConfirmed=t.ISConfirmed, DateOfBirth=t.DateOfBirth,DateOfRegister=t.DateOfRegister,DoesWantRecomendations=t.DoesWantRecomendations}).ToList();
+            var users= context.users.Select(t => new UserS()
+            {
+                ID =t.ID,
+                Name =t.Name,
+                Surname =t.Surname,
+                Login =t.Login,
+                Password =t.Password,
+                TelegramID =t.TelegramID,
+                Email =t.Email,
+                ISConfirmed =t.ISConfirmed,
+                DateOfBirth =t.DateOfBirth,
+                DateOfRegister =t.DateOfRegister,
+                DoesWantRecomendations =t.DoesWantRecomendations
+            }).ToList();
             return users;
         }
         public void RemoveUserS(int currentID)
@@ -66,7 +85,22 @@ namespace IService
         }
         public List<UserS> FindUsersByProp(string prop)
         {
-            var users = context.users.Where(t=>t.ID.ToString().Contains(prop) || t.Name.Contains(prop)||t.DateOfBirth.ToLongDateString().Contains(prop)||t.Email.Contains(prop)||t.Surname.Contains(prop)||t.Password.Contains(prop)||t.TelegramID.Contains(prop)).Select(t => new UserS() { ID = t.ID, Name = t.Name, Surname = t.Surname, Login = t.Login, Password = t.Password, TelegramID = t.TelegramID, Email = t.Email, ISConfirmed = t.ISConfirmed, DateOfBirth = t.DateOfBirth, DateOfRegister = t.DateOfRegister, DoesWantRecomendations = t.DoesWantRecomendations }).ToList();
+            var users = context.users.Where(t=>t.ID.ToString().Contains(prop) || 
+            t.Name.Contains(prop)|| t.Email.Contains(prop)||t.Surname.Contains(prop)||
+            t.Password.Contains(prop)||t.TelegramID.Contains(prop)).Select(t => new UserS()
+            {
+                ID = t.ID,
+                Name = t.Name,
+                Surname = t.Surname,
+                Login = t.Login,
+                Password = t.Password,
+                TelegramID = t.TelegramID,
+                Email = t.Email,
+                ISConfirmed = t.ISConfirmed,
+                DateOfBirth = t.DateOfBirth,
+                DateOfRegister = t.DateOfRegister,
+                DoesWantRecomendations = t.DoesWantRecomendations
+            }).ToList();
             return users;
         }
         public List<ProductS> GetProductSS()
@@ -103,5 +137,11 @@ namespace IService
             context.products.Where(t => t.ID == ID).First().Name = Name;
             context.SaveChanges();
         }
+        public void UpdateUserInfo(int userID, User user)
+        {
+            var User = context.users.Where(u => u.ID == userID).FirstOrDefault();
+            
+        }
+
     }
 }

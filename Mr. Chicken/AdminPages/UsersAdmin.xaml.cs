@@ -25,7 +25,6 @@ namespace Mr.Chicken
     public partial class UsersAdmin : Page
     {
         ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
-        int currentID;
       //  ObservableCollection<UserS> users = new ObservableCollection<UserS>();
         public UsersAdmin()
         {
@@ -122,7 +121,12 @@ namespace Mr.Chicken
             //ChangeInfo
             //Ти маєш витягнути айді виділеного. І визвати Update up = new Update(id); 
             //Дві кнопки, там має бути, зберегти або видалити
-            Content = new Update(1);
+            IDforDeleteUser IDWindor = new IDforDeleteUser();
+            IDWindor.ShowDialog();
+            int ID = IDWindor.GetID();
+            EditUserInfo editUserInfo = new EditUserInfo(ID);            
+            editUserInfo.ShowDialog();
+
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)

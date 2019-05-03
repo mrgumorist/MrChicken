@@ -42,5 +42,10 @@ namespace IService
         void DeleteProduct(int ID);
         [OperationContract]
         void ChangeProduct(int ID, string Name);
+        [OperationContract]
+        void UpdateUserInfo(int userID, User user);
+        [OperationContract]
+        User GetUser(int ID);
+
     }
 }

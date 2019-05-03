@@ -1257,6 +1257,18 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/ChangeProduct", ReplyAction="http://tempuri.org/IProgrammService/ChangeProductResponse")]
         System.Threading.Tasks.Task ChangeProductAsync(int ID, string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateUserInfo", ReplyAction="http://tempuri.org/IProgrammService/UpdateUserInfoResponse")]
+        void UpdateUserInfo(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateUserInfo", ReplyAction="http://tempuri.org/IProgrammService/UpdateUserInfoResponse")]
+        System.Threading.Tasks.Task UpdateUserInfoAsync(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUser", ReplyAction="http://tempuri.org/IProgrammService/GetUserResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.User GetUser(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUser", ReplyAction="http://tempuri.org/IProgrammService/GetUserResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetUserAsync(int ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1348,54 +1360,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop) {
             return base.Channel.FindUsersByPropAsync(prop);
-        }
-        
-        public Mr.Chicken.ServiceReferenceMrChicken.ProductS[] GetProductSS() {
-            return base.Channel.GetProductSS();
-        }
-        
-        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.ProductS[]> GetProductSSAsync() {
-            return base.Channel.GetProductSSAsync();
-        }
-        
-        public void UpdateProducts(Mr.Chicken.ServiceReferenceMrChicken.ProductS[] productS) {
-            base.Channel.UpdateProducts(productS);
-        }
-        
-        public System.Threading.Tasks.Task UpdateProductsAsync(Mr.Chicken.ServiceReferenceMrChicken.ProductS[] productS) {
-            return base.Channel.UpdateProductsAsync(productS);
-        }
-        
-        public Mr.Chicken.ServiceReferenceMrChicken.ProductS GetEmptyProduct() {
-            return base.Channel.GetEmptyProduct();
-        }
-        
-        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.ProductS> GetEmptyProductAsync() {
-            return base.Channel.GetEmptyProductAsync();
-        }
-        
-        public void AddProduct(Mr.Chicken.ServiceReferenceMrChicken.ProductS product) {
-            base.Channel.AddProduct(product);
-        }
-        
-        public System.Threading.Tasks.Task AddProductAsync(Mr.Chicken.ServiceReferenceMrChicken.ProductS product) {
-            return base.Channel.AddProductAsync(product);
-        }
-        
-        public void DeleteProduct(int ID) {
-            base.Channel.DeleteProduct(ID);
-        }
-        
-        public System.Threading.Tasks.Task DeleteProductAsync(int ID) {
-            return base.Channel.DeleteProductAsync(ID);
-        }
-        
-        public void ChangeProduct(int ID, string Name) {
-            base.Channel.ChangeProduct(ID, Name);
-        }
-        
-        public System.Threading.Tasks.Task ChangeProductAsync(int ID, string Name) {
-            return base.Channel.ChangeProductAsync(ID, Name);
         }
     }
 }
