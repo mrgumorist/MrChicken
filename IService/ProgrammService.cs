@@ -2,6 +2,7 @@
 using IService.EntitiesReturn;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
@@ -101,6 +102,39 @@ namespace IService
                 DoesWantRecomendations = t.DoesWantRecomendations
             }).ToList();
             return users;
+        }
+        public List<ProductS> GetProductSS()
+        { 
+            var products = context.products.Select(t => new ProductS() { ID = t.ID, Name = t.Name }).ToList();
+            return products;
+        }
+        //DELETE THIS method
+        public void UpdateProducts(List<ProductS> productS)
+        {
+            foreach(var item in productS)
+            {
+
+               // context.product
+            }
+        }
+        public Product GetEmptyProduct()
+        {
+            return new Product();
+        }
+        public void AddProduct(Product product)
+        {
+            context.products.Add(product);
+            context.SaveChanges();
+        }
+        public void DeleteProduct(int ID)
+        {
+            context.products.Remove(context.products.Where(t=>t.ID==ID).First());
+            context.SaveChanges();
+        }
+        public void ChangeProduct(int ID, string Name)
+        {
+            context.products.Where(t => t.ID == ID).First().Name = Name;
+            context.SaveChanges();
         }
         public void UpdateUserInfo(int userID, User user)
         {

@@ -1,6 +1,8 @@
-﻿using IService.EntitiesReturn;
+﻿using IService.Entities;
+using IService.EntitiesReturn;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
@@ -28,6 +30,18 @@ namespace IService
         void RemoveUserS(int currentID);
         [OperationContract]
         List<UserS> FindUsersByProp(string prop);
+        [OperationContract]
+        List<ProductS> GetProductSS();
+        [OperationContract]
+        void UpdateProducts(List<ProductS> productS);
+        [OperationContract]
+        Product GetEmptyProduct();
+        [OperationContract]
+        void AddProduct(Product product);
+        [OperationContract]
+        void DeleteProduct(int ID);
+        [OperationContract]
+        void ChangeProduct(int ID, string Name);
         [OperationContract]
         void UpdateUserInfo(int userID, User user);
         [OperationContract]

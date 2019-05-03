@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Mr.Chicken.AdminPages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,13 @@ namespace Mr.Chicken
           
             MainFrame.Content = null;
             MainFrame.Content = new UsersAdmin();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Content = null;
+            MainFrame.Content = new ProductsPage();
+            //MainFrame.Content;
         }
     }
 }

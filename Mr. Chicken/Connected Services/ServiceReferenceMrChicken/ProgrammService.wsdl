@@ -57,6 +57,42 @@
   <wsdl:message name="IProgrammService_FindUsersByProp_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindUsersByPropResponse" />
   </wsdl:message>
+  <wsdl:message name="IProgrammService_GetProductSS_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductSS" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetProductSS_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductSSResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_UpdateProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProducts" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_UpdateProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetEmptyProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmptyProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetEmptyProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEmptyProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_AddProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_AddProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_ChangeProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeProduct" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_ChangeProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeProductResponse" />
+  </wsdl:message>
   <wsdl:message name="IProgrammService_UpdateUserInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateUserInfo" />
   </wsdl:message>
@@ -101,14 +137,6 @@
     <wsdl:operation name="FindUsersByProp">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/FindUsersByProp" message="tns:IProgrammService_FindUsersByProp_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/FindUsersByPropResponse" message="tns:IProgrammService_FindUsersByProp_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateUserInfo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/UpdateUserInfo" message="tns:IProgrammService_UpdateUserInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/UpdateUserInfoResponse" message="tns:IProgrammService_UpdateUserInfo_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetUser" message="tns:IProgrammService_GetUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetUserResponse" message="tns:IProgrammService_GetUser_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
@@ -178,24 +206,6 @@
     </wsdl:operation>
     <wsdl:operation name="FindUsersByProp">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/FindUsersByProp" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateUserInfo">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/UpdateUserInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUser">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

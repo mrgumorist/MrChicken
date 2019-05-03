@@ -1109,6 +1109,67 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductS", Namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn")]
+    [System.SerializableAttribute()]
+    public partial class ProductS : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceMrChicken.IProgrammService")]
     public interface IProgrammService {
@@ -1160,6 +1221,42 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/FindUsersByProp", ReplyAction="http://tempuri.org/IProgrammService/FindUsersByPropResponse")]
         System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetProductSS", ReplyAction="http://tempuri.org/IProgrammService/GetProductSSResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.ProductS[] GetProductSS();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetProductSS", ReplyAction="http://tempuri.org/IProgrammService/GetProductSSResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.ProductS[]> GetProductSSAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateProducts", ReplyAction="http://tempuri.org/IProgrammService/UpdateProductsResponse")]
+        void UpdateProducts(Mr.Chicken.ServiceReferenceMrChicken.ProductS[] productS);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateProducts", ReplyAction="http://tempuri.org/IProgrammService/UpdateProductsResponse")]
+        System.Threading.Tasks.Task UpdateProductsAsync(Mr.Chicken.ServiceReferenceMrChicken.ProductS[] productS);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyProduct", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyProductResponse")]
+        Mr.Chicken.ServiceReferenceMrChicken.Product GetEmptyProduct();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyProduct", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyProductResponse")]
+        System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.Product> GetEmptyProductAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddProduct", ReplyAction="http://tempuri.org/IProgrammService/AddProductResponse")]
+        void AddProduct(Mr.Chicken.ServiceReferenceMrChicken.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddProduct", ReplyAction="http://tempuri.org/IProgrammService/AddProductResponse")]
+        System.Threading.Tasks.Task AddProductAsync(Mr.Chicken.ServiceReferenceMrChicken.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteProduct", ReplyAction="http://tempuri.org/IProgrammService/DeleteProductResponse")]
+        void DeleteProduct(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteProduct", ReplyAction="http://tempuri.org/IProgrammService/DeleteProductResponse")]
+        System.Threading.Tasks.Task DeleteProductAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/ChangeProduct", ReplyAction="http://tempuri.org/IProgrammService/ChangeProductResponse")]
+        void ChangeProduct(int ID, string Name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/ChangeProduct", ReplyAction="http://tempuri.org/IProgrammService/ChangeProductResponse")]
+        System.Threading.Tasks.Task ChangeProductAsync(int ID, string Name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateUserInfo", ReplyAction="http://tempuri.org/IProgrammService/UpdateUserInfoResponse")]
         void UpdateUserInfo(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user);
@@ -1263,22 +1360,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop) {
             return base.Channel.FindUsersByPropAsync(prop);
-        }
-        
-        public void UpdateUserInfo(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user) {
-            base.Channel.UpdateUserInfo(userID, user);
-        }
-        
-        public System.Threading.Tasks.Task UpdateUserInfoAsync(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user) {
-            return base.Channel.UpdateUserInfoAsync(userID, user);
-        }
-        
-        public Mr.Chicken.ServiceReferenceMrChicken.User GetUser(int ID) {
-            return base.Channel.GetUser(ID);
-        }
-        
-        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetUserAsync(int ID) {
-            return base.Channel.GetUserAsync(ID);
         }
     }
 }

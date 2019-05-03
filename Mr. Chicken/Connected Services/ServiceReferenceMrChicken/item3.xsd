@@ -22,4 +22,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="UserS" nillable="true" type="tns:UserS" />
+  <xs:complexType name="ArrayOfProductS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductS" nillable="true" type="tns:ProductS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProductS" nillable="true" type="tns:ArrayOfProductS" />
+  <xs:complexType name="ProductS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ProductS" nillable="true" type="tns:ProductS" />
 </xs:schema>
