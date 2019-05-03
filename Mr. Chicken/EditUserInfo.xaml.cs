@@ -21,7 +21,7 @@ namespace Mr.Chicken
     public partial class EditUserInfo : Window
     {
         ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
-
+        List<UserS> userS = new List<UserS>();
         int userID;
         
         public EditUserInfo(int ID)
@@ -33,6 +33,7 @@ namespace Mr.Chicken
 
         void ShowInfo()
         {
+            userS = client.GetUsers().ToList();
             User user = client.GetUser(userID);
             txtEmail.Text = user.Email;
             txtLogin.Text = user.Password;
