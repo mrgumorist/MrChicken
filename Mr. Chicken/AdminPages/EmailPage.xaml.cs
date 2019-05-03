@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Mr.Chicken.AdminPages
 {
     /// <summary>
-    /// Interaction logic for Update.xaml
+    /// Interaction logic for EmailPage.xaml
     /// </summary>
-    public partial class Update : Page
+    public partial class EmailPage : Page
     {
-        public Update(int ID)
+        public EmailPage()
         {
             InitializeComponent();
         }

@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
             <Button Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click">USERS PANEL</Button>
             <Button Grid.Row="1" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_1">PRODUCTS PANEL</Button>
-            <Button Grid.Row="2" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20">EMAIL PANEL</Button>
+            <Button Grid.Row="2" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_2">EMAIL PANEL</Button>
             <Button Grid.Row="3" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20">PROMOTIONS PANEL</Button>
             <Button Grid.Row="4" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20">DISHES PANEL</Button>
             <Button Grid.Row="5" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20">USERS PRODUCTS PANEL</Button>

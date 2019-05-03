@@ -38,5 +38,10 @@ namespace Mr.Chicken
             MainFrame.Content = new ProductsPage();
             //MainFrame.Content;
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -67,14 +67,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminPages\EmailPage.xaml.cs">
+      <DependentUpon>EmailPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\ProductsPage.xaml.cs">
       <DependentUpon>ProductsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminPages\Start.xaml.cs">
       <DependentUpon>Start.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\Update.xaml.cs">
-      <DependentUpon>Update.xaml</DependentUpon>
     </Compile>
     <Compile Include="AdminPanel.xaml.cs">
       <DependentUpon>AdminPanel.xaml</DependentUpon>
@@ -102,15 +102,15 @@
     <Compile Include="AdminPages\UsersAdmin.xaml.cs">
       <DependentUpon>UsersAdmin.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminPages\EmailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AdminPages\ProductsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminPages\Start.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="AdminPages\Update.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

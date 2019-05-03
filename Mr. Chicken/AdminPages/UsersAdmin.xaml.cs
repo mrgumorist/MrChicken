@@ -29,42 +29,22 @@ namespace Mr.Chicken
         public UsersAdmin()
         {
             InitializeComponent();
-          
-            var Users = client.GetUsers();
-            //foreach (var item in Users)
-            //{
-            //    users.Add(item);
-            //}
-            var Users_ = Users.Select(u => new
-            {
-                u.ID,
-                u.Name,
-                u.Surname,
-                u.Login,
-                u.Password,
-                u.TelegramID,
-                u.Email,
-                u.ISConfirmed,
-                u.DateOfRegister,
-                u.DoesWantRecomendations
-            }
-            );
-            //var Users = client.GetUsers();
-            dataGrid.ItemsSource = Users_;
 
+
+            Update();
             //TO DO! HIDE FIRST COLUMN
             //dataGrid.Columns.Remove(dataGrid.Columns.First());
             //dataGrid.Columns[$"{dataGrid.Columns.First().Header.ToString()}"].Visibility = Visibility.Hidden;
-           // MessageBox.Show(dataGrid.Columns.Count.ToString());
+            // MessageBox.Show(dataGrid.Columns.Count.ToString());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Update();
         }
-        private void Update()
+        private async void Update()
         {
-            var Users = client.GetUsers();
+            var Users = await client.GetUsersAsync();
             dataGrid.ItemsSource = null;
             var Users_ = Users.Select(u => new
             {
@@ -129,10 +109,10 @@ namespace Mr.Chicken
 
         }
 
-        private void Button_Click_4(object sender, RoutedEventArgs e)
+        private async void Button_Click_4(object sender, RoutedEventArgs e)
         {
             //Find by all propertys
-            var Users = client.FindUsersByProp(text.Text);
+            var Users = await client.FindUsersByPropAsync(text.Text);
             if(Users.Count()!=0)
             {
                 dataGrid.ItemsSource = null;
