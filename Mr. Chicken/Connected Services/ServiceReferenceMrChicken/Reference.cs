@@ -1361,5 +1361,69 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.UserS[]> FindUsersByPropAsync(string prop) {
             return base.Channel.FindUsersByPropAsync(prop);
         }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.ProductS[] GetProductSS() {
+            return base.Channel.GetProductSS();
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.ProductS[]> GetProductSSAsync() {
+            return base.Channel.GetProductSSAsync();
+        }
+        
+        public void UpdateProducts(Mr.Chicken.ServiceReferenceMrChicken.ProductS[] productS) {
+            base.Channel.UpdateProducts(productS);
+        }
+        
+        public System.Threading.Tasks.Task UpdateProductsAsync(Mr.Chicken.ServiceReferenceMrChicken.ProductS[] productS) {
+            return base.Channel.UpdateProductsAsync(productS);
+        }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.Product GetEmptyProduct() {
+            return base.Channel.GetEmptyProduct();
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.Product> GetEmptyProductAsync() {
+            return base.Channel.GetEmptyProductAsync();
+        }
+        
+        public void AddProduct(Mr.Chicken.ServiceReferenceMrChicken.Product product) {
+            base.Channel.AddProduct(product);
+        }
+        
+        public System.Threading.Tasks.Task AddProductAsync(Mr.Chicken.ServiceReferenceMrChicken.Product product) {
+            return base.Channel.AddProductAsync(product);
+        }
+        
+        public void DeleteProduct(int ID) {
+            base.Channel.DeleteProduct(ID);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductAsync(int ID) {
+            return base.Channel.DeleteProductAsync(ID);
+        }
+        
+        public void ChangeProduct(int ID, string Name) {
+            base.Channel.ChangeProduct(ID, Name);
+        }
+        
+        public System.Threading.Tasks.Task ChangeProductAsync(int ID, string Name) {
+            return base.Channel.ChangeProductAsync(ID, Name);
+        }
+        
+        public void UpdateUserInfo(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user) {
+            base.Channel.UpdateUserInfo(userID, user);
+        }
+        
+        public System.Threading.Tasks.Task UpdateUserInfoAsync(int userID, Mr.Chicken.ServiceReferenceMrChicken.User user) {
+            return base.Channel.UpdateUserInfoAsync(userID, user);
+        }
+        
+        public Mr.Chicken.ServiceReferenceMrChicken.User GetUser(int ID) {
+            return base.Channel.GetUser(ID);
+        }
+        
+        public System.Threading.Tasks.Task<Mr.Chicken.ServiceReferenceMrChicken.User> GetUserAsync(int ID) {
+            return base.Channel.GetUserAsync(ID);
+        }
     }
 }

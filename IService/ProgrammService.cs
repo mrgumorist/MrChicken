@@ -54,7 +54,7 @@ namespace IService
         }
         public User GetUser(int ID)
         {
-            var user = context.users.FirstOrDefault(t => t.ID == ID);
+            User user = context.users.FirstOrDefault(t => t.ID == ID);
             return user;
         }
 

@@ -185,7 +185,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userID" type="xs:int" />
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/IService" minOccurs="0" name="user" nillable="true" type="q5:User" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IService" minOccurs="0" name="user" nillable="true" type="q9:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -204,7 +204,7 @@
   <xs:element name="GetUserResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/IService" minOccurs="0" name="GetUserResult" nillable="true" type="q6:User" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/IService" minOccurs="0" name="GetUserResult" nillable="true" type="q10:User" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
