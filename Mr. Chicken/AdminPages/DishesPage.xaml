@@ -13,7 +13,7 @@
             <RowDefinition Height="406*"/>
         </Grid.RowDefinitions>
         <Button Background="{x:Null}" Foreground="White" FontSize="20" Click="Button_Click">Add new</Button>
-        <DataGrid RowHeight="70" Name="Display" AutoGenerateColumns="False" Grid.Row="1" Background="{x:Null}" CanUserResizeColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserSortColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <DataGrid Name="Display" AutoGenerateColumns="False" Grid.Row="1" Background="{x:Null}" CanUserResizeColumns="False" CanUserDeleteRows="False" CanUserAddRows="False" CanUserSortColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Change Info" Click="MenuItem_Click"/>
