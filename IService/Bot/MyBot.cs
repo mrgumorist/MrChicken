@@ -32,7 +32,7 @@ namespace Mr.ChickenBot
         }
         public int ID
         {
-            get { return me.Id; }          
+            get { return me.Id; }
         }
         public string Name
         {
@@ -44,7 +44,7 @@ namespace Mr.ChickenBot
             this.botToken = botToken;
             botClient = new TelegramBotClient(botToken) { Timeout = TimeSpan.FromSeconds(10) };
             me = botClient.GetMeAsync().Result;
-        }        
+        }
 
         public void StartBot()
         {
@@ -86,14 +86,14 @@ namespace Mr.ChickenBot
             int UserId = e.Message.From.Id;
 
             if (e.Message.Text == "Get the recipe" + "\U0001F34F")//Обробка кнопки
-            {                
+            {
                 button_clickGetRecipe(e);
             }
             if (e.Message.Text == "Get my id " + "\U0001F194")//Обробка кнопки
-            {                
+            {
                 button_clickGetMyID(e);
             }
-           
+
 
             if (message.Type != MessageType.Text || UserMsg == null)
             {
