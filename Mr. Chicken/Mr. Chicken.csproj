@@ -70,6 +70,9 @@
     <Compile Include="AdminPages\BotPanel.xaml.cs">
       <DependentUpon>BotPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminPages\BotPromotion.xaml.cs">
+      <DependentUpon>BotPromotion.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\DishesPage.xaml.cs">
       <DependentUpon>DishesPage.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
       <DependentUpon>UsersAdmin.xaml</DependentUpon>
     </Compile>
     <Page Include="AdminPages\BotPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminPages\BotPromotion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

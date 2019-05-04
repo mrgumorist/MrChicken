@@ -27,7 +27,7 @@
             <Button Grid.Row="2" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_2">EMAIL PANEL</Button>
             <Button Grid.Row="3" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_3">PROMOTIONS PANEL</Button>
             <Button Grid.Row="4" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_4">DISHES PANEL</Button>
-            <Button Grid.Row="5" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_5">USERS PRODUCTS PANEL</Button>
+            <Button Grid.Row="5" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_5">CONNECTIONS PANEL</Button>
             <Button Grid.Row="6" Background="{x:Null}" Foreground="NavajoWhite" FontWeight="Bold" FontSize="20" Click="Button_Click_6">BOT PANEL</Button>
         </Grid>
         <Grid Grid.Column="2">

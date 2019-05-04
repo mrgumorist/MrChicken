@@ -36,11 +36,14 @@ namespace Mr.Chicken.AdminPages
 
         private async void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
+
         }
 
-        private async void btnStop_Click(object sender, RoutedEventArgs e)
+        private void btnStop_Click(object sender, RoutedEventArgs e)
         {
-            await client.StopBotAsync();
+            //await client.StopBotAsync();
+            BotPromotion promotion = new BotPromotion();
+            promotion.ShowDialog();
         }
     }
 }
