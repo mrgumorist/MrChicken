@@ -199,11 +199,11 @@ namespace IService
         }
         public void UpdateDish(DishS dish)
         {
-            var User = context.dishes.Where(t => t.ID == dish.ID).First();
-            User.Image = dish.Image;
-            User.LittleDescription = dish.LittleDescription;
-            User.Recept = dish.Recept;
-            User.TypeID = dish.TypeID;
+            context.dishes.Where(t => t.ID == dish.ID).First().Name = dish.Name;
+            context.dishes.Where(t => t.ID == dish.ID).First().Image = dish.Image;
+            context.dishes.Where(t => t.ID == dish.ID).First().LittleDescription = dish.LittleDescription;
+            context.dishes.Where(t => t.ID == dish.ID).First().Recept = dish.Recept;
+            context.dishes.Where(t => t.ID == dish.ID).First().TypeID = dish.TypeID;
             context.SaveChanges();
         }
     }

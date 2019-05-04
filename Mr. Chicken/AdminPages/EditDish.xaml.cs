@@ -80,7 +80,7 @@ namespace Mr.Chicken.AdminPages
 
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //Create
+            //UPDATE
             if(Name.Text!=""&&Recept.Text!= "" && Littledescription.Text!= "" && Bytes!=null)
             {
                 var dish = await client.GetDishSByIdAsync(ID);

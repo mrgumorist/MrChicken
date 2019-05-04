@@ -17,7 +17,7 @@
         <Label Margin="75,325,367.4,0" VerticalAlignment="Top" Height="53" Content="Recept full:" FontSize="30" Foreground="AliceBlue" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontWeight="Bold"/>
         <TextBox ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Visible" x:Name="Recept" HorizontalAlignment="Left" Height="148" Margin="41,394,0,0" Text="" VerticalAlignment="Top" Width="525" Background="{x:Null}" Foreground="White" FontSize="25" TextWrapping="Wrap" AcceptsReturn="True"/>
         <Button Content="Choose image" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="188" Margin="378,309,0,0" Height="69" Foreground="White" FontSize="28" Click="Button_Click"/>
-        <Button Content="Create" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="241" Margin="41,553,0,0" Height="69" Foreground="White" FontSize="28" Click="Button_Click_1"/>
+        <Button Content="UPDATE" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="241" Margin="41,553,0,0" Height="69" Foreground="White" FontSize="28" Click="Button_Click_1"/>
         <Button Content="Clear all" Background="{x:Null}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="241" Margin="325,553,0,0" Height="69" Foreground="White" FontSize="28" Click ="Button_Click_2"/>
 
     </Grid>
