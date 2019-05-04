@@ -61,7 +61,7 @@ namespace Mr.ChickenBot
             string name = $"{e.CallbackQuery.From.FirstName} {e.CallbackQuery.From.LastName}";
             statusMsg += $"{name} нажав на кнопку {buttonText}" + Environment.NewLine;
 
-            if (buttonText == "puts1")
+            if (buttonText == "puts1") 
             {
                 await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Fuck you");
             }
