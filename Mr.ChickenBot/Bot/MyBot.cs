@@ -55,13 +55,18 @@ namespace Mr.ChickenBot
             botClient.StartReceiving();
         }
 
+        private void button_clickGetMyID()
+        {
+
+        }
+
         private async void BotClient_OnCallbackQuery(object sender, CallbackQueryEventArgs e)
         {
             string buttonText = e.CallbackQuery.Data;
             string name = $"{e.CallbackQuery.From.FirstName} {e.CallbackQuery.From.LastName}";
             statusMsg += $"{name} нажав на кнопку {buttonText}" + Environment.NewLine;
 
-            if (buttonText == "puts1")
+            if (buttonText == "Puts1")
             {
                 await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Fuck you");
             }
@@ -78,14 +83,13 @@ namespace Mr.ChickenBot
             {
                 await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки:)");
             }
-
+            //"Get my id "+"\U0001F194"
 
             if (message.Type != MessageType.Text || UserMsg == null)
             {
                 return;
             }
             string UserName = $"{message.From.FirstName} {message.From.LastName}";
-
             statusMsg += $"{UserName} відправив: {UserMsg} "
                 + $" ID користувача : {UserId}" + Environment.NewLine;
 
@@ -128,7 +132,7 @@ namespace Mr.ChickenBot
                         },
                         new[]
                         {
-                            new KeyboardButton("Get my ID"+"") ,
+                            new KeyboardButton("Get my id "+"\U0001F194") ,
                             new KeyboardButton("Delete product"+"")
                         }
 
