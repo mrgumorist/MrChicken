@@ -69,7 +69,7 @@ namespace Mr.Chicken.AdminPages
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Create
-            if(Name.Text!=""&&Recept.Text!= "" && Littledescription.Text!= "" && Bytes!=null)
+            if(Name!=null&&Recept!=null&&Littledescription!=null&& Bytes!=null)
             {
                DishS dish =  (await client.GetEmptyDishSAsync());
                 dish.Image = Bytes;
@@ -90,11 +90,7 @@ namespace Mr.Chicken.AdminPages
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             //Clear all
-            Name.Text = "";
-            Recept.Text = "";
-            Littledescription.Text = "";
-            Bytes = null;
-            Image.Source = null;
+            
         }
     }
 }

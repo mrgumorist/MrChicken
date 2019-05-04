@@ -51,7 +51,6 @@ namespace Mr.ChickenBot
             isStarted = true;
             botClient.OnMessage += Bot_OnMessage;
             botClient.OnCallbackQuery += BotClient_OnCallbackQuery;
-
             botClient.StartReceiving();
         }
 
