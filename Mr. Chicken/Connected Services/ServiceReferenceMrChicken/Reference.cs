@@ -152,6 +152,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateDish", ReplyAction="http://tempuri.org/IProgrammService/UpdateDishResponse")]
         System.Threading.Tasks.Task UpdateDishAsync(IService.EntitiesReturn.DishS dish);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteDishByID", ReplyAction="http://tempuri.org/IProgrammService/DeleteDishByIDResponse")]
+        void DeleteDishByID(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteDishByID", ReplyAction="http://tempuri.org/IProgrammService/DeleteDishByIDResponse")]
+        System.Threading.Tasks.Task DeleteDishByIDAsync(int ID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -363,6 +369,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task UpdateDishAsync(IService.EntitiesReturn.DishS dish) {
             return base.Channel.UpdateDishAsync(dish);
+        }
+        
+        public void DeleteDishByID(int ID) {
+            base.Channel.DeleteDishByID(ID);
+        }
+        
+        public System.Threading.Tasks.Task DeleteDishByIDAsync(int ID) {
+            return base.Channel.DeleteDishByIDAsync(ID);
         }
     }
 }

@@ -206,5 +206,10 @@ namespace IService
             context.dishes.Where(t => t.ID == dish.ID).First().TypeID = dish.TypeID;
             context.SaveChanges();
         }
+        public void DeleteDishByID(int ID)
+        {
+            context.dishes.Remove(context.dishes.Where(t => t.ID == ID).First());
+            context.SaveChanges();
+        }
     }
 }
