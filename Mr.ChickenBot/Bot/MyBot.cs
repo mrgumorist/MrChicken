@@ -44,6 +44,7 @@ namespace Mr.ChickenBot
             this.botToken = botToken;
             botClient = new TelegramBotClient(botToken) { Timeout = TimeSpan.FromSeconds(10) };
             me = botClient.GetMeAsync().Result;
+            StartBot();
         }        
 
         public void StartBot()

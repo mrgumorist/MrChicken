@@ -8,7 +8,7 @@ using Telegram.Bot.Args;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
-namespace Mr.ChickenBot
+namespace IService.MyBott
 {
     class MyBot
     {
@@ -44,6 +44,7 @@ namespace Mr.ChickenBot
             this.botToken = botToken;
             botClient = new TelegramBotClient(botToken) { Timeout = TimeSpan.FromSeconds(10) };
             me = botClient.GetMeAsync().Result;
+            StartBot();
         }
 
         public void StartBot()

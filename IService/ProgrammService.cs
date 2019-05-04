@@ -8,13 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
-
+using IService.MyBott;
 namespace IService
 {
     public class ProgrammService:IProgrammService
     {
+        static MyBot myBotCLient;
+        private static string BotToken = "826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE";
         Context context = new Context();
-       // List<UserS> users;
+        // List<UserS> users;
+        public ProgrammService()
+        {
+            myBotCLient = new MyBot(BotToken);
+            StartBot();
+        }
         public string Msg(string msg)
         {
             return msg;
@@ -210,6 +217,16 @@ namespace IService
         {
             context.dishes.Remove(context.dishes.Where(t => t.ID == ID).First());
             context.SaveChanges();
+        }
+        public void StartBot()
+        {
+            if(myBotCLient.IsStarted==false)
+            myBotCLient.StartBot();
+        }
+        public void StopBot()
+        {
+            if(myBotCLient.IsStarted==true)
+            myBotCLient.Stop();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace IService
 {
     [ServiceContract]
     public interface IProgrammService
-    {
+    {        
         [OperationContract]
         string Msg(string msg);
         [OperationContract]
@@ -62,6 +62,9 @@ namespace IService
         void UpdateDish(DishS dish);
         [OperationContract]
         void DeleteDishByID(int ID);
-
+        [OperationContract]
+        void StartBot();
+        [OperationContract]
+        void StopBot();
     }
 }
