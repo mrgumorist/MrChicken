@@ -73,6 +73,9 @@
     <Compile Include="AdminPages\BotPromotion.xaml.cs">
       <DependentUpon>BotPromotion.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminPages\ConectionPanel.xaml.cs">
+      <DependentUpon>ConectionPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\DishesPage.xaml.cs">
       <DependentUpon>DishesPage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminPages\BotPromotion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminPages\ConectionPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
