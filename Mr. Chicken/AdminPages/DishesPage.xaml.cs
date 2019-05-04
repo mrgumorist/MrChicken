@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+//using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -58,6 +59,17 @@ namespace Mr.Chicken.AdminPages
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             //Delete
+            System.Windows.Forms.DialogResult dialogResult = System.Windows.Forms.MessageBox.Show("You realy want delete item?", "Deleting", System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                DishS classObj = Display.SelectedItem as DishS;
+                int id = classObj.ID;
+                client.DeleteDishByIDAsync(id);
+            }
+            else if (dialogResult == System.Windows.Forms.DialogResult.No)
+            {
+                MessageBox.Show("Deleting canceled");
+            }
             Updload();
         }
 

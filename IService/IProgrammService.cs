@@ -60,5 +60,7 @@ namespace IService
         DishS GetDishSById(int ID);
         [OperationContract]
         void UpdateDish(DishS dish);
+        [OperationContract]
+        void DeleteDishByID(int ID);
     }
 }
