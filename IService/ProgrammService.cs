@@ -17,7 +17,6 @@ namespace IService
         static MyBot myBotCLient = new MyBot(BotToken);        
         Context context = new Context();
         // List<UserS> users;
-        
         public string Msg(string msg)
         {
             return msg;
