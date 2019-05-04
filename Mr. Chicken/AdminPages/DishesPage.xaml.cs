@@ -45,6 +45,9 @@ namespace Mr.Chicken.AdminPages
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             //Change info
+            DishS classObj = Display.SelectedItem as DishS;
+            string id = classObj.ID.ToString();
+            //MessageBox.Show(id);
         }
 
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)

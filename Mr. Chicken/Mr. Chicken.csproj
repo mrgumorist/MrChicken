@@ -73,6 +73,9 @@
     <Compile Include="AdminPages\EmailPage.xaml.cs">
       <DependentUpon>EmailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminPages\EditDish.xaml.cs">
+      <DependentUpon>EditDish.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\NewDish.xaml.cs">
       <DependentUpon>NewDish.xaml</DependentUpon>
     </Compile>
@@ -122,6 +125,10 @@
     <Page Include="AdminPages\EmailPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminPages\EditDish.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="AdminPages\NewDish.xaml">
       <SubType>Designer</SubType>

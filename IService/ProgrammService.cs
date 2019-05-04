@@ -193,5 +193,18 @@ namespace IService
             context.dishes.Add(new Dish() { ID = dish.ID, Image = dish.Image, LittleDescription = dish.LittleDescription, Name = dish.Name, Recept = dish.Recept, TypeID = dish.TypeID });
             context.SaveChanges();
         }
+        public DishS GetDishSById(int ID)
+        {
+            return context.dishes.Select(t => new DishS() { ID = t.ID, Image = t.Image, LittleDescription = t.LittleDescription, TypeID = t.TypeID, Name = t.Name, Recept = t.Recept }).First();
+        }
+        public void UpdateDish(DishS dish)
+        {
+            var User = context.dishes.Where(t => t.ID == dish.ID).First();
+            User.Image = dish.Image;
+            User.LittleDescription = dish.LittleDescription;
+            User.Recept = dish.Recept;
+            User.TypeID = dish.TypeID;
+            context.SaveChanges();
+        }
     }
 }

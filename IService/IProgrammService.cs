@@ -56,5 +56,9 @@ namespace IService
         DishS GetEmptyDishS();
         [OperationContract]
         void AddDishS(DishS dish);
+        [OperationContract]
+        DishS GetDishSById(int ID);
+        [OperationContract]
+        void UpdateDish(DishS dish);
     }
 }
