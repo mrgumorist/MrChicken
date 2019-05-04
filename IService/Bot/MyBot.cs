@@ -10,7 +10,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 
 namespace IService.MyBott
 {
-    class MyBot
+    public class MyBot
     {
         private static ITelegramBotClient botClient;
         string statusMsg;
