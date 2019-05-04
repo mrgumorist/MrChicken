@@ -43,13 +43,18 @@ namespace IService
         [OperationContract]
         void ChangeProduct(int ID, string Name);
         [OperationContract]
-        void UpdateUserInfo(int userID, User user);
+        void UpdateUserInfo(int userID, UserS user);
         [OperationContract]
         UserS GetUser(int ID);
         [OperationContract]
         List<EmailAcceptS> GetEmailAcceptS();
         [OperationContract]
         List<string> GetEmails();
-
+        [OperationContract]
+        List<DishS> GetDishesS();
+        [OperationContract]
+        DishS GetEmptyDishS();
+        [OperationContract]
+        void AddDishS(DishS dish);
     }
 }

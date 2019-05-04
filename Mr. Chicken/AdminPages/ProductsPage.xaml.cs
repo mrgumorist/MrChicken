@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualBasic;
+﻿using IService.EntitiesReturn;
+using Microsoft.VisualBasic;
 using Mr.Chicken.ServiceReferenceMrChicken;
 //using Mr.Chicken.ServiceReferenceMrChicken;
 using System;

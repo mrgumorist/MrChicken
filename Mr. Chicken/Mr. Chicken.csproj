@@ -73,6 +73,9 @@
     <Compile Include="AdminPages\EmailPage.xaml.cs">
       <DependentUpon>EmailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminPages\NewDish.xaml.cs">
+      <DependentUpon>NewDish.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\ProductsPage.xaml.cs">
       <DependentUpon>ProductsPage.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,7 @@
     <Compile Include="EditUserInfo.xaml.cs">
       <DependentUpon>EditUserInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
     <Compile Include="IDforDeleteUser.xaml.cs">
       <DependentUpon>IDforDeleteUser.xaml</DependentUpon>
     </Compile>
@@ -116,6 +120,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminPages\EmailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminPages\NewDish.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,25 +214,14 @@
     <None Include="Connected Services\ServiceReferenceMrChicken\item21.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ServiceReferenceMrChicken\item3.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReferenceMrChicken\item4.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.EmailAcceptS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.ProductS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\ServiceReferenceMrChicken\Mr.Chicken.ServiceReferenceMrChicken.UserS.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\ServiceReferenceMrChicken\ProgrammService.wsdl" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\IService.EntitiesReturn.DishS.datasource" />
+    <None Include="Properties\DataSources\IService.EntitiesReturn.EmailAcceptS.datasource" />
+    <None Include="Properties\DataSources\IService.EntitiesReturn.ProductS.datasource" />
+    <None Include="Properties\DataSources\IService.EntitiesReturn.UserS.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -264,6 +261,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="AdminPages\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IService\IService.csproj">
+      <Project>{4124C89B-174B-4C35-B163-CF1520293F4C}</Project>
+      <Name>IService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

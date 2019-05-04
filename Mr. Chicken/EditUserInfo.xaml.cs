@@ -1,4 +1,6 @@
-﻿using Mr.Chicken.ServiceReferenceMrChicken;
+﻿using IService;
+using IService.EntitiesReturn;
+using Mr.Chicken.ServiceReferenceMrChicken;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,7 +46,7 @@ namespace Mr.Chicken
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
 
-            var user = new User();
+            var user = new UserS();
             user.DateOfBirth = datePickerBirth.SelectedDate.Value;
             user.Email = txtEmail.Text;
             user.Login = txtLogin.Text;

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:8099/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" />
-  <xs:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/IService" />
-  <xs:import schemaLocation="http://localhost:8099/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="Msg">
     <xs:complexType>
       <xs:sequence>
@@ -185,7 +184,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="userID" type="xs:int" />
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IService" minOccurs="0" name="user" nillable="true" type="q9:User" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="user" nillable="true" type="q9:UserS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -230,6 +229,42 @@
       <xs:sequence>
         <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetEmailsResult" nillable="true" type="q12:ArrayOfstring" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDishesS">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDishesSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="GetDishesSResult" nillable="true" type="q13:ArrayOfDishS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmptyDishS">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEmptyDishSResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="GetEmptyDishSResult" nillable="true" type="q14:DishS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDishS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="dish" nillable="true" type="q15:DishS" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDishSResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

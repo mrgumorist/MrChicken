@@ -1,4 +1,5 @@
-﻿using Mr.Chicken.ServiceReferenceMrChicken;
+﻿using IService.EntitiesReturn;
+using Mr.Chicken.ServiceReferenceMrChicken;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;

@@ -150,7 +150,7 @@ namespace IService
             context.products.Where(t => t.ID == ID).First().Name = Name;
             context.SaveChanges();
         }
-        public void UpdateUserInfo(int userID, User user)
+        public void UpdateUserInfo(int userID, UserS user)
         {
             var User = context.users.Where(u => u.ID == userID).FirstOrDefault();
 
@@ -179,6 +179,19 @@ namespace IService
                 }
             }
             return email;
+        }
+        public List<DishS> GetDishesS()
+        {
+            return (context.dishes.Select(t => new DishS() { ID = t.ID, Image = t.Image, LittleDescription = t.LittleDescription, Name = t.Name, Recept = t.Recept, TypeID = t.TypeID }).ToList());
+        }
+        public DishS GetEmptyDishS()
+        {
+            return new DishS();
+        }
+        public void AddDishS(DishS dish)
+        {
+            context.dishes.Add(new Dish() { ID = dish.ID, Image = dish.Image, LittleDescription = dish.LittleDescription, Name = dish.Name, Recept = dish.Recept, TypeID = dish.TypeID });
+            context.SaveChanges();
         }
     }
 }

@@ -49,4 +49,21 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="EmailAcceptS" nillable="true" type="tns:EmailAcceptS" />
+  <xs:complexType name="ArrayOfDishS">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DishS" nillable="true" type="tns:DishS" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDishS" nillable="true" type="tns:ArrayOfDishS" />
+  <xs:complexType name="DishS">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="LittleDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Recept" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TypeID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DishS" nillable="true" type="tns:DishS" />
 </xs:schema>
