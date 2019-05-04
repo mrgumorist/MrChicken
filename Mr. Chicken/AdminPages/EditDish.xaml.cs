@@ -26,13 +26,24 @@ namespace Mr.Chicken.AdminPages
     public partial class EditDish : Window
     {
         byte[] Bytes;
+        int ID;
         ProgrammServiceClient client = new ProgrammServiceClient();
         public EditDish(int ID)
         {
             InitializeComponent();
-            
-        }
+            this.ID = ID;
+            Updates();
 
+        }
+        private async void Updates()
+        {
+            var dish = await client.GetDishSByIdAsync(ID);
+            Name.Text = dish.Name;
+            Littledescription.Text = dish.LittleDescription;
+            Bytes = dish.Image;
+            Image.Source = Helper.ByteToImage(Bytes);
+            Recept.Text = dish.Recept;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //File dialog
@@ -72,14 +83,14 @@ namespace Mr.Chicken.AdminPages
             //Create
             if(Name.Text!=""&&Recept.Text!= "" && Littledescription.Text!= "" && Bytes!=null)
             {
-               DishS dish =  (await client.GetEmptyDishSAsync());
+                var dish = await client.GetDishSByIdAsync(ID);
                 dish.Image = Bytes;
                 dish.LittleDescription = Littledescription.Text;
                 dish.Name = Name.Text;
                 dish.Recept = Recept.Text;
                 dish.TypeID = 4;
-                await client.AddDishSAsync(dish);
-                MessageBox.Show("Succesfull added!");
+                await client.UpdateDishAsync(dish);
+                MessageBox.Show("Succesfull updated!");
                 Close();
             }
             else

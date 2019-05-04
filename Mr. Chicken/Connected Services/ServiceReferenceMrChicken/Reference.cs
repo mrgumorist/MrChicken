@@ -140,6 +140,18 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddDishS", ReplyAction="http://tempuri.org/IProgrammService/AddDishSResponse")]
         System.Threading.Tasks.Task AddDishSAsync(IService.EntitiesReturn.DishS dish);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetDishSById", ReplyAction="http://tempuri.org/IProgrammService/GetDishSByIdResponse")]
+        IService.EntitiesReturn.DishS GetDishSById(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetDishSById", ReplyAction="http://tempuri.org/IProgrammService/GetDishSByIdResponse")]
+        System.Threading.Tasks.Task<IService.EntitiesReturn.DishS> GetDishSByIdAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateDish", ReplyAction="http://tempuri.org/IProgrammService/UpdateDishResponse")]
+        void UpdateDish(IService.EntitiesReturn.DishS dish);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/UpdateDish", ReplyAction="http://tempuri.org/IProgrammService/UpdateDishResponse")]
+        System.Threading.Tasks.Task UpdateDishAsync(IService.EntitiesReturn.DishS dish);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -335,6 +347,22 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task AddDishSAsync(IService.EntitiesReturn.DishS dish) {
             return base.Channel.AddDishSAsync(dish);
+        }
+        
+        public IService.EntitiesReturn.DishS GetDishSById(int ID) {
+            return base.Channel.GetDishSById(ID);
+        }
+        
+        public System.Threading.Tasks.Task<IService.EntitiesReturn.DishS> GetDishSByIdAsync(int ID) {
+            return base.Channel.GetDishSByIdAsync(ID);
+        }
+        
+        public void UpdateDish(IService.EntitiesReturn.DishS dish) {
+            base.Channel.UpdateDish(dish);
+        }
+        
+        public System.Threading.Tasks.Task UpdateDishAsync(IService.EntitiesReturn.DishS dish) {
+            return base.Channel.UpdateDishAsync(dish);
         }
     }
 }

@@ -134,6 +134,18 @@
   <wsdl:message name="IProgrammService_AddDishS_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddDishSResponse" />
   </wsdl:message>
+  <wsdl:message name="IProgrammService_GetDishSById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDishSById" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetDishSById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDishSByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_UpdateDish_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDish" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_UpdateDish_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDishResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="Msg">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/Msg" message="tns:IProgrammService_Msg_InputMessage" />
@@ -218,6 +230,14 @@
     <wsdl:operation name="AddDishS">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/AddDishS" message="tns:IProgrammService_AddDishS_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/AddDishSResponse" message="tns:IProgrammService_AddDishS_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDishSById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetDishSById" message="tns:IProgrammService_GetDishSById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetDishSByIdResponse" message="tns:IProgrammService_GetDishSById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDish">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/UpdateDish" message="tns:IProgrammService_UpdateDish_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/UpdateDishResponse" message="tns:IProgrammService_UpdateDish_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
@@ -404,6 +424,24 @@
     </wsdl:operation>
     <wsdl:operation name="AddDishS">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/AddDishS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDishSById">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetDishSById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDish">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/UpdateDish" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

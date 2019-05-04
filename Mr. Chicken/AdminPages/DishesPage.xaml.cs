@@ -46,7 +46,10 @@ namespace Mr.Chicken.AdminPages
         {
             //Change info
             DishS classObj = Display.SelectedItem as DishS;
-            string id = classObj.ID.ToString();
+            int id = classObj.ID;
+            EditDish newDish = new EditDish(id);
+            newDish.ShowDialog();
+            Updload();
             //MessageBox.Show(id);
         }
 
