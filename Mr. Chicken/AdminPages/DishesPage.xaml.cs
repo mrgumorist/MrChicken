@@ -30,7 +30,6 @@ namespace Mr.Chicken.AdminPages
         public DishesPage()
         {
             InitializeComponent();
-            Updload();
         }
         private async void Updload()
         {
@@ -57,7 +56,6 @@ namespace Mr.Chicken.AdminPages
             //Add new
             NewDish newDish = new NewDish();
             newDish.ShowDialog();
-            Updload();
         }
     }
 }
