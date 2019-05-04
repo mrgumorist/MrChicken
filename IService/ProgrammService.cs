@@ -195,7 +195,7 @@ namespace IService
         }
         public DishS GetDishSById(int ID)
         {
-            return context.dishes.Select(t => new DishS() { ID = t.ID, Image = t.Image, LittleDescription = t.LittleDescription, TypeID = t.TypeID, Name = t.Name, Recept = t.Recept }).First();
+            return (context.dishes.Select(t => new DishS() { ID = t.ID, Image = t.Image, LittleDescription = t.LittleDescription, Name = t.Name, Recept = t.Recept, TypeID = t.TypeID }).ToList()).Where(t=>t.ID==ID).First();
         }
         public void UpdateDish(DishS dish)
         {

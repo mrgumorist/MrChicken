@@ -26,16 +26,17 @@ namespace Mr.Chicken.AdminPages
     public partial class EditDish : Window
     {
         byte[] Bytes;
-        int ID;
+        //int ID;
+        int id = 0;
         ProgrammServiceClient client = new ProgrammServiceClient();
         public EditDish(int ID)
         {
             InitializeComponent();
-            this.ID = ID;
-            Updates();
+            
+            Updates(ID);
 
         }
-        private async void Updates()
+        private async void Updates(int ID)
         {
             var dish = await client.GetDishSByIdAsync(ID);
             Name.Text = dish.Name;
@@ -43,6 +44,7 @@ namespace Mr.Chicken.AdminPages
             Bytes = dish.Image;
             Image.Source = Helper.ByteToImage(Bytes);
             Recept.Text = dish.Recept;
+            id = dish.ID;
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -83,7 +85,7 @@ namespace Mr.Chicken.AdminPages
             //UPDATE
             if(Name.Text!=""&&Recept.Text!= "" && Littledescription.Text!= "" && Bytes!=null)
             {
-                var dish = await client.GetDishSByIdAsync(ID);
+                var dish = await client.GetDishSByIdAsync(id);
                 dish.Image = Bytes;
                 dish.LittleDescription = Littledescription.Text;
                 dish.Name = Name.Text;

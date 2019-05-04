@@ -35,6 +35,7 @@ namespace Mr.Chicken.AdminPages
         private async void Updload()
         {
             var dish = await client.GetDishesSAsync();
+            Display.ItemsSource = null;
             dishes.Clear();
             foreach (var item in dish)
             {
@@ -47,6 +48,7 @@ namespace Mr.Chicken.AdminPages
             //Change info
             DishS classObj = Display.SelectedItem as DishS;
             int id = classObj.ID;
+
             EditDish newDish = new EditDish(id);
             newDish.ShowDialog();
             Updload();
@@ -56,6 +58,7 @@ namespace Mr.Chicken.AdminPages
         private void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
             //Delete
+            Updload();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -63,6 +66,7 @@ namespace Mr.Chicken.AdminPages
             //Add new
             NewDish newDish = new NewDish();
             newDish.ShowDialog();
+            Updload();
             Updload();
         }
     }
