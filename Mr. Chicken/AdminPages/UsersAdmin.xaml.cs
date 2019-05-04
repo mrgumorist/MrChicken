@@ -57,6 +57,7 @@ namespace Mr.Chicken
                 u.Email,
                 u.ISConfirmed,
                 u.DateOfRegister,
+                u.DateOfBirth,
                 u.DoesWantRecomendations
             }
           );
@@ -75,7 +76,6 @@ namespace Mr.Chicken
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
                                 
-            int testID = dataGrid.SelectedIndex;
             IDforDeleteUser idWindow = new IDforDeleteUser();
             idWindow.ShowDialog();
             try
@@ -98,14 +98,19 @@ namespace Mr.Chicken
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            //ChangeInfo
-            //Ти маєш витягнути айді виділеного. І визвати Update up = new Update(id); 
-            //Дві кнопки, там має бути, зберегти або видалити
+            try
+            {
             IDforDeleteUser IDWindor = new IDforDeleteUser();
             IDWindor.ShowDialog();
             int ID = IDWindor.GetID();
             EditUserInfo editUserInfo = new EditUserInfo(ID);            
-            editUserInfo.ShowDialog();
+            editUserInfo.ShowDialog();             
+            }
+            catch (Exception)
+            {                
+                MessageBox.Show("Maybe you wrote wrong id.", "ERROR");               
+            }
+            
 
         }
 

@@ -54,7 +54,7 @@ namespace Mr.Chicken
             user.TelegramID = txtTelegramID.Text;
 
             client.UpdateUserInfo(userID, user);
-            MessageBox.Show("Changed");
+            MessageBox.Show("Editing saved","Edit Menu");
             this.Close();
         }
 
