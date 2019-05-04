@@ -13,10 +13,14 @@ namespace IService
 {
     public class ProgrammService:IProgrammService
     {
-        private static string BotToken = "826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE";
-        static MyBot myBotCLient = new MyBot(BotToken);        
+        private string BotToken = "826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE";
+        private MyBot myBotCLient;
         Context context = new Context();
         // List<UserS> users;
+        public ProgrammService()
+        {
+            myBotCLient = new MyBot(BotToken);
+        }
         public string Msg(string msg)
         {
             return msg;

@@ -152,6 +152,18 @@
   <wsdl:message name="IProgrammService_DeleteDishByID_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteDishByIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IProgrammService_StartBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartBot" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_StartBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartBotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_StopBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopBot" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_StopBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopBotResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="Msg">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/Msg" message="tns:IProgrammService_Msg_InputMessage" />
@@ -248,6 +260,14 @@
     <wsdl:operation name="DeleteDishByID">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/DeleteDishByID" message="tns:IProgrammService_DeleteDishByID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/DeleteDishByIDResponse" message="tns:IProgrammService_DeleteDishByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StartBot" message="tns:IProgrammService_StartBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StartBotResponse" message="tns:IProgrammService_StartBot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StopBot" message="tns:IProgrammService_StopBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StopBotResponse" message="tns:IProgrammService_StopBot_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
@@ -461,6 +481,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteDishByID">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/DeleteDishByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartBot">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/StartBot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopBot">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/StopBot" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

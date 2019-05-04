@@ -72,7 +72,7 @@
     <Compile Include="BotPanel.Designer.cs">
       <DependentUpon>BotPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Bot\MyBot.cs" />
+    <Compile Include="Bot\NaN_MyBot.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BotPanel.resx">

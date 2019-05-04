@@ -158,6 +158,18 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteDishByID", ReplyAction="http://tempuri.org/IProgrammService/DeleteDishByIDResponse")]
         System.Threading.Tasks.Task DeleteDishByIDAsync(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartBot", ReplyAction="http://tempuri.org/IProgrammService/StartBotResponse")]
+        void StartBot();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartBot", ReplyAction="http://tempuri.org/IProgrammService/StartBotResponse")]
+        System.Threading.Tasks.Task StartBotAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StopBot", ReplyAction="http://tempuri.org/IProgrammService/StopBotResponse")]
+        void StopBot();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StopBot", ReplyAction="http://tempuri.org/IProgrammService/StopBotResponse")]
+        System.Threading.Tasks.Task StopBotAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -377,6 +389,22 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task DeleteDishByIDAsync(int ID) {
             return base.Channel.DeleteDishByIDAsync(ID);
+        }
+        
+        public void StartBot() {
+            base.Channel.StartBot();
+        }
+        
+        public System.Threading.Tasks.Task StartBotAsync() {
+            return base.Channel.StartBotAsync();
+        }
+        
+        public void StopBot() {
+            base.Channel.StopBot();
+        }
+        
+        public System.Threading.Tasks.Task StopBotAsync() {
+            return base.Channel.StopBotAsync();
         }
     }
 }

@@ -31,16 +31,17 @@ namespace Mr.ChickenBot
 
         private void button1_Click(object sender, EventArgs e)
         {
-            lblStatus.Text = "STATUS ON";
-            if (myBotCLient.IsStarted == false)
-            {
-                myBotCLient.StartBot();
-                txtStatus.Text += $"Bot id: {myBotCLient.ID}. Bot name: {myBotCLient.Name}" + Environment.NewLine;
-            }
-            else
-            {
-                txtStatus.Text += "Bot is started!!!" + Environment.NewLine;
-            }
+            
+            //lblStatus.Text = "STATUS ON";
+            //if (myBotCLient.IsStarted == false)
+            //{
+            //    myBotCLient.StartBot();
+            //    txtStatus.Text += $"Bot id: {myBotCLient.ID}. Bot name: {myBotCLient.Name}" + Environment.NewLine;
+            //}
+            //else
+            //{
+            //    txtStatus.Text += "Bot is started!!!" + Environment.NewLine;
+            //}
         }    
         
         private void button2_Click(object sender, EventArgs e)

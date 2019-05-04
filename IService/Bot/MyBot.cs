@@ -58,13 +58,20 @@ namespace IService.MyBott
 
         private async void button_clickGetMyID(MessageEventArgs e)
         {
-            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки GET_RECIPE");
+            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки GET_MYID");
         }
         private async void button_clickGetRecipe(MessageEventArgs e)
         {
-            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки GET_ID");
+            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки GET_RECIPE");
         }
-
+        private async void button_clickAddProduct(MessageEventArgs e)
+        {
+            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки AddProduct");
+        }
+        private async void button_clickDeleteProduct(MessageEventArgs e)
+        {
+            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки DelleteProduct");
+        }
 
 
         private async void BotClient_OnCallbackQuery(object sender, CallbackQueryEventArgs e)
@@ -94,7 +101,14 @@ namespace IService.MyBott
             {
                 button_clickGetMyID(e);
             }
-
+            if (e.Message.Text == "Add product" + "\U0001F4E6")//Обробка кнопки
+            {
+                button_clickAddProduct(e);
+            }
+            if (e.Message.Text == "Delete product" + "")//Обробка кнопки
+            {
+                button_clickDeleteProduct(e);
+            }
 
             if (message.Type != MessageType.Text || UserMsg == null)
             {

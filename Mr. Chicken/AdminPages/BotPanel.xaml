@@ -23,8 +23,8 @@
         </Grid.ColumnDefinitions>
         <Label Grid.ColumnSpan="3" Foreground="White" FontSize="40" FontWeight="Bold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Telegram Bot Panel</Label>
         <TextBox Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="1" TextWrapping="Wrap" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Visible" AcceptsReturn="True"/>
-        <Button Grid.Row="5" Background="{x:Null}" Foreground="White" FontSize="40">Start</Button>
-        <Button Grid.Row="5" Grid.Column="1" Background="{x:Null}" Foreground="White" FontSize="40">Update</Button>
-        <Button Grid.Row="5" Grid.Column="2" Background="{x:Null}" Foreground="White" FontSize="40">Stop</Button>
+        <Button Grid.Row="5" Background="{x:Null}" Foreground="White" FontSize="40" Click="btnStart_Click">Start</Button>
+        <Button Grid.Row="5" Grid.Column="1" Background="{x:Null}" Foreground="White" FontSize="40" Click="btnUpdate_Click">Update</Button>
+        <Button Grid.Row="5" Grid.Column="2" Background="{x:Null}" Foreground="White" FontSize="40" Click="btnStop_Click">Stop</Button>
     </Grid>
 </Page>

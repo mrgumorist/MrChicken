@@ -20,9 +20,27 @@ namespace Mr.Chicken.AdminPages
     /// </summary>
     public partial class BotPanel : Page
     {
+        ServiceReferenceMrChicken.ProgrammServiceClient client = 
+            new ServiceReferenceMrChicken.ProgrammServiceClient();
+
         public BotPanel()
         {
             InitializeComponent();
+        }
+
+       
+        private async void btnStart_Click(object sender, RoutedEventArgs e)
+        {
+            await client.StartBotAsync();
+        }
+
+        private async void btnUpdate_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private async void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            await client.StopBotAsync();
         }
     }
 }
