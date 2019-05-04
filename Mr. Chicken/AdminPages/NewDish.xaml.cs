@@ -35,17 +35,14 @@ namespace Mr.Chicken.AdminPages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //File dialog
-            System.Windows.Forms.OpenFileDialog choofdlog = new System.Windows.Forms.OpenFileDialog
-            {
-                Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp",
-                FilterIndex = 1,
-                Multiselect = true
-            
-            };
+           System.Windows.Forms.OpenFileDialog choofdlog = new System.Windows.Forms.OpenFileDialog();
+            choofdlog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            choofdlog.FilterIndex = 1;
             Bytes = null;
+            choofdlog.Multiselect = true;
             choofdlog.ShowDialog();
 
-            if (File.Exists(choofdlog.FileName))
+            if(File.Exists(choofdlog.FileName))
             {
                 using (FileStream fs = new FileStream(choofdlog.FileName, FileMode.Open, FileAccess.Read))
                 {
