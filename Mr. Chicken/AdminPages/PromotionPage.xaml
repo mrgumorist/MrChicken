@@ -34,7 +34,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Label Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Grid.ColumnSpan="4">Text For Promotion</Label>
-            <TextBox Name="PromotionText" Grid.Row="1" Background="{x:Null}" Foreground="White" Grid.ColumnSpan="4" Grid.RowSpan="3" TextWrapping="Wrap" AcceptsReturn="True" ></TextBox>
+            <TextBox ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" Name="PromotionText" Grid.Row="1" Background="{x:Null}" Foreground="White" Grid.ColumnSpan="4" Grid.RowSpan="3" TextWrapping="Wrap" AcceptsReturn="True" ></TextBox>
             <Label Grid.Row="4" Foreground="White" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="30" Grid.ColumnSpan="4">Who is receiver</Label>
             <ComboBox  Grid.Row="5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" Grid.ColumnSpan="4" Margin="5,0,5,20">
                 <ComboBoxItem Content="All"></ComboBoxItem>

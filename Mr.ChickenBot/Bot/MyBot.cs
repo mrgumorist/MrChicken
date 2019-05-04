@@ -1,77 +1,104 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Telegram.Bot;
 using Telegram.Bot.Args;
-using Telegram.Bot.Types;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
 
 namespace Mr.ChickenBot
 {
-    public partial class Form1 : Form
+    class MyBot
     {
         private static ITelegramBotClient botClient;
-        private string BotToken = "826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE";
-            //ServiceReferenceMrChickenBot.ProgrammServiceClient client =
-            //    new ServiceReferenceMrChickenBot.ProgrammServiceClient();
-
-        public Form1()
+        string statusMsg;
+        string botToken;
+        bool isStarted;
+        public bool IsStarted
         {
-            InitializeComponent();
-        }                
-        
-        private void button1_Click(object sender, EventArgs e)
+            get { return isStarted; }
+        }
+        Telegram.Bot.Types.User me;
+        public string StatusMsg
         {
-            lblStatus.Text = "STATUS ON";
-           
-            botClient = new TelegramBotClient(BotToken) { Timeout = TimeSpan.FromSeconds(10) };
-            var me = botClient.GetMeAsync().Result;
-            txtStatus.Text += $"Bot id: {me.Id}. Bot name: {me.FirstName}" + Environment.NewLine;
+            get { return statusMsg; }
+        }
+        public string BotToken
+        {
+            get { return botToken; }
+            set { botToken = value; }
+        }
+        public int ID
+        {
+            get { return me.Id; }          
+        }
+        public string Name
+        {
+            get { return me.FirstName; }
+        }
 
+        public MyBot(string botToken)
+        {
+            this.botToken = botToken;
+            botClient = new TelegramBotClient(botToken) { Timeout = TimeSpan.FromSeconds(10) };
+            me = botClient.GetMeAsync().Result;
+        }        
+
+        public void StartBot()
+        {
+            isStarted = true;
             botClient.OnMessage += Bot_OnMessage;
             botClient.OnCallbackQuery += BotClient_OnCallbackQuery;
-           
+
             botClient.StartReceiving();
-        }       
+        }
+
+        private async void BotClient_OnCallbackQuery(object sender, CallbackQueryEventArgs e)
+        {
+            string buttonText = e.CallbackQuery.Data;
+            string name = $"{e.CallbackQuery.From.FirstName} {e.CallbackQuery.From.LastName}";
+            statusMsg += $"{name} нажав на кнопку {buttonText}" + Environment.NewLine;
+
+            if (buttonText == "puts1")
+            {
+                await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Fuck you");
+            }
+            await botClient.AnswerCallbackQueryAsync(e.CallbackQuery.Id, $"Ви нажали на кнопку {buttonText}");
+        }
+
         private async void Bot_OnMessage(object sender, MessageEventArgs e)
         {
             var UserMsg = e?.Message?.Text;
-            var message = e.Message;           
+            var message = e.Message;
             int UserId = e.Message.From.Id;
 
             if (e.Message.Text == "Get the recipe" + "\U0001F34F")//Обробка кнопки
             {
                 await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки:)");
             }
-            
+
 
             if (message.Type != MessageType.Text || UserMsg == null)
             {
                 return;
-            }           
+            }
             string UserName = $"{message.From.FirstName} {message.From.LastName}";
 
-            txtStatus.Text += $"{UserName} відправив: {UserMsg} "
+            statusMsg += $"{UserName} відправив: {UserMsg} "
                 + $" ID користувача : {UserId}" + Environment.NewLine;
 
             switch (message.Text)
             {
-                
+
                 case "/start":
                     string text =
                         @"Список команд:
                           /start - запуск бота
                           /inline - вивід меню
                           /keyboard - вивід клавіатури";
-                    await botClient.SendTextMessageAsync(message.Chat.Id, text); 
+                    await botClient.SendTextMessageAsync(message.Chat.Id, text);
                     break;
                 case "/inline":
                     var InlineKeyboard = new InlineKeyboardMarkup(new[]
@@ -88,7 +115,7 @@ namespace Mr.ChickenBot
 
                         }
                     });
-                    await botClient.SendTextMessageAsync(message.Chat.Id, "Виберіть пункт меню", 
+                    await botClient.SendTextMessageAsync(message.Chat.Id, "Виберіть пункт меню",
                         replyMarkup: InlineKeyboard);
                     break;
                 case "/keyboard":
@@ -102,18 +129,18 @@ namespace Mr.ChickenBot
                         new[]
                         {
                             new KeyboardButton("Get my ID"+"") ,
-                            new KeyboardButton("Delete product"+"") 
+                            new KeyboardButton("Delete product"+"")
                         }
-                        
-                        
-                    });                    
+
+
+                    });
                     await botClient.SendTextMessageAsync(message.Chat.Id, "Повідомлення",
-                        replyMarkup: replyKeyboard);                             
+                        replyMarkup: replyKeyboard);
                     break;
                 case "/created":
                     await botClient.SendTextMessageAsync(message.Chat.Id, "©Mr.Chicken");
                     break;
-                default:                   
+                default:
                     //var responce = apiAi.TextRequest(message.Text);
                     //string answer = responce.Result.Fulfillment.Speech;
                     //if (answer == "")
@@ -129,28 +156,10 @@ namespace Mr.ChickenBot
             //    text: $"Будь ласка не надсилайте повідомлення, це може зламати бота xD!"
             //).ConfigureAwait(false);
         }
-
-        
-
-        private async void BotClient_OnCallbackQuery(object sender, CallbackQueryEventArgs e)
+        public void Stop()
         {
-            string buttonText = e.CallbackQuery.Data;
-            string name = $"{e.CallbackQuery.From.FirstName} {e.CallbackQuery.From.LastName}";
-            txtStatus.Text += $"{name} нажав на кнопку {buttonText}";
-
-            if(buttonText == "puts1")
-            {
-                await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Fuck you");
-            }
-            await botClient.AnswerCallbackQueryAsync(e.CallbackQuery.Id, $"Ви нажали на кнопку {buttonText}");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            lblStatus.Text = "STATUS OFFED";
-            txtStatus.Text += Environment.NewLine + "BOT STOPED" +Environment.NewLine;
+            isStarted = false;
             botClient.StopReceiving();
-            
         }
     }
 }
