@@ -35,17 +35,14 @@ namespace Mr.Chicken.AdminPages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //File dialog
-            System.Windows.Forms.OpenFileDialog choofdlog = new System.Windows.Forms.OpenFileDialog
-            {
-                Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp",
-                FilterIndex = 1,
-                Multiselect = true
-            
-            };
+           System.Windows.Forms.OpenFileDialog choofdlog = new System.Windows.Forms.OpenFileDialog();
+            choofdlog.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            choofdlog.FilterIndex = 1;
             Bytes = null;
+            choofdlog.Multiselect = true;
             choofdlog.ShowDialog();
 
-            if (File.Exists(choofdlog.FileName))
+            if(File.Exists(choofdlog.FileName))
             {
                 using (FileStream fs = new FileStream(choofdlog.FileName, FileMode.Open, FileAccess.Read))
                 {
@@ -69,9 +66,9 @@ namespace Mr.Chicken.AdminPages
         private async void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Create
-            if(Name.Text!=""&&Recept.Text!= "" && Littledescription.Text!= "" && Bytes!=null)
+            if (Name.Text != "" && Recept.Text != "" && Littledescription.Text != "" && Bytes != null)
             {
-               DishS dish =  (await client.GetEmptyDishSAsync());
+                DishS dish = (await client.GetEmptyDishSAsync());
                 dish.Image = Bytes;
                 dish.LittleDescription = Littledescription.Text;
                 dish.Name = Name.Text;
@@ -90,7 +87,7 @@ namespace Mr.Chicken.AdminPages
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             //Clear all
-            Name.Text = "";
+            Name.Text = ""; 
             Recept.Text = "";
             Littledescription.Text = "";
             Bytes = null;
