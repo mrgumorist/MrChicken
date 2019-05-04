@@ -22,9 +22,9 @@
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
                 <DataGridTextColumn Width="60" Header="ID" Binding="{Binding ID}" IsReadOnly="True"></DataGridTextColumn>
-                <DataGridTextColumn  Width="*" Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
-                <DataGridTextColumn  Width="1.5*" Header="LittleDescription" Binding="{Binding LittleDescription}"></DataGridTextColumn>
-                <DataGridTextColumn  Width="*" Header="Recept" Binding="{Binding Recept}"></DataGridTextColumn>
+                <DataGridTextColumn  Width="*" Header="Name" Binding="{Binding Name}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn  Width="1.5*" Header="LittleDescription" Binding="{Binding LittleDescription}" IsReadOnly="True"></DataGridTextColumn>
+                <DataGridTextColumn  Width="*" Header="Recept" Binding="{Binding Recept}" IsReadOnly="True"></DataGridTextColumn>
                 <DataGridTemplateColumn  Width="*" Header="Image" IsReadOnly="True">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
