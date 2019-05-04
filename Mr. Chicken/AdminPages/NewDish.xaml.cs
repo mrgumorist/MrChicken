@@ -90,7 +90,7 @@ namespace Mr.Chicken.AdminPages
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             //Clear all
-            Name.Text = "";
+            Name.Text = ""; 
             Recept.Text = "";
             Littledescription.Text = "";
             Bytes = null;
