@@ -105,5 +105,23 @@ namespace Mr.Chicken.AdminPages
             }
             Load();
         }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            string str = Text.Text;
+            bool finded = false;
+            foreach (var item in productS)
+            {
+                if (item.Name.ToLower().Contains(Text.Text.ToLower()))
+                {
+                    finded = true;
+                    break;
+                }
+            }
+            if(finded!=false)
+            {
+                MessageBox.Show("This item already exist");
+            }
+        }
     }
 }
