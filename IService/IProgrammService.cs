@@ -69,6 +69,8 @@ namespace IService
         [OperationContract]
         string GetStatusMsg();
         [OperationContract]
+        List<string> GetUsersTelegramID();
+        [OperationContract]
         void AddIntermidiate(IntermediateS[] list);
     }
 }

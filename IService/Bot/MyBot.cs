@@ -11,7 +11,7 @@ using Telegram.Bot.Types.ReplyMarkups;
 namespace IService.MyBott
 {
     public class MyBot
-    {
+    {       
         private static ITelegramBotClient botClient;
         string statusMsg;
         string botToken;
@@ -79,10 +79,9 @@ namespace IService.MyBott
             string buttonText = e.CallbackQuery.Data;
             string name = $"{e.CallbackQuery.From.FirstName} {e.CallbackQuery.From.LastName}";
             statusMsg += $"{name} нажав на кнопку {buttonText}" + Environment.NewLine;
-
             if (buttonText == "Puts1")
             {
-                await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Fuck you");
+                await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Puts1");
             }
             await botClient.AnswerCallbackQueryAsync(e.CallbackQuery.Id, $"Ви нажали на кнопку {buttonText}");
         }
@@ -120,7 +119,6 @@ namespace IService.MyBott
 
             switch (message.Text)
             {
-
                 case "/start":
                     string text =
                         @"Список команд:

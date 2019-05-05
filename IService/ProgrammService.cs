@@ -228,6 +228,14 @@ namespace IService
             string msg = myBotCLient.StatusMsg;
             return msg;
         }
+        public List<string> GetUsersTelegramID()
+        {
+            
+            List<string> TelegramId = new List<string>();
+            
+            return TelegramId;
+           
+        }
         public void AddIntermidiate(IntermediateS[] list)
         {
             List<Intermediate> inter = new List<Intermediate>();

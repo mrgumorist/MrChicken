@@ -36,8 +36,9 @@ namespace Mr.Chicken.AdminPages
         }
 
         private async void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {
-            await client.StopBotAsync();
+        {           
+                txtStatus.Text += "Status: "+ await client.GetStatusMsgAsync() +Environment.NewLine;     
+            
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -49,6 +50,7 @@ namespace Mr.Chicken.AdminPages
 
         private async void txtStatus_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
         }
     }
 }
