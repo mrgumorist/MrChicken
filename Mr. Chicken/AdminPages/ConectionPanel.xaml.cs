@@ -98,6 +98,28 @@ namespace Mr.Chicken.AdminPages
             Displayy.ItemsSource = dishes;
             Displaying.ItemsSource = products;
         }
+
+        private void Button_Click_3(object sender, RoutedEventArgs e)
+        {
+            string str=Text.Text;
+            var productss = new List<TempProduct>();
+            if (str != "")
+            {
+                foreach (var item in products)
+                {
+                    if (item.Name.Contains(str))
+                    {
+                        productss.Add(item);
+                    }
+                }
+                Displaying.ItemsSource = productss;
+            }
+            else
+            {
+                Displaying.ItemsSource = products;
+            }
+            str = "";
+        }
     }
     public class TempProduct
     {
