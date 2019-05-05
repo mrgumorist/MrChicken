@@ -12,6 +12,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="41*"/>
+            <RowDefinition Height="41"/>
         </Grid.RowDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -33,5 +34,14 @@
                 <DataGridTextColumn  FontSize="20" Width="*"  Header="Name" Binding="{Binding Path=Name}" ></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button  Background="{x:Null}" Foreground="White" FontSize="25" Click="Button_Click_2">Find</Button>
+            <TextBox Name="Text" Background="{x:Null}" FontSize="25"></TextBox>
+        </Grid>
+      
     </Grid>
 </Page>
