@@ -280,7 +280,7 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetStatusMsgResponse" message="tns:IProgrammService_GetStatusMsg_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
+  <wsdl:binding name="basicHttpBindingg" type="tns:IProgrammService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Msg">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/Msg" style="document" />
@@ -527,7 +527,7 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ProgrammService">
-    <wsdl:port name="BasicHttpBinding_IProgrammService" binding="tns:BasicHttpBinding_IProgrammService">
+    <wsdl:port name="basicHttpBindingg" binding="tns:basicHttpBindingg">
       <soap:address location="http://localhost:8099/IService" />
     </wsdl:port>
   </wsdl:service>
