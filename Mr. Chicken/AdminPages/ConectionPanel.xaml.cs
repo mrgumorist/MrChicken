@@ -48,7 +48,7 @@ namespace Mr.Chicken.AdminPages
             var prod = await client.GetProductSSAsync();
             foreach (var item in prod)
             {
-                products.Add(new TempProduct() { ID=item.ID, Name=item.Name });
+                products.Add(new TempProduct() { ProdID = item.ID, Name=item.Name });
             }
             Displaying.ItemsSource = products;
         }
@@ -56,23 +56,25 @@ namespace Mr.Chicken.AdminPages
         {
             DishS classObj = Displayy.SelectedItem as DishS;
             ID= classObj.ID;
-            Displayy.IsEnabled = true;
+            Displayy.IsEnabled = false;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Displayy.IsEnabled = false;
+            Displayy.IsEnabled = true;
             ID = -1;
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             //Cancel checking
+            Displaying.IsEnabled = true;
             foreach (var item in products)
             {
                 item.IsCheked = false;
             }
             Displaying.ItemsSource = products;
+
         }
 
         private async void Button_Click_2(object sender, RoutedEventArgs e)
@@ -81,12 +83,12 @@ namespace Mr.Chicken.AdminPages
             List<IntermediateS> intermediateS = new List<IntermediateS>();
             foreach (var item in products)
             {
-                intermediateS.Add(new IntermediateS() { DishID = ID, ProductID = item.ID });
+                intermediateS.Add(new IntermediateS() { DishID = ID, ProductID = item.ProdID });
             }
             var arr = intermediateS.ToArray();
             await client.AddIntermidiateAsync(arr);
-            Displayy.IsEnabled = false;
-            Displaying.IsEnabled = false;
+            Displayy.IsEnabled = true;
+            Displaying.IsEnabled = true;
             foreach (var item in products)
             {
                 item.IsCheked = false;
@@ -103,7 +105,7 @@ namespace Mr.Chicken.AdminPages
         {
 
         }
-        public int ID { get; set;  }
+        public int ProdID { get; set;  }
         public bool IsCheked { get; set; } = false;
         public string Name { get; set; }
     }

@@ -232,7 +232,14 @@ namespace IService
         {
             
             List<string> TelegramId = new List<string>();
-            
+            foreach (var item in context.users)
+            {
+                if (item.TelegramID != "-")
+                {
+                    TelegramId.Add(item.TelegramID);
+                }
+                
+            }
             return TelegramId;
            
         }
@@ -242,7 +249,7 @@ namespace IService
             foreach (var item in list)
             {
                 Intermediate intermediate = new Intermediate();
-                intermediate.ProductID = item.DishID;
+                intermediate.ProductID = item.ProductID;
                 intermediate.DishID = item.DishID;
                 inter.Add(intermediate);
             }
