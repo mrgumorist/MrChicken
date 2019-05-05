@@ -97,7 +97,7 @@ namespace Mr.Chicken.AdminPages
             
             MessageBox.Show("Succesfull aded");
             Displayy.ItemsSource = dishes;
-            Displaying.ItemsSource = products;
+            Displaying.ItemsSource = products; 
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
