@@ -24,9 +24,9 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}" IsReadOnly="False"></DataGridTextColumn>
-                </DataGrid.Columns>
-           
+                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}" IsReadOnly="False"></DataGridTextColumn>
+            </DataGrid.Columns>
+
         </DataGrid>
         <DataGrid RowHeight="30" Name="Displaying" IsReadOnly="False" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="1" Background="{x:Null}" CanUserDeleteRows="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
@@ -38,5 +38,14 @@
         <Button Background="{x:Null}" Foreground="White" FontSize="40" FontWeight="Bold" Click="Button_Click">Cancel Selecting</Button>
         <Button Background="{x:Null}" Grid.Column="1" Foreground="White" FontSize="40" FontWeight="Bold" Click="Button_Click_1">Cancel Checking</Button>
         <Button Background="{x:Null}" Grid.Row="2" Foreground="White" FontSize="40" FontWeight="Bold" Click="Button_Click_2">AddProducts</Button>
+        <Grid Grid.Column="1" Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="269*"/>
+                <ColumnDefinition Width="131*"/>
+
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Background="{x:Null}" Foreground="White" FontSize="25" Click="Button_Click_3">Find</Button>
+            <TextBox Name="Text" Background="{x:Null}" FontSize="25"></TextBox>
+        </Grid>
     </Grid>
 </Page>
