@@ -83,6 +83,7 @@ namespace Mr.Chicken.AdminPages
             List<IntermediateS> intermediateS = new List<IntermediateS>();
             foreach (var item in products)
             {
+                if(item.IsCheked==true)
                 intermediateS.Add(new IntermediateS() { DishID = ID, ProductID = item.ProdID });
             }
             var arr = intermediateS.ToArray();
