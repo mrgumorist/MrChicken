@@ -177,6 +177,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetStatusMsg", ReplyAction="http://tempuri.org/IProgrammService/GetStatusMsgResponse")]
         System.Threading.Tasks.Task<string> GetStatusMsgAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsersTelegramID", ReplyAction="http://tempuri.org/IProgrammService/GetUsersTelegramIDResponse")]
+        string[] GetUsersTelegramID();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsersTelegramID", ReplyAction="http://tempuri.org/IProgrammService/GetUsersTelegramIDResponse")]
+        System.Threading.Tasks.Task<string[]> GetUsersTelegramIDAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiate", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiateResponse")]
         void AddIntermidiate(IService.EntitiesReturn.IntermediateS[] list);
         
@@ -425,6 +431,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<string> GetStatusMsgAsync() {
             return base.Channel.GetStatusMsgAsync();
+        }
+        
+        public string[] GetUsersTelegramID() {
+            return base.Channel.GetUsersTelegramID();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetUsersTelegramIDAsync() {
+            return base.Channel.GetUsersTelegramIDAsync();
         }
         
         public void AddIntermidiate(IService.EntitiesReturn.IntermediateS[] list) {

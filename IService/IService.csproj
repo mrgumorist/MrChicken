@@ -56,6 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bot\BotOnOf.cs" />
     <Compile Include="Bot\MyBot.cs" />
     <Compile Include="EntitiesReturn\DishS.cs" />
     <Compile Include="EntitiesReturn\EmailAcceptS.cs" />

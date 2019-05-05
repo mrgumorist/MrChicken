@@ -337,10 +337,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetUsersTelegramID">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersTelegramIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetUsersTelegramIDResult" nillable="true" type="q18:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddIntermidiate">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="list" nillable="true" type="q18:ArrayOfIntermediateS" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="list" nillable="true" type="q19:ArrayOfIntermediateS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
