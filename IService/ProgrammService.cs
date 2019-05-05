@@ -228,5 +228,18 @@ namespace IService
             string msg = myBotCLient.StatusMsg;
             return msg;
         }
+        public void AddIntermidiate(IntermediateS[] list)
+        {
+            List<Intermediate> inter = new List<Intermediate>();
+            foreach (var item in list)
+            {
+                Intermediate intermediate = new Intermediate();
+                intermediate.ProductID = item.DishID;
+                intermediate.DishID = item.DishID;
+                inter.Add(intermediate);
+            }
+            context.intermediate.AddRange(inter);
+            context.SaveChanges();
+        }
     }
 }

@@ -1,5 +1,8 @@
-﻿using System;
+﻿using IService.EntitiesReturn;
+using Mr.Chicken.ServiceReferenceMrChicken;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +23,88 @@ namespace Mr.Chicken.AdminPages
     /// </summary>
     public partial class ConectionPanel : Page
     {
+        ObservableCollection<DishS> dishes = new ObservableCollection<DishS>();
+        ProgrammServiceClient client = new ProgrammServiceClient();
+        List<TempProduct> products = new List<TempProduct>();
+       
+        int ID =-1;
         public ConectionPanel()
         {
             InitializeComponent();
+            GetAsync();
         }
+        private async void  GetAsync()
+        {
+            dishes.Clear();
+            products.Clear();
+            Displaying.ItemsSource = null;
+            Displayy.ItemsSource = null;
+            var list = await client.GetDishesSAsync();
+            foreach (var item in list)
+            {
+                dishes.Add(item);
+            }
+            Displayy.ItemsSource = dishes;
+            var prod = await client.GetProductSSAsync();
+            foreach (var item in prod)
+            {
+                products.Add(new TempProduct() { ID=item.ID, Name=item.Name });
+            }
+            Displaying.ItemsSource = products;
+        }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            DishS classObj = Displayy.SelectedItem as DishS;
+            ID= classObj.ID;
+            Displayy.IsEnabled = true;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Displayy.IsEnabled = false;
+            ID = -1;
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Cancel checking
+            foreach (var item in products)
+            {
+                item.IsCheked = false;
+            }
+            Displaying.ItemsSource = products;
+        }
+
+        private async void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            //Add Products
+            List<IntermediateS> intermediateS = new List<IntermediateS>();
+            foreach (var item in products)
+            {
+                intermediateS.Add(new IntermediateS() { DishID = ID, ProductID = item.ID });
+            }
+            var arr = intermediateS.ToArray();
+            await client.AddIntermidiateAsync(arr);
+            Displayy.IsEnabled = false;
+            Displaying.IsEnabled = false;
+            foreach (var item in products)
+            {
+                item.IsCheked = false;
+            }
+            
+            MessageBox.Show("Succesfull aded");
+            Displayy.ItemsSource = dishes;
+            Displaying.ItemsSource = products;
+        }
+    }
+    public class TempProduct
+    {
+        public TempProduct()
+        {
+
+        }
+        public int ID { get; set;  }
+        public bool IsCheked { get; set; } = false;
+        public string Name { get; set; }
     }
 }

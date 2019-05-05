@@ -60,6 +60,7 @@ namespace Mr.Chicken
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
             MainFrame.Content = null;
+            MainFrame.Content = new ConectionPanel();
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)

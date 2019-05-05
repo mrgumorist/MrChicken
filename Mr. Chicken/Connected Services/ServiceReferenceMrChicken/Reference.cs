@@ -176,6 +176,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetStatusMsg", ReplyAction="http://tempuri.org/IProgrammService/GetStatusMsgResponse")]
         System.Threading.Tasks.Task<string> GetStatusMsgAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiate", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiateResponse")]
+        void AddIntermidiate(IService.EntitiesReturn.IntermediateS[] list);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiate", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiateResponse")]
+        System.Threading.Tasks.Task AddIntermidiateAsync(IService.EntitiesReturn.IntermediateS[] list);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -419,6 +425,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task<string> GetStatusMsgAsync() {
             return base.Channel.GetStatusMsgAsync();
+        }
+        
+        public void AddIntermidiate(IService.EntitiesReturn.IntermediateS[] list) {
+            base.Channel.AddIntermidiate(list);
+        }
+        
+        public System.Threading.Tasks.Task AddIntermidiateAsync(IService.EntitiesReturn.IntermediateS[] list) {
+            return base.Channel.AddIntermidiateAsync(list);
         }
     }
 }

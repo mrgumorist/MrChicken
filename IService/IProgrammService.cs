@@ -68,5 +68,7 @@ namespace IService
         void StopBot();
         [OperationContract]
         string GetStatusMsg();
+        [OperationContract]
+        void AddIntermidiate(IntermediateS[] list);
     }
 }
