@@ -71,6 +71,6 @@ namespace IService
         [OperationContract]
         List<string> GetUsersTelegramID();
         [OperationContract]
-        void AddIntermidiate(IntermediateS[] list);
+        void AddIntermidiatef(IntermediateS[] list);
     }
 }

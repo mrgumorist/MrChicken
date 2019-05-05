@@ -349,14 +349,14 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddIntermidiate">
+  <xs:element name="AddIntermidiatef">
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/IService.EntitiesReturn" minOccurs="0" name="list" nillable="true" type="q19:ArrayOfIntermediateS" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="AddIntermidiateResponse">
+  <xs:element name="AddIntermidiatefResponse">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>

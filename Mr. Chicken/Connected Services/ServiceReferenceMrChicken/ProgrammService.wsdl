@@ -176,11 +176,11 @@
   <wsdl:message name="IProgrammService_GetUsersTelegramID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetUsersTelegramIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_AddIntermidiate_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddIntermidiate" />
+  <wsdl:message name="IProgrammService_AddIntermidiatef_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddIntermidiatef" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_AddIntermidiate_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddIntermidiateResponse" />
+  <wsdl:message name="IProgrammService_AddIntermidiatef_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddIntermidiatefResponse" />
   </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="Msg">
@@ -295,9 +295,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetUsersTelegramID" message="tns:IProgrammService_GetUsersTelegramID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetUsersTelegramIDResponse" message="tns:IProgrammService_GetUsersTelegramID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="AddIntermidiate">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiate" message="tns:IProgrammService_AddIntermidiate_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiateResponse" message="tns:IProgrammService_AddIntermidiate_OutputMessage" />
+    <wsdl:operation name="AddIntermidiatef">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiatef" message="tns:IProgrammService_AddIntermidiatef_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiatefResponse" message="tns:IProgrammService_AddIntermidiatef_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="basicHttpBindingg" type="tns:IProgrammService">
@@ -554,8 +554,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="AddIntermidiate">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/AddIntermidiate" style="document" />
+    <wsdl:operation name="AddIntermidiatef">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/AddIntermidiatef" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

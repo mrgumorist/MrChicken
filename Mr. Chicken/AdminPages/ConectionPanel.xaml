@@ -24,14 +24,20 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}" IsReadOnly="False"></DataGridTextColumn>
+                <DataGridTextColumn Width="*" Header="Name" Binding="{Binding Name}" IsReadOnly="True"></DataGridTextColumn>
             </DataGrid.Columns>
 
         </DataGrid>
         <DataGrid RowHeight="30" Name="Displaying" IsReadOnly="False" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="1" Background="{x:Null}" CanUserDeleteRows="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn  Width="2*"  Header="Name" Binding="{Binding Name}" IsReadOnly="False"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Header="Add"  Binding="{Binding IsChecked}" Width="*"></DataGridCheckBoxColumn>
+                <DataGridCheckBoxColumn Header="Add"  Binding="{Binding IsChecked}" Width="*" IsReadOnly="False">
+                    <DataGridCheckBoxColumn.CellStyle>
+                    <Style>
+                            <EventSetter Event="CheckBox.Checked" Handler="OnChecked"/>
+                        </Style>
+                    </DataGridCheckBoxColumn.CellStyle>
+                </DataGridCheckBoxColumn>
             </DataGrid.Columns>
 
         </DataGrid>

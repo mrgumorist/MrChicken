@@ -28,7 +28,7 @@ namespace Mr.Chicken
         void Clear()
         {
             Login.Text = "";
-            Password.Password = null;
+            Password.Password = "";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

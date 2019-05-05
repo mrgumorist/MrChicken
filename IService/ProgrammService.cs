@@ -243,17 +243,17 @@ namespace IService
             return TelegramId;
            
         }
-        public void AddIntermidiate(IntermediateS[] list)
+        public void AddIntermidiatef(IntermediateS[] list)
         {
-            List<Intermediate> inter = new List<Intermediate>();
+         
             foreach (var item in list)
             {
                 Intermediate intermediate = new Intermediate();
                 intermediate.ProductID = item.ProductID;
                 intermediate.DishID = item.DishID;
-                inter.Add(intermediate);
+                context.intermediate.Add(intermediate);
             }
-            context.intermediate.AddRange(inter);
+            
             context.SaveChanges();
         }
     }
