@@ -12,15 +12,11 @@ using IService.MyBott;
 namespace IService
 {
     public class ProgrammService:IProgrammService
-    {
-        private string BotToken = "826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE";
-        private MyBot myBotCLient;
+    {        
+        private MyBot myBotCLient = new MyBot("826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE");
         Context context = new Context();
         // List<UserS> users;
-        public ProgrammService()
-        {
-            myBotCLient = new MyBot(BotToken);
-        }
+        
         public string Msg(string msg)
         {
             return msg;
@@ -223,9 +219,14 @@ namespace IService
             myBotCLient.StartBot();
         }
         public void StopBot()
-        {
+        {            
             if(myBotCLient.IsStarted==true)
             myBotCLient.Stop();
+        }
+        public string GetStatusMsg()
+        {
+            string msg = myBotCLient.StatusMsg;
+            return msg;
         }
     }
 }

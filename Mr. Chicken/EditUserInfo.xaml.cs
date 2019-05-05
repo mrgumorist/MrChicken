@@ -36,7 +36,7 @@ namespace Mr.Chicken
         {
             var user = client.GetUser(userID);
             txtEmail.Text = user.Email;
-            txtLogin.Text = user.Password;
+            txtLogin.Text = user.Login;
             txtName.Text = user.Name;
             txtPassword.Text = user.Password;
             txtSurname.Text = user.Surname;

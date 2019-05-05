@@ -25,10 +25,10 @@ namespace Mr.Chicken.AdminPages
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private async void Button_Click(object sender, RoutedEventArgs e)
         {
             //TO DO client.StartPromotionBot(string message);
-
+            //await
         }
     }
 }

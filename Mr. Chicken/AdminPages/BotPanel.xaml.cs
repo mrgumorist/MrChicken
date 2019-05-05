@@ -32,11 +32,12 @@ namespace Mr.Chicken.AdminPages
         private async void btnStart_Click(object sender, RoutedEventArgs e)
         {
             await client.StartBotAsync();
+            txtStatus.Text += "BOT STARTED "+DateTime.Now + Environment.NewLine;
         }
 
         private async void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
-
+            await client.StopBotAsync();
         }
 
         private void btnStop_Click(object sender, RoutedEventArgs e)
@@ -44,6 +45,10 @@ namespace Mr.Chicken.AdminPages
             //await client.StopBotAsync();
             BotPromotion promotion = new BotPromotion();
             promotion.ShowDialog();
+        }
+
+        private async void txtStatus_TextChanged(object sender, TextChangedEventArgs e)
+        {
         }
     }
 }

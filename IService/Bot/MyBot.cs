@@ -20,7 +20,7 @@ namespace IService.MyBott
         {
             get { return isStarted; }
         }
-        Telegram.Bot.Types.User me;
+        static Telegram.Bot.Types.User me;
         public string StatusMsg
         {
             get { return statusMsg; }
@@ -31,34 +31,34 @@ namespace IService.MyBott
             set { botToken = value; }
         }
         public int ID
-        {
-            get { return me.Id; }
-        }
-        public string Name
-        {
-            get { return me.FirstName; }
-        }
-
-        public MyBot(string botToken)
-        {
-            this.botToken = botToken;
-            botClient = new TelegramBotClient(botToken) { Timeout = TimeSpan.FromSeconds(10) };
-            me = botClient.GetMeAsync().Result;
-            StartBot();
-        }
-
-        public void StartBot()
-        {
-            isStarted = true;
-            botClient.OnMessage += Bot_OnMessage;
-            botClient.OnCallbackQuery += BotClient_OnCallbackQuery;
-
-            botClient.StartReceiving();
-        }
-
-        private async void button_clickGetMyID(MessageEventArgs e)
-        {
-            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки GET_MYID");
+     {
+         get { return me.Id; }
+     }
+     public string Name
+     {
+         get { return me.FirstName; }
+     }
+     public MyBot(string botToken)
+     {
+         this.botToken = botToken;
+         botClient = new TelegramBotClient(botToken) { Timeout = TimeSpan.FromSeconds(10) };
+         me = botClient.GetMeAsync().Result;
+         //StartBot();
+     }
+     
+    
+     public void StartBot()
+     {
+         isStarted = true;
+         botClient.OnMessage += Bot_OnMessage;
+         botClient.OnCallbackQuery += BotClient_OnCallbackQuery;
+    
+         botClient.StartReceiving();
+     }
+    
+     private async void button_clickGetMyID(MessageEventArgs e)
+     {           
+            await botClient.SendTextMessageAsync(e.Message.Chat.Id, $"Your ID: {e.Message.From.Id}");
         }
         private async void button_clickGetRecipe(MessageEventArgs e)
         {
@@ -190,7 +190,7 @@ namespace IService.MyBott
         public void Stop()
         {
             isStarted = false;
-            botClient.StopReceiving();
+            botClient.StopReceiving();       
         }
     }
 }

@@ -170,6 +170,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StopBot", ReplyAction="http://tempuri.org/IProgrammService/StopBotResponse")]
         System.Threading.Tasks.Task StopBotAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetStatusMsg", ReplyAction="http://tempuri.org/IProgrammService/GetStatusMsgResponse")]
+        string GetStatusMsg();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetStatusMsg", ReplyAction="http://tempuri.org/IProgrammService/GetStatusMsgResponse")]
+        System.Threading.Tasks.Task<string> GetStatusMsgAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -405,6 +411,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task StopBotAsync() {
             return base.Channel.StopBotAsync();
+        }
+        
+        public string GetStatusMsg() {
+            return base.Channel.GetStatusMsg();
+        }
+        
+        public System.Threading.Tasks.Task<string> GetStatusMsgAsync() {
+            return base.Channel.GetStatusMsgAsync();
         }
     }
 }

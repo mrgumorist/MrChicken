@@ -164,6 +164,12 @@
   <wsdl:message name="IProgrammService_StopBot_OutputMessage">
     <wsdl:part name="parameters" element="tns:StopBotResponse" />
   </wsdl:message>
+  <wsdl:message name="IProgrammService_GetStatusMsg_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusMsg" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_GetStatusMsg_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusMsgResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="Msg">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/Msg" message="tns:IProgrammService_Msg_InputMessage" />
@@ -268,6 +274,10 @@
     <wsdl:operation name="StopBot">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StopBot" message="tns:IProgrammService_StopBot_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StopBotResponse" message="tns:IProgrammService_StopBot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusMsg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetStatusMsg" message="tns:IProgrammService_GetStatusMsg_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetStatusMsgResponse" message="tns:IProgrammService_GetStatusMsg_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IProgrammService" type="tns:IProgrammService">
@@ -499,6 +509,15 @@
     </wsdl:operation>
     <wsdl:operation name="StopBot">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/StopBot" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusMsg">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetStatusMsg" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -77,7 +77,7 @@ namespace Mr.Chicken.AdminPages
                 dish.Name = Name.Text;
                 dish.Recept = Recept.Text;
                 dish.TypeID = 4;
-                await client.AddDishSAsync(dish);
+                client.AddDishS(dish);
                 MessageBox.Show("Succesfull added!");
                 Close();
             }

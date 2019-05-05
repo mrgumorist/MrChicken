@@ -66,5 +66,7 @@ namespace IService
         void StartBot();
         [OperationContract]
         void StopBot();
+        [OperationContract]
+        string GetStatusMsg();
     }
 }
