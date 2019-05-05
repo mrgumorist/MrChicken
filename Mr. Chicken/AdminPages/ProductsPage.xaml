@@ -40,7 +40,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button  Background="{x:Null}" Foreground="White" FontSize="25" Click="Button_Click_2">Find</Button>
-            <TextBox Name="Text" Background="{x:Null}" FontSize="25"></TextBox>
+            <TextBox Grid.Column="1" Name="Text" Background="{x:Null}" FontSize="25"></TextBox>
         </Grid>
       
     </Grid>

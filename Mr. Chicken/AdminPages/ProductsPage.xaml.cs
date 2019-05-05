@@ -118,10 +118,15 @@ namespace Mr.Chicken.AdminPages
                     break;
                 }
             }
-            if(finded!=false)
+            if (finded != false)
             {
                 MessageBox.Show("This item already exist");
             }
+            else
+            {
+
+            }
+            Text.Text = "";
         }
     }
 }
