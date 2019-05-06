@@ -100,9 +100,9 @@
     <EmbeddedResource Include="Migrations\201904281928306_kek.resx">
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201905061447282_f.resx">
-      <DependentUpon>201905061447282_f.cs</DependentUpon>
-    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

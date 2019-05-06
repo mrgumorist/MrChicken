@@ -55,9 +55,9 @@ namespace IService.MyBott
     
          botClient.StartReceiving();
      }
-    
-     private async void button_clickGetMyID(MessageEventArgs e)
-     {           
+
+        private async void button_clickGetMyID(MessageEventArgs e)
+        {
             await botClient.SendTextMessageAsync(e.Message.Chat.Id, $"Your ID: {e.Message.From.Id}");
         }
         private async void button_clickGetRecipe(MessageEventArgs e)
