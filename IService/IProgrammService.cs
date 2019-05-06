@@ -15,7 +15,7 @@ namespace IService
     public interface IProgrammService
     {        
         [OperationContract]
-        string Msg(string msg);
+        string BotInfo();
         [OperationContract]
         UserS GetEmptyUser();
         [OperationContract]
@@ -74,6 +74,7 @@ namespace IService
         void AddIntermidiatef(IntermediateS[] list);
         [OperationContract]
         void SaveImages();
-
+        [OperationContract]
+        bool IsRecievingBot();
     }
 }

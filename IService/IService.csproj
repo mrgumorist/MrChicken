@@ -78,6 +78,10 @@
     <Compile Include="Migrations\201904281928306_kek.Designer.cs">
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201905061338069_AndrewLoL.cs" />
+    <Compile Include="Migrations\201905061338069_AndrewLoL.Designer.cs">
+      <DependentUpon>201905061338069_AndrewLoL.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProgrammService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -89,6 +93,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904281928306_kek.resx">
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201905061338069_AndrewLoL.resx">
+      <DependentUpon>201905061338069_AndrewLoL.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

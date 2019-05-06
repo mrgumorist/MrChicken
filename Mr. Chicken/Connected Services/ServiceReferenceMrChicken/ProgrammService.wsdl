@@ -8,11 +8,11 @@
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IProgrammService_Msg_InputMessage">
-    <wsdl:part name="parameters" element="tns:Msg" />
+  <wsdl:message name="IProgrammService_BotInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:BotInfo" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_Msg_OutputMessage">
-    <wsdl:part name="parameters" element="tns:MsgResponse" />
+  <wsdl:message name="IProgrammService_BotInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BotInfoResponse" />
   </wsdl:message>
   <wsdl:message name="IProgrammService_GetEmptyUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmptyUser" />
@@ -188,10 +188,16 @@
   <wsdl:message name="IProgrammService_SaveImages_OutputMessage">
     <wsdl:part name="parameters" element="tns:SaveImagesResponse" />
   </wsdl:message>
+  <wsdl:message name="IProgrammService_IsRecievingBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:IsRecievingBot" />
+  </wsdl:message>
+  <wsdl:message name="IProgrammService_IsRecievingBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IsRecievingBotResponse" />
+  </wsdl:message>
   <wsdl:portType name="IProgrammService">
-    <wsdl:operation name="Msg">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/Msg" message="tns:IProgrammService_Msg_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/MsgResponse" message="tns:IProgrammService_Msg_OutputMessage" />
+    <wsdl:operation name="BotInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/BotInfo" message="tns:IProgrammService_BotInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/BotInfoResponse" message="tns:IProgrammService_BotInfo_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetEmptyUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetEmptyUser" message="tns:IProgrammService_GetEmptyUser_InputMessage" />
@@ -309,11 +315,15 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/SaveImages" message="tns:IProgrammService_SaveImages_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/SaveImagesResponse" message="tns:IProgrammService_SaveImages_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="IsRecievingBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/IsRecievingBot" message="tns:IProgrammService_IsRecievingBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/IsRecievingBotResponse" message="tns:IProgrammService_IsRecievingBot_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="basicHttpBindingg" type="tns:IProgrammService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="Msg">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/Msg" style="document" />
+    <wsdl:operation name="BotInfo">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/BotInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -575,6 +585,15 @@
     </wsdl:operation>
     <wsdl:operation name="SaveImages">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/SaveImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsRecievingBot">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/IsRecievingBot" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

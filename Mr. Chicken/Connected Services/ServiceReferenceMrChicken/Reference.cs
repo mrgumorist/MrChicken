@@ -15,11 +15,11 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceMrChicken.IProgrammService")]
     public interface IProgrammService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/Msg", ReplyAction="http://tempuri.org/IProgrammService/MsgResponse")]
-        string Msg([System.ServiceModel.MessageParameterAttribute(Name="msg")] string msg1);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/BotInfo", ReplyAction="http://tempuri.org/IProgrammService/BotInfoResponse")]
+        string BotInfo();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/Msg", ReplyAction="http://tempuri.org/IProgrammService/MsgResponse")]
-        System.Threading.Tasks.Task<string> MsgAsync(string msg);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/BotInfo", ReplyAction="http://tempuri.org/IProgrammService/BotInfoResponse")]
+        System.Threading.Tasks.Task<string> BotInfoAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyUser", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyUserResponse")]
         IService.EntitiesReturn.UserS GetEmptyUser();
@@ -194,6 +194,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SaveImages", ReplyAction="http://tempuri.org/IProgrammService/SaveImagesResponse")]
         System.Threading.Tasks.Task SaveImagesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/IsRecievingBot", ReplyAction="http://tempuri.org/IProgrammService/IsRecievingBotResponse")]
+        bool IsRecievingBot();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/IsRecievingBot", ReplyAction="http://tempuri.org/IProgrammService/IsRecievingBotResponse")]
+        System.Threading.Tasks.Task<bool> IsRecievingBotAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -223,12 +229,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
                 base(binding, remoteAddress) {
         }
         
-        public string Msg(string msg1) {
-            return base.Channel.Msg(msg1);
+        public string BotInfo() {
+            return base.Channel.BotInfo();
         }
         
-        public System.Threading.Tasks.Task<string> MsgAsync(string msg) {
-            return base.Channel.MsgAsync(msg);
+        public System.Threading.Tasks.Task<string> BotInfoAsync() {
+            return base.Channel.BotInfoAsync();
         }
         
         public IService.EntitiesReturn.UserS GetEmptyUser() {
@@ -461,6 +467,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task SaveImagesAsync() {
             return base.Channel.SaveImagesAsync();
+        }
+        
+        public bool IsRecievingBot() {
+            return base.Channel.IsRecievingBot();
+        }
+        
+        public System.Threading.Tasks.Task<bool> IsRecievingBotAsync() {
+            return base.Channel.IsRecievingBotAsync();
         }
     }
 }

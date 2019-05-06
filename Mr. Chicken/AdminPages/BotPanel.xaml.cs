@@ -28,29 +28,28 @@ namespace Mr.Chicken.AdminPages
             InitializeComponent();
         }
 
-       
         private async void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            await client.StartBotAsync();
-            txtStatus.Text += "BOT STARTED "+DateTime.Now + Environment.NewLine;
+            await client.StartBotAsync();            
+           txtStatus.Text += await client.BotInfoAsync() + Environment.NewLine + " @BOT IS STARTED" + Environment.NewLine;           
+        }
+
+        private async void btnStop_Click(object sender, RoutedEventArgs e)
+        {
+            await client.StopBotAsync();           
+           txtStatus.Text += "@BOT IS STOPPED!" + Environment.NewLine;            
         }
 
         private async void btnUpdate_Click(object sender, RoutedEventArgs e)
         {           
-            //txtStatus.Text += "Status: "+ await client.GetStatusMsgAsync() +Environment.NewLine;
-            await client.StopBotAsync();
-        }
+            txtStatus.Text = "Status: "+ await client.GetStatusMsgAsync() +Environment.NewLine;
+        }        
 
-        private void btnStop_Click(object sender, RoutedEventArgs e)
+        private void btnPromotion_Click(object sender, RoutedEventArgs e)
         {
-            //await client.StopBotAsync();
             BotPromotion promotion = new BotPromotion();
             promotion.ShowDialog();
         }
 
-        private async void txtStatus_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
     }
 }

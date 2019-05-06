@@ -14,15 +14,18 @@ using System.ServiceModel;
 
 namespace IService
 {
+    //stvoryty tyt clientBot i peredaty v class MyBot
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ProgrammService:IProgrammService
     {        
-        private MyBot myBotCLient = new MyBot("826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE");
+        private static MyBot myBotCLient = new MyBot("826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE");
         Context context = new Context();
         // List<UserS> users;
-        
-        public string Msg(string msg)
+       
+        public string BotInfo()
         {
+            string msg = "Bot ID: " + myBotCLient.ID + " Bot name: " + myBotCLient.Name;
+
             return msg;
         }
         public UserS GetEmptyUser()
@@ -268,10 +271,12 @@ namespace IService
             {
                 File.WriteAllBytes(@"Images\" + item.ID + ".jpg", item.Image);
             }
-
-
+        }
+        public bool IsRecievingBot()
+        {
+            return myBotCLient.IsStarted;
         }
 
-       
+
     }
 }
