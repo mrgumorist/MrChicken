@@ -72,5 +72,8 @@ namespace IService
         List<string> GetUsersTelegramID();
         [OperationContract]
         void AddIntermidiate(IntermediateS[] list);
+        [OperationContract]
+        void SaveImages();
+
     }
 }

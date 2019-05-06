@@ -56,7 +56,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bot\BotOnOf.cs" />
     <Compile Include="Bot\MyBot.cs" />
     <Compile Include="EntitiesReturn\DishS.cs" />
     <Compile Include="EntitiesReturn\EmailAcceptS.cs" />
@@ -92,6 +91,8 @@
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

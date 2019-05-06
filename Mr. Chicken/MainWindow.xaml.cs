@@ -24,6 +24,7 @@ namespace Mr.Chicken
         public MainWindow()
         {
             InitializeComponent();
+            //client.SaveImages();
         }
         void Clear()
         {

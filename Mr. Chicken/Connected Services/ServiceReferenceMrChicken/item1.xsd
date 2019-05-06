@@ -361,4 +361,14 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="SaveImages">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SaveImagesResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -188,6 +188,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiate", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiateResponse")]
         System.Threading.Tasks.Task AddIntermidiateAsync(IService.EntitiesReturn.IntermediateS[] list);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SaveImages", ReplyAction="http://tempuri.org/IProgrammService/SaveImagesResponse")]
+        void SaveImages();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SaveImages", ReplyAction="http://tempuri.org/IProgrammService/SaveImagesResponse")]
+        System.Threading.Tasks.Task SaveImagesAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -447,6 +453,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task AddIntermidiateAsync(IService.EntitiesReturn.IntermediateS[] list) {
             return base.Channel.AddIntermidiateAsync(list);
+        }
+        
+        public void SaveImages() {
+            base.Channel.SaveImages();
+        }
+        
+        public System.Threading.Tasks.Task SaveImagesAsync() {
+            return base.Channel.SaveImagesAsync();
         }
     }
 }

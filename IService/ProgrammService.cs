@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Telegram.Bot;
 using IService.MyBott;
+using System.IO;
+
 namespace IService
 {
     public class ProgrammService:IProgrammService
@@ -256,5 +258,18 @@ namespace IService
             context.intermediate.AddRange(inter);
             context.SaveChanges();
         }
+
+        public void SaveImages()
+        {
+            var AndrewPidor = new List<byte[]>();
+            foreach (var item in context.dishes)
+            {
+                File.WriteAllBytes(@"Images\" + item.ID + ".jpg", item.Image);
+            }
+
+
+        }
+
+
     }
 }
