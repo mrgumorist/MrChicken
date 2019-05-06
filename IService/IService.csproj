@@ -43,6 +43,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -73,10 +74,16 @@
     <Compile Include="Entities\Type.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Entities\UserProducts.cs" />
+    <Compile Include="Helperr.cs" />
+    <Compile Include="ImageClass.cs" />
     <Compile Include="IProgrammService.cs" />
     <Compile Include="Migrations\201904281928306_kek.cs" />
-    <Compile Include="Migrations\201904281928306_kek.Designer.cs">
+    <Compile Include="Migrations\201904281928306_kek.designer.cs">
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201905061447282_f.cs" />
+    <Compile Include="Migrations\201905061447282_f.Designer.cs">
+      <DependentUpon>201905061447282_f.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ProgrammService.cs" />
@@ -87,12 +94,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Include="Migrations\201904281928306_kek.resx">
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
+    <EmbeddedResource Include="Migrations\201905061447282_f.resx">
+      <DependentUpon>201905061447282_f.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

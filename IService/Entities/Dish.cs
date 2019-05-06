@@ -17,7 +17,6 @@ namespace IService.Entities
         public string Name { get; set; }
         public string LittleDescription { get; set; }
         public string Recept { get; set; }
-        public byte[] Image { get; set; }
         [Required, ForeignKey("TypeV")]
         public int TypeID { get; set; }
         public virtual Type TypeV { get; set; }

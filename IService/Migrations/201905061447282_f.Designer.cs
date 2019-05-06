@@ -7,13 +7,13 @@ namespace IService.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class kek : IMigrationMetadata
+    public sealed partial class f : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(kek));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(f));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904281928306_kek"; }
+            get { return "201905061447282_f"; }
         }
         
         string IMigrationMetadata.Source

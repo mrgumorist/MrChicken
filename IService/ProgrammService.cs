@@ -188,7 +188,20 @@ namespace IService
         }
         public List<DishS> GetDishesS()
         {
-            return (context.dishes.Select(t => new DishS() { ID = t.ID, Image = t.Image, LittleDescription = t.LittleDescription, Name = t.Name, Recept = t.Recept, TypeID = t.TypeID }).ToList());
+            var list =new List<DishS>();
+            foreach (var item in context.dishes)
+            {
+                var dish = new DishS();
+                dish.ID = item.ID;
+                dish.Image = File.ReadAllBytes($@"Images\{dish.ID}.jpg");
+                dish.Name = item.Name;
+                dish.Recept = item.Recept;
+                dish.TypeID = item.TypeID;
+                dish.LittleDescription = item.LittleDescription;
+                list.Add(dish);
+            }
+            return list;
+           
         }
         public DishS GetEmptyDishS()
         {
@@ -196,25 +209,31 @@ namespace IService
         }
         public void AddDishS(DishS dish)
         {
-            context.dishes.Add(new Dish() { ID = dish.ID, Image = dish.Image, LittleDescription = dish.LittleDescription, Name = dish.Name, Recept = dish.Recept, TypeID = dish.TypeID });
+            context.dishes.Add(new Dish() { ID = dish.ID, /*Image = dish.Image,*/ LittleDescription = dish.LittleDescription, Name = dish.Name, Recept = dish.Recept, TypeID = dish.TypeID });
+            Helperr.ByteToImage(dish.Image).Save($@"Images\{dish.ID}.jpg");
             context.SaveChanges();
         }
         public DishS GetDishSById(int ID)
         {
-            return (context.dishes.Select(t => new DishS() { ID = t.ID, Image = t.Image, LittleDescription = t.LittleDescription, Name = t.Name, Recept = t.Recept, TypeID = t.TypeID }).ToList()).Where(t=>t.ID==ID).First();
+            var item =context.dishes.Select(t => new DishS() { ID = t.ID, /*Image = t.Image,*/ LittleDescription = t.LittleDescription, Name = t.Name, Recept = t.Recept, TypeID = t.TypeID }).ToList().Where(t=>t.ID==ID).First();
+            item.Image = File.ReadAllBytes($@"Images\{item.ID}.jpg");
+            return item;
         }
         public void UpdateDish(DishS dish)
         {
             context.dishes.Where(t => t.ID == dish.ID).First().Name = dish.Name;
-            context.dishes.Where(t => t.ID == dish.ID).First().Image = dish.Image;
+           /* context.dishes.Where(t => t.ID == dish.ID).First().Image = dish.Image;*/
             context.dishes.Where(t => t.ID == dish.ID).First().LittleDescription = dish.LittleDescription;
             context.dishes.Where(t => t.ID == dish.ID).First().Recept = dish.Recept;
             context.dishes.Where(t => t.ID == dish.ID).First().TypeID = dish.TypeID;
+            File.Delete($@"Images\{ context.dishes.Where(t => t.ID == dish.ID).First().ID}.jpg");
+            Helperr.ByteToImage(dish.Image).Save($@"Images\{dish.ID}.jpg");
             context.SaveChanges();
         }
         public void DeleteDishByID(int ID)
         {
             context.dishes.Remove(context.dishes.Where(t => t.ID == ID).First());
+            File.Delete($@"Images\{ context.dishes.Where(t => t.ID == ID).First().ID}.jpg");
             context.SaveChanges();
         }
         public void StartBot()
@@ -261,16 +280,7 @@ namespace IService
             context.SaveChanges();
         }
 
-        public void SaveImages()
-        {
-            var AndrewPidor = new List<byte[]>();
-            foreach (var item in context.dishes)
-            {
-                File.WriteAllBytes(@"Images\" + item.ID + ".jpg", item.Image);
-            }
 
-
-        }
 
        
     }
