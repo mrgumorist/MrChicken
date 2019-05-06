@@ -10,9 +10,11 @@ using System.Threading.Tasks;
 using Telegram.Bot;
 using IService.MyBott;
 using System.IO;
+using System.ServiceModel;
 
 namespace IService
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ProgrammService:IProgrammService
     {        
         private MyBot myBotCLient = new MyBot("826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE");
@@ -217,12 +219,12 @@ namespace IService
         }
         public void StartBot()
         {
-            if(myBotCLient.IsStarted==false)
+            if(!myBotCLient.IsStarted)
             myBotCLient.StartBot();
         }
         public void StopBot()
         {            
-            if(myBotCLient.IsStarted==true)
+            if(myBotCLient.IsStarted)
             myBotCLient.Stop();
         }
         public string GetStatusMsg()
@@ -270,6 +272,6 @@ namespace IService
 
         }
 
-
+       
     }
 }

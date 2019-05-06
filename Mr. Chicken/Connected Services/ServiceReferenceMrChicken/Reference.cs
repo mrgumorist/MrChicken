@@ -183,11 +183,11 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsersTelegramID", ReplyAction="http://tempuri.org/IProgrammService/GetUsersTelegramIDResponse")]
         System.Threading.Tasks.Task<string[]> GetUsersTelegramIDAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiate", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiateResponse")]
-        void AddIntermidiate(IService.EntitiesReturn.IntermediateS[] list);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiatef", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiatefResponse")]
+        void AddIntermidiatef(IService.EntitiesReturn.IntermediateS[] list);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiate", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiateResponse")]
-        System.Threading.Tasks.Task AddIntermidiateAsync(IService.EntitiesReturn.IntermediateS[] list);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiatef", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiatefResponse")]
+        System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SaveImages", ReplyAction="http://tempuri.org/IProgrammService/SaveImagesResponse")]
         void SaveImages();
@@ -447,12 +447,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.GetUsersTelegramIDAsync();
         }
         
-        public void AddIntermidiate(IService.EntitiesReturn.IntermediateS[] list) {
-            base.Channel.AddIntermidiate(list);
+        public void AddIntermidiatef(IService.EntitiesReturn.IntermediateS[] list) {
+            base.Channel.AddIntermidiatef(list);
         }
         
-        public System.Threading.Tasks.Task AddIntermidiateAsync(IService.EntitiesReturn.IntermediateS[] list) {
-            return base.Channel.AddIntermidiateAsync(list);
+        public System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list) {
+            return base.Channel.AddIntermidiatefAsync(list);
         }
         
         public void SaveImages() {
