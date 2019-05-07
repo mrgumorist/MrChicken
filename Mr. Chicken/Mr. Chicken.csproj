@@ -108,6 +108,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\CallbackController.cs" />
     <Compile Include="EditUserInfo.xaml.cs">
       <DependentUpon>EditUserInfo.xaml</DependentUpon>
     </Compile>

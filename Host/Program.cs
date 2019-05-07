@@ -15,6 +15,7 @@ namespace Host
             using (ServiceHost host = new ServiceHost(typeof(IService.ProgrammService)))
             {
                 host.Open();
+
                 Console.WriteLine($"@Host started {DateTime.Now.ToString()}...");
                 Console.ReadLine();                 
             }

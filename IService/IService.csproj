@@ -77,6 +77,7 @@
     <Compile Include="Helperr.cs" />
     <Compile Include="ImageClass.cs" />
     <Compile Include="IProgrammService.cs" />
+    <Compile Include="IServiceBot.cs" />
     <Compile Include="Migrations\201904281928306_kek.cs" />
     <Compile Include="Migrations\201904281928306_kek.designer.cs">
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
@@ -101,8 +102,6 @@
       <DependentUpon>201904281928306_kek.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

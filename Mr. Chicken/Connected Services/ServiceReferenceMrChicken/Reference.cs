@@ -15,12 +15,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceMrChicken.IProgrammService")]
     public interface IProgrammService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/BotInfo", ReplyAction="http://tempuri.org/IProgrammService/BotInfoResponse")]
-        string BotInfo();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/BotInfo", ReplyAction="http://tempuri.org/IProgrammService/BotInfoResponse")]
-        System.Threading.Tasks.Task<string> BotInfoAsync();
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetEmptyUser", ReplyAction="http://tempuri.org/IProgrammService/GetEmptyUserResponse")]
         IService.EntitiesReturn.UserS GetEmptyUser();
         
@@ -159,41 +153,17 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteDishByID", ReplyAction="http://tempuri.org/IProgrammService/DeleteDishByIDResponse")]
         System.Threading.Tasks.Task DeleteDishByIDAsync(int ID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartBot", ReplyAction="http://tempuri.org/IProgrammService/StartBotResponse")]
-        void StartBot();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartPromotionBot", ReplyAction="http://tempuri.org/IProgrammService/StartPromotionBotResponse")]
+        void StartPromotionBot(string message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartBot", ReplyAction="http://tempuri.org/IProgrammService/StartBotResponse")]
-        System.Threading.Tasks.Task StartBotAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StopBot", ReplyAction="http://tempuri.org/IProgrammService/StopBotResponse")]
-        void StopBot();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StopBot", ReplyAction="http://tempuri.org/IProgrammService/StopBotResponse")]
-        System.Threading.Tasks.Task StopBotAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetStatusMsg", ReplyAction="http://tempuri.org/IProgrammService/GetStatusMsgResponse")]
-        string GetStatusMsg();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetStatusMsg", ReplyAction="http://tempuri.org/IProgrammService/GetStatusMsgResponse")]
-        System.Threading.Tasks.Task<string> GetStatusMsgAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsersTelegramID", ReplyAction="http://tempuri.org/IProgrammService/GetUsersTelegramIDResponse")]
-        string[] GetUsersTelegramID();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUsersTelegramID", ReplyAction="http://tempuri.org/IProgrammService/GetUsersTelegramIDResponse")]
-        System.Threading.Tasks.Task<string[]> GetUsersTelegramIDAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartPromotionBot", ReplyAction="http://tempuri.org/IProgrammService/StartPromotionBotResponse")]
+        System.Threading.Tasks.Task StartPromotionBotAsync(string message);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiatef", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiatefResponse")]
         void AddIntermidiatef(IService.EntitiesReturn.IntermediateS[] list);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiatef", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiatefResponse")]
         System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartPromotionBot", ReplyAction="http://tempuri.org/IProgrammService/StartPromotionBotResponse")]
-        void StartPromotionBot(string message);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartPromotionBot", ReplyAction="http://tempuri.org/IProgrammService/StartPromotionBotResponse")]
-        System.Threading.Tasks.Task StartPromotionBotAsync(string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -221,14 +191,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public ProgrammServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public string BotInfo() {
-            return base.Channel.BotInfo();
-        }
-        
-        public System.Threading.Tasks.Task<string> BotInfoAsync() {
-            return base.Channel.BotInfoAsync();
         }
         
         public IService.EntitiesReturn.UserS GetEmptyUser() {
@@ -415,6 +377,115 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.DeleteDishByIDAsync(ID);
         }
         
+        public void StartPromotionBot(string message) {
+            base.Channel.StartPromotionBot(message);
+        }
+        
+        public System.Threading.Tasks.Task StartPromotionBotAsync(string message) {
+            return base.Channel.StartPromotionBotAsync(message);
+        }
+        
+        public void AddIntermidiatef(IService.EntitiesReturn.IntermediateS[] list) {
+            base.Channel.AddIntermidiatef(list);
+        }
+        
+        public System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list) {
+            return base.Channel.AddIntermidiatefAsync(list);
+        }
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReferenceMrChicken.IServiceBot", CallbackContract=typeof(Mr.Chicken.ServiceReferenceMrChicken.IServiceBotCallback))]
+    public interface IServiceBot {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/GetUsersTelegramID", ReplyAction="http://tempuri.org/IServiceBot/GetUsersTelegramIDResponse")]
+        string[] GetUsersTelegramID();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/GetUsersTelegramID", ReplyAction="http://tempuri.org/IServiceBot/GetUsersTelegramIDResponse")]
+        System.Threading.Tasks.Task<string[]> GetUsersTelegramIDAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceBot/GetStatusMsg")]
+        void GetStatusMsg(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceBot/GetStatusMsg")]
+        System.Threading.Tasks.Task GetStatusMsgAsync(string msg);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StartBot", ReplyAction="http://tempuri.org/IServiceBot/StartBotResponse")]
+        void StartBot();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StartBot", ReplyAction="http://tempuri.org/IServiceBot/StartBotResponse")]
+        System.Threading.Tasks.Task StartBotAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StopBot", ReplyAction="http://tempuri.org/IServiceBot/StopBotResponse")]
+        void StopBot();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StopBot", ReplyAction="http://tempuri.org/IServiceBot/StopBotResponse")]
+        System.Threading.Tasks.Task StopBotAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StartReceiving", ReplyAction="http://tempuri.org/IServiceBot/StartReceivingResponse")]
+        void StartReceiving();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StartReceiving", ReplyAction="http://tempuri.org/IServiceBot/StartReceivingResponse")]
+        System.Threading.Tasks.Task StartReceivingAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StopReceiving", ReplyAction="http://tempuri.org/IServiceBot/StopReceivingResponse")]
+        void StopReceiving();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StopReceiving", ReplyAction="http://tempuri.org/IServiceBot/StopReceivingResponse")]
+        System.Threading.Tasks.Task StopReceivingAsync();
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServiceBotCallback {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://tempuri.org/IServiceBot/AddMessage")]
+        void AddMessage(string message);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IServiceBotChannel : Mr.Chicken.ServiceReferenceMrChicken.IServiceBot, System.ServiceModel.IClientChannel {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public partial class ServiceBotClient : System.ServiceModel.DuplexClientBase<Mr.Chicken.ServiceReferenceMrChicken.IServiceBot>, Mr.Chicken.ServiceReferenceMrChicken.IServiceBot {
+        
+        public ServiceBotClient(System.ServiceModel.InstanceContext callbackInstance) : 
+                base(callbackInstance) {
+        }
+        
+        public ServiceBotClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName) : 
+                base(callbackInstance, endpointConfigurationName) {
+        }
+        
+        public ServiceBotClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, string remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServiceBotClient(System.ServiceModel.InstanceContext callbackInstance, string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, endpointConfigurationName, remoteAddress) {
+        }
+        
+        public ServiceBotClient(System.ServiceModel.InstanceContext callbackInstance, System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+                base(callbackInstance, binding, remoteAddress) {
+        }
+        
+        public string[] GetUsersTelegramID() {
+            return base.Channel.GetUsersTelegramID();
+        }
+        
+        public System.Threading.Tasks.Task<string[]> GetUsersTelegramIDAsync() {
+            return base.Channel.GetUsersTelegramIDAsync();
+        }
+        
+        public void GetStatusMsg(string msg) {
+            base.Channel.GetStatusMsg(msg);
+        }
+        
+        public System.Threading.Tasks.Task GetStatusMsgAsync(string msg) {
+            return base.Channel.GetStatusMsgAsync(msg);
+        }
+        
         public void StartBot() {
             base.Channel.StartBot();
         }
@@ -431,36 +502,20 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.StopBotAsync();
         }
         
-        public string GetStatusMsg() {
-            return base.Channel.GetStatusMsg();
+        public void StartReceiving() {
+            base.Channel.StartReceiving();
         }
         
-        public System.Threading.Tasks.Task<string> GetStatusMsgAsync() {
-            return base.Channel.GetStatusMsgAsync();
+        public System.Threading.Tasks.Task StartReceivingAsync() {
+            return base.Channel.StartReceivingAsync();
         }
         
-        public string[] GetUsersTelegramID() {
-            return base.Channel.GetUsersTelegramID();
+        public void StopReceiving() {
+            base.Channel.StopReceiving();
         }
         
-        public System.Threading.Tasks.Task<string[]> GetUsersTelegramIDAsync() {
-            return base.Channel.GetUsersTelegramIDAsync();
-        }
-        
-        public void AddIntermidiatef(IService.EntitiesReturn.IntermediateS[] list) {
-            base.Channel.AddIntermidiatef(list);
-        }
-        
-        public System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list) {
-            return base.Channel.AddIntermidiatefAsync(list);
-        }
-        
-        public void StartPromotionBot(string message) {
-            base.Channel.StartPromotionBot(message);
-        }
-        
-        public System.Threading.Tasks.Task StartPromotionBotAsync(string message) {
-            return base.Channel.StartPromotionBotAsync(message);
+        public System.Threading.Tasks.Task StopReceivingAsync() {
+            return base.Channel.StopReceivingAsync();
         }
     }
 }

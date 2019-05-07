@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Mr.Chicken.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -18,32 +20,23 @@ namespace Mr.Chicken.AdminPages
     /// <summary>
     /// Interaction logic for BotPanel.xaml
     /// </summary>
-    public partial class BotPanel : Page
+    [CallbackBehavior(UseSynchronizationContext = false)]
+    public partial class BotPanel : Page, ServiceReferenceMrChicken.IServiceBotCallback
     {
-        ServiceReferenceMrChicken.ProgrammServiceClient client = 
-            new ServiceReferenceMrChicken.ProgrammServiceClient();
+
+        ServiceReferenceMrChicken.ServiceBotClient client;
 
         public BotPanel()
         {
+            var instanceContext = new System.ServiceModel.InstanceContext(this);
+            client = new ServiceReferenceMrChicken.ServiceBotClient(instanceContext);
+            client.StartReceiving();
             InitializeComponent();
         }
-
-        private async void btnStart_Click(object sender, RoutedEventArgs e)
+        ~BotPanel()
         {
-            await client.StartBotAsync();            
-           txtStatus.Text += await client.BotInfoAsync() + Environment.NewLine + " @BOT IS STARTED" + Environment.NewLine;           
-        }
-
-        private async void btnStop_Click(object sender, RoutedEventArgs e)
-        {
-            await client.StopBotAsync();           
-           txtStatus.Text += "@BOT IS STOPPED!" + Environment.NewLine;            
-        }
-
-        private async void btnUpdate_Click(object sender, RoutedEventArgs e)
-        {           
-            txtStatus.Text = "Status: "+ await client.GetStatusMsgAsync() +Environment.NewLine;
-        }        
+            client.StopReceiving();
+        }         
 
         private void btnPromotion_Click(object sender, RoutedEventArgs e)
         {
@@ -51,5 +44,13 @@ namespace Mr.Chicken.AdminPages
             promotion.ShowDialog();
         }
 
+        public void AddMessage(string msg)
+        {
+            Dispatcher.Invoke(new Action(() =>
+            {
+                txtStatus.Text += msg;
+            }));
+          
+        }
     }
 }

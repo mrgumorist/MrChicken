@@ -14,14 +14,19 @@ using System.ServiceModel;
 
 namespace IService
 {
-    //stvoryty tyt clientBot i peredaty v class MyBot
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
-    public class ProgrammService:IProgrammService
-    {        
+    public class ProgrammService : IProgrammService, IServiceBot
+    {
         private static MyBot myBotCLient = new MyBot("826922838:AAGGlwgZhCQyBaSJsjwQ-iq4XRyJQunh4JE");
         Context context = new Context();
-        // List<UserS> users;
-       
+        //List<UserS> users;
+        List<OperationContext> users=new List<OperationContext>();
+        public ProgrammService()
+        {
+            if (!myBotCLient.IsStarted)
+                myBotCLient.StartBot();
+            myBotCLient.GetStatusMessage += this.GetStatusMsg;
+        }
         public string BotInfo()
         {
             string msg = "Bot ID: " + myBotCLient.ID + " Bot name: " + myBotCLient.Name;
@@ -34,14 +39,14 @@ namespace IService
         }
         public void AddUser(UserS user)
         {
-            context.users.Add(new User() { Name = user.Name, Login=user.Login, DateOfBirth=user.DateOfBirth, DateOfRegister=user.DateOfRegister, Email=user.Email, ISConfirmed=user.ISConfirmed, Password=user.Password, Surname=user.Surname, TelegramID=user.TelegramID, DoesWantRecomendations=user.DoesWantRecomendations });
+            context.users.Add(new User() { Name = user.Name, Login = user.Login, DateOfBirth = user.DateOfBirth, DateOfRegister = user.DateOfRegister, Email = user.Email, ISConfirmed = user.ISConfirmed, Password = user.Password, Surname = user.Surname, TelegramID = user.TelegramID, DoesWantRecomendations = user.DoesWantRecomendations });
             context.SaveChangesAsync();
         }
         public bool IsEmailUnique(string email)
         {
             foreach (var item in context.users)
             {
-                if(item.Email== email)
+                if (item.Email == email)
                 {
                     return false;
                 }
@@ -53,7 +58,7 @@ namespace IService
             int id = -1;
             foreach (var item in context.users)
             {
-                if (item.Login == login&& item.Password==password)
+                if (item.Login == login && item.Password == password)
                 {
                     id = item.ID;
                     break;
@@ -77,26 +82,26 @@ namespace IService
                 DateOfRegister = t.DateOfRegister,
                 DoesWantRecomendations = t.DoesWantRecomendations
             }).ToList();
-            return users.Where(t=>t.ID==ID).FirstOrDefault();
+            return users.Where(t => t.ID == ID).FirstOrDefault();
         }
 
         public List<UserS> GetUsers()
         {
-            
-            //var users1 = context.users.ToList();
-            var users= context.users.Select(t => new UserS()
+
+            var users1 = context.users.ToList();
+            var users = context.users.Select(t => new UserS()
             {
-                ID =t.ID,
-                Name =t.Name,
-                Surname =t.Surname,
-                Login =t.Login,
-                Password =t.Password,
-                TelegramID =t.TelegramID,
-                Email =t.Email,
-                ISConfirmed =t.ISConfirmed,
-                DateOfBirth =t.DateOfBirth,
-                DateOfRegister =t.DateOfRegister,
-                DoesWantRecomendations =t.DoesWantRecomendations
+                ID = t.ID,
+                Name = t.Name,
+                Surname = t.Surname,
+                Login = t.Login,
+                Password = t.Password,
+                TelegramID = t.TelegramID,
+                Email = t.Email,
+                ISConfirmed = t.ISConfirmed,
+                DateOfBirth = t.DateOfBirth,
+                DateOfRegister = t.DateOfRegister,
+                DoesWantRecomendations = t.DoesWantRecomendations
             }).ToList();
             return users;
         }
@@ -107,9 +112,9 @@ namespace IService
         }
         public List<UserS> FindUsersByProp(string prop)
         {
-            var users = context.users.Where(t=>t.ID.ToString().Contains(prop) || 
-            t.Name.Contains(prop)|| t.Email.Contains(prop)||t.Surname.Contains(prop)||
-            t.Password.Contains(prop)||t.TelegramID.Contains(prop)).Select(t => new UserS()
+            var users = context.users.Where(t => t.ID.ToString().Contains(prop) ||
+            t.Name.Contains(prop) || t.Email.Contains(prop) || t.Surname.Contains(prop) ||
+            t.Password.Contains(prop) || t.TelegramID.Contains(prop)).Select(t => new UserS()
             {
                 ID = t.ID,
                 Name = t.Name,
@@ -126,18 +131,18 @@ namespace IService
             return users;
         }
         public List<ProductS> GetProductSS()
-        { 
+        {
             var products = context.products.Select(t => new ProductS() { ID = t.ID, Name = t.Name }).ToList();
             return products;
         }
         //DELETE THIS method
         public void UpdateProducts(List<ProductS> productS)
         {
-            foreach(var item in productS)
-            {
+            //foreach (var item in productS)
+            //{
 
-               // context.product
-            }
+            //    context.product
+            //}
         }
         public ProductS GetEmptyProduct()
         {
@@ -151,7 +156,7 @@ namespace IService
         //TO DO
         public void DeleteProduct(int ID)
         {
-            context.products.Remove(context.products.Where(t=>t.ID==ID).First());
+            context.products.Remove(context.products.Where(t => t.ID == ID).First());
             context.SaveChanges();
         }
         public void ChangeProduct(int ID, string Name)
@@ -191,7 +196,7 @@ namespace IService
         }
         public List<DishS> GetDishesS()
         {
-            var list =new List<DishS>();
+            var list = new List<DishS>();
             foreach (var item in context.dishes)
             {
                 var dish = new DishS();
@@ -204,7 +209,7 @@ namespace IService
                 list.Add(dish);
             }
             return list;
-           
+
         }
         public DishS GetEmptyDishS()
         {
@@ -218,14 +223,14 @@ namespace IService
         }
         public DishS GetDishSById(int ID)
         {
-            var item =context.dishes.Select(t => new DishS() { ID = t.ID, /*Image = t.Image,*/ LittleDescription = t.LittleDescription, Name = t.Name, Recept = t.Recept, TypeID = t.TypeID }).ToList().Where(t=>t.ID==ID).First();
+            var item = context.dishes.Select(t => new DishS() { ID = t.ID, /*Image = t.Image,*/ LittleDescription = t.LittleDescription, Name = t.Name, Recept = t.Recept, TypeID = t.TypeID }).ToList().Where(t => t.ID == ID).First();
             item.Image = File.ReadAllBytes($@"Images\{item.ID}.jpg");
             return item;
         }
         public void UpdateDish(DishS dish)
         {
             context.dishes.Where(t => t.ID == dish.ID).First().Name = dish.Name;
-           /* context.dishes.Where(t => t.ID == dish.ID).First().Image = dish.Image;*/
+            /* context.dishes.Where(t => t.ID == dish.ID).First().Image = dish.Image;*/
             context.dishes.Where(t => t.ID == dish.ID).First().LittleDescription = dish.LittleDescription;
             context.dishes.Where(t => t.ID == dish.ID).First().Recept = dish.Recept;
             context.dishes.Where(t => t.ID == dish.ID).First().TypeID = dish.TypeID;
@@ -241,22 +246,32 @@ namespace IService
         }
         public void StartBot()
         {
-            if(!myBotCLient.IsStarted)
-            myBotCLient.StartBot();
+            if (!myBotCLient.IsStarted)
+                myBotCLient.StartBot();
         }
         public void StopBot()
-        {            
-            if(myBotCLient.IsStarted)
-            myBotCLient.Stop();
-        }
-        public string GetStatusMsg()
         {
-            string msg = myBotCLient.StatusMsg;
-            return msg;
+            if (myBotCLient.IsStarted)
+                myBotCLient.Stop();
+        }
+        public void GetStatusMsg(string msg)
+        {
+            try
+            {
+            foreach (var item in users)
+            {
+                item.GetCallbackChannel<IServiceBotCallback>().AddMessage(msg);
+            }
+
+            }
+            catch (Exception)
+            {
+            }
+
         }
         public List<string> GetUsersTelegramID()
         {
-            
+
             List<string> TelegramId = new List<string>();
             foreach (var item in context.users)
             {
@@ -264,14 +279,14 @@ namespace IService
                 {
                     TelegramId.Add(item.TelegramID);
                 }
-                
+
             }
             return TelegramId;
-           
+
         }
         public void AddIntermidiatef(IntermediateS[] list)
         {
-         
+
             foreach (var item in list)
             {
                 Intermediate intermediate = new Intermediate();
@@ -279,10 +294,10 @@ namespace IService
                 intermediate.DishID = item.DishID;
                 context.intermediate.Add(intermediate);
             }
-            
+
             context.SaveChanges();
         }
-        
+
         public void StartPromotionBot(string message)
         {
             List<string> TelegramID = GetUsersTelegramID();
@@ -293,6 +308,14 @@ namespace IService
             }
         }
 
+        public void StartReceiving()
+        {
+            users.Add(OperationContext.Current);
+        }
 
+        public void StopReceiving()
+        {
+            users.Remove(OperationContext.Current);
+        }
     }
 }

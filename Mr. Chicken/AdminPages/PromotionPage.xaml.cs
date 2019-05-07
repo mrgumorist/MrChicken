@@ -60,6 +60,8 @@ namespace Mr.Chicken.AdminPages
                 mail.Body = Mesage;
                 smtp.Send(mail);
             }
+            PromotionText.Text = String.Empty;
+            MessageBox.Show("Promotion send to emails!", "Promotion");
         }
 
     }

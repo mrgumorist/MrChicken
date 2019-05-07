@@ -14,8 +14,8 @@ namespace IService
     [ServiceContract]
     public interface IProgrammService
     {        
-        [OperationContract]
-        string BotInfo();
+        //[OperationContract]
+        //string BotInfo();
         [OperationContract]
         UserS GetEmptyUser();
         [OperationContract]
@@ -62,17 +62,26 @@ namespace IService
         void UpdateDish(DishS dish);
         [OperationContract]
         void DeleteDishByID(int ID);
-        [OperationContract]
-        void StartBot();
-        [OperationContract]
-        void StopBot();
-        [OperationContract]
-        string GetStatusMsg();
-        [OperationContract]
-        List<string> GetUsersTelegramID();
-        [OperationContract]
-        void AddIntermidiatef(IntermediateS[] list);
+
         [OperationContract]
         void StartPromotionBot(string message);
+        //[OperationContract]
+        //void StartBot();
+        //[OperationContract]
+        //void StopBot();
+        //[OperationContract(IsOneWay =true)]
+        //void GetStatusMsg(string msg);
+        //[OperationContract]
+        //List<string> GetUsersTelegramID();
+        [OperationContract]
+        void AddIntermidiatef(IntermediateS[] list);
+        //[OperationContract]
+        //void StartPromotionBot(string message);
+
     }
+    //public interface IProgrammServiceCallback
+    //{
+    //    [OperationContract(IsOneWay =true)]
+    //    void AddMessage(string message);
+    //}
 }

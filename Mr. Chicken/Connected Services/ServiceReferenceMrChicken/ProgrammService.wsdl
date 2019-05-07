@@ -1,5 +1,384 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ProgrammService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="wsDualHttpBinding_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsrm:RMAssertion xmlns:wsrm="http://schemas.xmlsoap.org/ws/2005/02/rm/policy">
+          <wsrm:InactivityTimeout Milliseconds="600000" />
+          <wsrm:AcknowledgementInterval Milliseconds="200" />
+        </wsrm:RMAssertion>
+        <sp:SymmetricBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:ProtectionToken>
+              <wsp:Policy>
+                <sp:SecureConversationToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                  <wsp:Policy>
+                    <sp:RequireDerivedKeys />
+                    <sp:BootstrapPolicy>
+                      <wsp:Policy>
+                        <sp:SignedParts>
+                          <sp:Body />
+                          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+                          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+                          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+                        </sp:SignedParts>
+                        <sp:EncryptedParts>
+                          <sp:Body />
+                        </sp:EncryptedParts>
+                        <sp:SymmetricBinding>
+                          <wsp:Policy>
+                            <sp:ProtectionToken>
+                              <wsp:Policy>
+                                <sp:SpnegoContextToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+                                  <wsp:Policy>
+                                    <sp:RequireDerivedKeys />
+                                  </wsp:Policy>
+                                </sp:SpnegoContextToken>
+                              </wsp:Policy>
+                            </sp:ProtectionToken>
+                            <sp:AlgorithmSuite>
+                              <wsp:Policy>
+                                <sp:Basic256 />
+                              </wsp:Policy>
+                            </sp:AlgorithmSuite>
+                            <sp:Layout>
+                              <wsp:Policy>
+                                <sp:Strict />
+                              </wsp:Policy>
+                            </sp:Layout>
+                            <sp:IncludeTimestamp />
+                            <sp:EncryptSignature />
+                            <sp:OnlySignEntireHeadersAndBody />
+                          </wsp:Policy>
+                        </sp:SymmetricBinding>
+                        <sp:Wss11>
+                          <wsp:Policy />
+                        </sp:Wss11>
+                        <sp:Trust10>
+                          <wsp:Policy>
+                            <sp:MustSupportIssuedTokens />
+                            <sp:RequireClientEntropy />
+                            <sp:RequireServerEntropy />
+                          </wsp:Policy>
+                        </sp:Trust10>
+                      </wsp:Policy>
+                    </sp:BootstrapPolicy>
+                  </wsp:Policy>
+                </sp:SecureConversationToken>
+              </wsp:Policy>
+            </sp:ProtectionToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+            <sp:EncryptSignature />
+            <sp:OnlySignEntireHeadersAndBody />
+          </wsp:Policy>
+        </sp:SymmetricBinding>
+        <sp:Wss11 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss11>
+        <sp:Trust10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:MustSupportIssuedTokens />
+            <sp:RequireClientEntropy />
+            <sp:RequireServerEntropy />
+          </wsp:Policy>
+        </sp:Trust10>
+        <cdp:CompositeDuplex xmlns:cdp="http://schemas.microsoft.com/net/2006/06/duplex" />
+        <ow:OneWay xmlns:ow="http://schemas.microsoft.com/ws/2005/05/routing/policy" />
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_GetUsersTelegramID_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_GetUsersTelegramID_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_GetStatusMsg_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StartBot_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StartBot_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StopBot_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StopBot_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StartReceiving_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StartReceiving_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StopReceiving_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_StopReceiving_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="wsDualHttpBinding_AddMessage_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="Sequence" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="SequenceAcknowledgement" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="AckRequested" Namespace="http://schemas.xmlsoap.org/ws/2005/02/rm" />
+          <sp:Header Name="ChannelInstance" Namespace="http://schemas.microsoft.com/ws/2005/02/duplex" />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -8,12 +387,6 @@
       <xsd:import schemaLocation="http://localhost:8099/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IProgrammService_BotInfo_InputMessage">
-    <wsdl:part name="parameters" element="tns:BotInfo" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_BotInfo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:BotInfoResponse" />
-  </wsdl:message>
   <wsdl:message name="IProgrammService_GetEmptyUser_InputMessage">
     <wsdl:part name="parameters" element="tns:GetEmptyUser" />
   </wsdl:message>
@@ -152,29 +525,11 @@
   <wsdl:message name="IProgrammService_DeleteDishByID_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteDishByIDResponse" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_StartBot_InputMessage">
-    <wsdl:part name="parameters" element="tns:StartBot" />
+  <wsdl:message name="IProgrammService_StartPromotionBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartPromotionBot" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_StartBot_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StartBotResponse" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_StopBot_InputMessage">
-    <wsdl:part name="parameters" element="tns:StopBot" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_StopBot_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StopBotResponse" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_GetStatusMsg_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetStatusMsg" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_GetStatusMsg_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetStatusMsgResponse" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_GetUsersTelegramID_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetUsersTelegramID" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_GetUsersTelegramID_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetUsersTelegramIDResponse" />
+  <wsdl:message name="IProgrammService_StartPromotionBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartPromotionBotResponse" />
   </wsdl:message>
   <wsdl:message name="IProgrammService_AddIntermidiatef_InputMessage">
     <wsdl:part name="parameters" element="tns:AddIntermidiatef" />
@@ -182,17 +537,43 @@
   <wsdl:message name="IProgrammService_AddIntermidiatef_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddIntermidiatefResponse" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_StartPromotionBot_InputMessage">
-    <wsdl:part name="parameters" element="tns:StartPromotionBot" />
+  <wsdl:message name="IServiceBot_GetUsersTelegramID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersTelegramID" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_StartPromotionBot_OutputMessage">
-    <wsdl:part name="parameters" element="tns:StartPromotionBotResponse" />
+  <wsdl:message name="IServiceBot_GetUsersTelegramID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersTelegramIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_GetStatusMsg_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStatusMsg" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StartBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartBot" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StartBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartBotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StopBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopBot" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StopBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopBotResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StartReceiving_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartReceiving" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StartReceiving_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartReceivingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StopReceiving_InputMessage">
+    <wsdl:part name="parameters" element="tns:StopReceiving" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_StopReceiving_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StopReceivingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceBot_AddMessage_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:AddMessage" />
   </wsdl:message>
   <wsdl:portType name="IProgrammService">
-    <wsdl:operation name="BotInfo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/BotInfo" message="tns:IProgrammService_BotInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/BotInfoResponse" message="tns:IProgrammService_BotInfo_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="GetEmptyUser">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetEmptyUser" message="tns:IProgrammService_GetEmptyUser_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetEmptyUserResponse" message="tns:IProgrammService_GetEmptyUser_OutputMessage" />
@@ -285,42 +666,45 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/DeleteDishByID" message="tns:IProgrammService_DeleteDishByID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/DeleteDishByIDResponse" message="tns:IProgrammService_DeleteDishByID_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="StartBot">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StartBot" message="tns:IProgrammService_StartBot_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StartBotResponse" message="tns:IProgrammService_StartBot_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="StopBot">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StopBot" message="tns:IProgrammService_StopBot_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StopBotResponse" message="tns:IProgrammService_StopBot_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetStatusMsg">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetStatusMsg" message="tns:IProgrammService_GetStatusMsg_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetStatusMsgResponse" message="tns:IProgrammService_GetStatusMsg_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetUsersTelegramID">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/GetUsersTelegramID" message="tns:IProgrammService_GetUsersTelegramID_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/GetUsersTelegramIDResponse" message="tns:IProgrammService_GetUsersTelegramID_OutputMessage" />
+    <wsdl:operation name="StartPromotionBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StartPromotionBot" message="tns:IProgrammService_StartPromotionBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StartPromotionBotResponse" message="tns:IProgrammService_StartPromotionBot_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddIntermidiatef">
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiatef" message="tns:IProgrammService_AddIntermidiatef_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiatefResponse" message="tns:IProgrammService_AddIntermidiatef_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="StartPromotionBot">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StartPromotionBot" message="tns:IProgrammService_StartPromotionBot_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StartPromotionBotResponse" message="tns:IProgrammService_StartPromotionBot_OutputMessage" />
+  </wsdl:portType>
+  <wsdl:portType name="IServiceBot">
+    <wsdl:operation name="GetUsersTelegramID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBot/GetUsersTelegramID" message="tns:IServiceBot_GetUsersTelegramID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBot/GetUsersTelegramIDResponse" message="tns:IServiceBot_GetUsersTelegramID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusMsg">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBot/GetStatusMsg" message="tns:IServiceBot_GetStatusMsg_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBot/StartBot" message="tns:IServiceBot_StartBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBot/StartBotResponse" message="tns:IServiceBot_StartBot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBot/StopBot" message="tns:IServiceBot_StopBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBot/StopBotResponse" message="tns:IServiceBot_StopBot_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StartReceiving">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBot/StartReceiving" message="tns:IServiceBot_StartReceiving_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBot/StartReceivingResponse" message="tns:IServiceBot_StartReceiving_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StopReceiving">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceBot/StopReceiving" message="tns:IServiceBot_StopReceiving_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBot/StopReceivingResponse" message="tns:IServiceBot_StopReceiving_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceBot/AddMessage" message="tns:IServiceBot_AddMessage_OutputCallbackMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="basicHttpBindingg" type="tns:IProgrammService">
+  <wsdl:binding name="basicHttpBinding" type="tns:IProgrammService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="BotInfo">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/BotInfo" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="GetEmptyUser">
       <soap:operation soapAction="http://tempuri.org/IProgrammService/GetEmptyUser" style="document" />
       <wsdl:input>
@@ -528,35 +912,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="StartBot">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/StartBot" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="StopBot">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/StopBot" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetStatusMsg">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetStatusMsg" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetUsersTelegramID">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/GetUsersTelegramID" style="document" />
+    <wsdl:operation name="StartPromotionBot">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/StartPromotionBot" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -573,19 +930,92 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="StartPromotionBot">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/StartPromotionBot" style="document" />
+  </wsdl:binding>
+  <wsdl:binding name="wsDualHttpBinding" type="tns:IServiceBot">
+    <wsp:PolicyReference URI="#wsDualHttpBinding_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUsersTelegramID">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBot/GetUsersTelegramID" style="document" />
       <wsdl:input>
-        <soap:body use="literal" />
+        <wsp:PolicyReference URI="#wsDualHttpBinding_GetUsersTelegramID_Input_policy" />
+        <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
-        <soap:body use="literal" />
+        <wsp:PolicyReference URI="#wsDualHttpBinding_GetUsersTelegramID_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStatusMsg">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBot/GetStatusMsg" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_GetStatusMsg_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="StartBot">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBot/StartBot" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StartBot_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StartBot_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopBot">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBot/StopBot" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StopBot_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StopBot_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StartReceiving">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBot/StartReceiving" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StartReceiving_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StartReceiving_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StopReceiving">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBot/StopReceiving" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StopReceiving_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_StopReceiving_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMessage">
+      <soap12:operation soapAction="http://tempuri.org/IServiceBot/AddMessage" style="document" />
+      <wsdl:output>
+        <wsp:PolicyReference URI="#wsDualHttpBinding_AddMessage_output_policy" />
+        <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="ProgrammService">
-    <wsdl:port name="basicHttpBindingg" binding="tns:basicHttpBindingg">
+    <wsdl:port name="basicHttpBinding" binding="tns:basicHttpBinding">
       <soap:address location="http://localhost:8099/IService" />
+    </wsdl:port>
+    <wsdl:port name="wsDualHttpBinding" binding="tns:wsDualHttpBinding">
+      <soap12:address location="http://localhost:8099/IServiceBot" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8099/IServiceBot</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>HOTTABYCH\hottabychpidor</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

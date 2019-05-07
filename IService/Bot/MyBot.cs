@@ -16,6 +16,8 @@ namespace IService.MyBott
         string statusMsg;
         string botToken;
         bool isStarted;
+        public delegate void GetStatus(string message);
+        public event GetStatus GetStatusMessage;
         public bool IsStarted
         {
             get { return isStarted; }
@@ -83,7 +85,7 @@ namespace IService.MyBott
         {
             string buttonText = e.CallbackQuery.Data;
             string name = $"{e.CallbackQuery.From.FirstName} {e.CallbackQuery.From.LastName}";
-            statusMsg += $"{name} нажав на кнопку {buttonText}" + Environment.NewLine;
+            GetStatusMessage($"{name} нажав на кнопку {buttonText}" + Environment.NewLine);
             if (buttonText == "Puts1")
             {
                 await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Puts1");
@@ -119,8 +121,8 @@ namespace IService.MyBott
                 return;
             }
             string UserName = $"{message.From.FirstName} {message.From.LastName}";
-            statusMsg += $"{UserName} відправив: {UserMsg} "
-                + $" ID користувача : {UserId}" + Environment.NewLine;
+            GetStatusMessage($"{UserName} відправив: {UserMsg}" 
+                + $" ID користувача : {UserId}" + Environment.NewLine);
 
             switch (message.Text)
             {

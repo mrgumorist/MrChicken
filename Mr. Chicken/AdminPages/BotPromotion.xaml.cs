@@ -32,6 +32,7 @@ namespace Mr.Chicken.AdminPages
                 string message = txtPromotion.Text;
                 await client.StartPromotionBotAsync(message);
                 txtPromotion.Text = "";
+                MessageBox.Show("Promotion send!", "Promotion");
             }
            
         }
