@@ -282,13 +282,17 @@ namespace IService
             
             context.SaveChanges();
         }
-
-      
-        public bool IsRecievingBot()
+        
+        public void StartPromotionBot(string message)
         {
-            return myBotCLient.IsStarted;
+            List<string> TelegramID = GetUsersTelegramID();
+
+            foreach (var item in TelegramID)
+            {
+                myBotCLient.SendMsgToUser(item, message);
+            }
         }
 
-       
+
     }
 }

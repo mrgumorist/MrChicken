@@ -359,26 +359,16 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="SaveImages">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="SaveImagesResponse">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IsRecievingBot">
-    <xs:complexType>
-      <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="IsRecievingBotResponse">
+  <xs:element name="StartPromotionBot">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="IsRecievingBotResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="message" nillable="true" type="xs:string" />
       </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StartPromotionBotResponse">
+    <xs:complexType>
+      <xs:sequence />
     </xs:complexType>
   </xs:element>
 </xs:schema>

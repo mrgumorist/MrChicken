@@ -56,6 +56,11 @@ namespace IService.MyBott
          botClient.StartReceiving();
      }
 
+        public async void SendMsgToUser(string UserID,string msg)
+        {
+            await botClient.SendTextMessageAsync(Int32.Parse(UserID), msg);
+        }
+
         private async void button_clickGetMyID(MessageEventArgs e)
         {
             await botClient.SendTextMessageAsync(e.Message.Chat.Id, $"Your ID: {e.Message.From.Id}");

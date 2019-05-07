@@ -58,15 +58,15 @@ namespace Mr.Chicken
                     AdminPanel adminPanel = new AdminPanel();
                     Hide();
                     adminPanel.ShowDialog();
-                    Show();
+                    Show();                   
                 }
                 else
                 {
                     MessageBox.Show("You press Ctrl+P :) You don't have premissions for it");
-                    
                 }
                 Clear();
             }
+           
         }
 
         private async void  Button_Click_2(object sender, RoutedEventArgs e)

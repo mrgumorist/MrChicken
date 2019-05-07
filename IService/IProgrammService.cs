@@ -72,8 +72,7 @@ namespace IService
         List<string> GetUsersTelegramID();
         [OperationContract]
         void AddIntermidiatef(IntermediateS[] list);
-
         [OperationContract]
-        bool IsRecievingBot();
+        void StartPromotionBot(string message);
     }
 }

@@ -182,17 +182,11 @@
   <wsdl:message name="IProgrammService_AddIntermidiatef_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddIntermidiatefResponse" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_SaveImages_InputMessage">
-    <wsdl:part name="parameters" element="tns:SaveImages" />
+  <wsdl:message name="IProgrammService_StartPromotionBot_InputMessage">
+    <wsdl:part name="parameters" element="tns:StartPromotionBot" />
   </wsdl:message>
-  <wsdl:message name="IProgrammService_SaveImages_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SaveImagesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_IsRecievingBot_InputMessage">
-    <wsdl:part name="parameters" element="tns:IsRecievingBot" />
-  </wsdl:message>
-  <wsdl:message name="IProgrammService_IsRecievingBot_OutputMessage">
-    <wsdl:part name="parameters" element="tns:IsRecievingBotResponse" />
+  <wsdl:message name="IProgrammService_StartPromotionBot_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StartPromotionBotResponse" />
   </wsdl:message>
   <wsdl:portType name="IProgrammService">
     <wsdl:operation name="BotInfo">
@@ -311,13 +305,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiatef" message="tns:IProgrammService_AddIntermidiatef_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/AddIntermidiatefResponse" message="tns:IProgrammService_AddIntermidiatef_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="SaveImages">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/SaveImages" message="tns:IProgrammService_SaveImages_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/SaveImagesResponse" message="tns:IProgrammService_SaveImages_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="IsRecievingBot">
-      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/IsRecievingBot" message="tns:IProgrammService_IsRecievingBot_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/IsRecievingBotResponse" message="tns:IProgrammService_IsRecievingBot_OutputMessage" />
+    <wsdl:operation name="StartPromotionBot">
+      <wsdl:input wsaw:Action="http://tempuri.org/IProgrammService/StartPromotionBot" message="tns:IProgrammService_StartPromotionBot_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IProgrammService/StartPromotionBotResponse" message="tns:IProgrammService_StartPromotionBot_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="basicHttpBindingg" type="tns:IProgrammService">
@@ -583,17 +573,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="SaveImages">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/SaveImages" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="IsRecievingBot">
-      <soap:operation soapAction="http://tempuri.org/IProgrammService/IsRecievingBot" style="document" />
+    <wsdl:operation name="StartPromotionBot">
+      <soap:operation soapAction="http://tempuri.org/IProgrammService/StartPromotionBot" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

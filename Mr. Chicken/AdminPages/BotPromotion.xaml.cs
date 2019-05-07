@@ -27,9 +27,13 @@ namespace Mr.Chicken.AdminPages
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            //TO DO client.StartPromotionBot(string message);
-            //await
-            
+            if (MessageBox.Show("Send message? ", "Promotion", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                string message = txtPromotion.Text;
+                await client.StartPromotionBotAsync(message);
+                txtPromotion.Text = "";
+            }
+           
         }
     }
 }

@@ -189,17 +189,11 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiatef", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiatefResponse")]
         System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SaveImages", ReplyAction="http://tempuri.org/IProgrammService/SaveImagesResponse")]
-        void SaveImages();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartPromotionBot", ReplyAction="http://tempuri.org/IProgrammService/StartPromotionBotResponse")]
+        void StartPromotionBot(string message);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SaveImages", ReplyAction="http://tempuri.org/IProgrammService/SaveImagesResponse")]
-        System.Threading.Tasks.Task SaveImagesAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/IsRecievingBot", ReplyAction="http://tempuri.org/IProgrammService/IsRecievingBotResponse")]
-        bool IsRecievingBot();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/IsRecievingBot", ReplyAction="http://tempuri.org/IProgrammService/IsRecievingBotResponse")]
-        System.Threading.Tasks.Task<bool> IsRecievingBotAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/StartPromotionBot", ReplyAction="http://tempuri.org/IProgrammService/StartPromotionBotResponse")]
+        System.Threading.Tasks.Task StartPromotionBotAsync(string message);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -461,20 +455,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
             return base.Channel.AddIntermidiatefAsync(list);
         }
         
-        public void SaveImages() {
-            base.Channel.SaveImages();
+        public void StartPromotionBot(string message) {
+            base.Channel.StartPromotionBot(message);
         }
         
-        public System.Threading.Tasks.Task SaveImagesAsync() {
-            return base.Channel.SaveImagesAsync();
-        }
-        
-        public bool IsRecievingBot() {
-            return base.Channel.IsRecievingBot();
-        }
-        
-        public System.Threading.Tasks.Task<bool> IsRecievingBotAsync() {
-            return base.Channel.IsRecievingBotAsync();
+        public System.Threading.Tasks.Task StartPromotionBotAsync(string message) {
+            return base.Channel.StartPromotionBotAsync(message);
         }
     }
 }
