@@ -85,8 +85,8 @@ namespace IService.MyBott
             var user = context.users.FirstOrDefault(u => u.TelegramID == id);
            
                 var recipes =  GetUseAvailableReceptBot(Int32.Parse(user.TelegramID));
-                var recps = GetRecipesBot(recipes);
-                await botClient.SendTextMessageAsync(e.Message.Chat.Id,"RECIPES: "+Environment.NewLine+ recps +Environment.NewLine);
+                GetRecipesBot(recipes,e);
+                //await botClient.SendTextMessageAsync(e.Message.Chat.Id,"RECIPES: "+Environment.NewLine+ recps +Environment.NewLine);
           
             }
             catch (Exception)
@@ -216,99 +216,48 @@ namespace IService.MyBott
 
         private List<DishS> GetUseAvailableReceptBot(int UserId)
         {
-            //var UserProducts = context.userProducts.Select();
-
-            var Users = (from n in context.users
-                         where n.TelegramID == UserId.ToString()
-                         select n).ToList();
-            int usid = Users.First().ID;
-            var UserProducts =
-                 (from n in context.userProducts
-                  where n.UserID == usid
-                  select n).ToList();
-
-            var dishIntermed =
-                (from di in context.intermediate
-                 select di).ToList();
-
             List<DishS> dishes = new List<DishS>();
+            var userproducts = context.userProducts.Where(t => t.UserID == context.users.FirstOrDefault(u=>u.TelegramID == UserId.ToString()).ID).ToList();
 
-            UserProducts ul = new UserProducts();
-            int checker = 1;
-            int uniqChecker = -1;
-
-            List<Intermediate> I = new List<Intermediate>();
-            List<UserProducts> P = new List<UserProducts>();
-
-            var pDishes = context.dishes.ToList();
-            foreach (var dsh in pDishes)
+            foreach (var item in userproducts)
             {
-
-                int productIntermediateCount = 0;
-                foreach (var item in context.intermediate)
+                try
                 {
-                    if (item.DishID == dsh.ID)
-                        productIntermediateCount++;
-                }
-
-                foreach (var us_Prod in UserProducts)
-                {
-                    for (int i = 0; i < dishIntermed.Count; i++)
+                    var dishestemp = item.ProductV.intermediate.Distinct(new IntermediateEqualityComparer()).Select(t => t.DishV);
+                    dishes.Add(dishestemp.Select(t => new DishS()
                     {
-                        if (us_Prod.ProductID == dishIntermed[i].ProductID && uniqChecker != us_Prod.ProductID)
-                        {
-                            uniqChecker = us_Prod.ProductID;
-                            I.Add(dishIntermed[i]);
-                            P.Add(us_Prod);
-                            if (productIntermediateCount == I.Count)
-                            {
-                                int chance = 0;
-                                foreach (var Is in I)
-                                {
-                                    foreach (var Ps in P)
-                                    {
-                                        if (Is.ProductID == Ps.ProductID)
-                                        {
-                                            chance++;
-                                        }
-                                    }
-                                }
+                        ID = t.ID,
+                        LittleDescription = t.LittleDescription,
+                        Name = t.Name,
+                        Recept = t.Recept,
+                        TypeID = t.TypeID
+                    }).FirstOrDefault());
+                }
+                catch (Exception)
+                {
 
-                                if (chance == productIntermediateCount)
-                                {
 
-                                    foreach (var item in context.dishes)
-                                    {
-                                        if (item.ID == dishIntermed[i].DishID)
-                                        {
-                                            var dish = new DishS();
-                                            dish.ID = item.ID;
-                                            dish.Name = item.Name;
-                                            dish.Recept = item.Recept;
-                                            dish.TypeID = item.TypeID;
-                                            dish.LittleDescription = item.LittleDescription;
-                                            dishes.Add(dish);
-                                        }
-                                    }
-
-                                }
-
-                            }
-                        }
-                    }
                 }
             }
-            return dishes;
+            var b = dishes.Distinct(new DishesEqualityComparer());
+
+            //dishes = new List<DishS>();
+
+
+
+            return b.ToList();
         }
 
-        public string GetRecipesBot(List<DishS> recipes)
+        public async void GetRecipesBot(List<DishS> recipes, MessageEventArgs e)
         {
             string recipe = "";
             foreach (var item in recipes)
             {
-                recipe += item.Name+Environment.NewLine +item.Recept + Environment.NewLine;
+                recipe = item.Name+Environment.NewLine +item.Recept + Environment.NewLine;
+                await botClient.SendTextMessageAsync(e.Message.Chat.Id, "RECIPES: " + Environment.NewLine + recipe + Environment.NewLine);
             }
-            return recipe;
+
+            //return recipe;
         }
 
         public void Stop()

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace IService.Entities
 {
+
+    
+
     [Table("Dishes")]
    public class Dish
     {

@@ -387,174 +387,40 @@ namespace IService
             context.SaveChanges();
         }
         public List<DishS> GetUseAvailableRecept(int UserId)
-        {
-            //var UserProducts = context.userProducts.Select();
-
-            var UserProducts =
-                 (from n in context.userProducts
-                  where n.UserID == UserId
-                  select n).ToList();
-
-            var dishIntermed =
-                (from di in context.intermediate
-                 select di).ToList();
-
+        {          
             List<DishS> dishes = new List<DishS>();
-
-            UserProducts ul = new UserProducts();
-            int checker = 1;
-            int uniqChecker = -1;
-
-            List<Intermediate> I = new List<Intermediate>();
-            List<UserProducts> P = new List<UserProducts>();
-
-            var pDishes = context.dishes.ToList();
-            foreach (var dsh in pDishes)
+            var userproducts = context.userProducts.Where(t => t.UserID == UserId).ToList();
+            
+            foreach (var item in userproducts)
             {
-
-                int productIntermediateCount = 0;
-                foreach (var item in context.intermediate)
+                try
                 {
-                    if (item.DishID == dsh.ID)
-                        productIntermediateCount++;
+                var dishestemp = item.ProductV.intermediate.Distinct(new IntermediateEqualityComparer()).Select(t => t.DishV);
+                dishes.Add(dishestemp.Select(t => new DishS()
+                {
+                    ID = t.ID,
+                    LittleDescription = t.LittleDescription,
+                    Name = t.Name,
+                    Recept = t.Recept,
+                    TypeID = t.TypeID                   
+                }).FirstOrDefault());
                 }
-
-                foreach (var us_Prod in UserProducts)
+                catch (Exception)
                 {
-                    for (int i = 0; i < dishIntermed.Count; i++)
-                    {
-                        if (us_Prod.ProductID == dishIntermed[i].ProductID && uniqChecker != us_Prod.ProductID)
-                        {
-                            uniqChecker = us_Prod.ProductID;
-                            I.Add(dishIntermed[i]);
-                            P.Add(us_Prod);
-                            if (productIntermediateCount == I.Count)
-                            {
-                                int chance = 0;
-                                foreach (var Is in I)
-                                {
-                                    foreach (var Ps in P)
-                                    {
-                                        if (Is.ProductID == Ps.ProductID)
-                                        {
-                                            chance++;
-                                        }
-                                    }
-                                }
 
-                                if (chance == productIntermediateCount)
-                                {
-
-                                    foreach (var item in context.dishes)
-                                    {
-                                        if (item.ID == dishIntermed[i].DishID)
-                                        {
-                                            var dish = new DishS();
-                                            dish.ID = item.ID;
-                                            dish.Name = item.Name;
-                                            dish.Recept = item.Recept;
-                                            dish.TypeID = item.TypeID;
-                                            dish.LittleDescription = item.LittleDescription;
-                                            dishes.Add(dish);
-                                        }
-                                    }
-
-                                }
-
-                            }
-                        }
-                    }
+                    
                 }
             }
-            return dishes;
+            var b = dishes.Distinct(new DishesEqualityComparer());
+            
+            //dishes = new List<DishS>();
+            
+
+
+            return b.ToList();
         }
 
-        public List<DishS> GetUseAvailableReceptBot(int UserId)
-        {
-            //var UserProducts = context.userProducts.Select();
-
-            var Users = (from n in context.users
-                         where n.TelegramID == UserId.ToString()
-                         select n).ToList();
-
-            var UserProducts =
-                 (from n in context.userProducts
-                  where n.UserID == Users.First().ID
-                  select n).ToList();
-
-            var dishIntermed =
-                (from di in context.intermediate
-                 select di).ToList();
-
-            List<DishS> dishes = new List<DishS>();
-
-            UserProducts ul = new UserProducts();
-            int checker = 1;
-            int uniqChecker = -1;
-
-            List<Intermediate> I = new List<Intermediate>();
-            List<UserProducts> P = new List<UserProducts>();
-
-            var pDishes = context.dishes.ToList();
-            foreach (var dsh in pDishes)
-            {
-
-                int productIntermediateCount = 0;
-                foreach (var item in context.intermediate)
-                {
-                    if (item.DishID == dsh.ID)
-                        productIntermediateCount++;
-                }
-
-                foreach (var us_Prod in UserProducts)
-                {
-                    for (int i = 0; i < dishIntermed.Count; i++)
-                    {
-                        if (us_Prod.ProductID == dishIntermed[i].ProductID && uniqChecker != us_Prod.ProductID)
-                        {
-                            uniqChecker = us_Prod.ProductID;
-                            I.Add(dishIntermed[i]);
-                            P.Add(us_Prod);
-                            if (productIntermediateCount == I.Count)
-                            {
-                                int chance = 0;
-                                foreach (var Is in I)
-                                {
-                                    foreach (var Ps in P)
-                                    {
-                                        if (Is.ProductID == Ps.ProductID)
-                                        {
-                                            chance++;
-                                        }
-                                    }
-                                }
-
-                                if (chance == productIntermediateCount)
-                                {
-
-                                    foreach (var item in context.dishes)
-                                    {
-                                        if (item.ID == dishIntermed[i].DishID)
-                                        {
-                                            var dish = new DishS();
-                                            dish.ID = item.ID;
-                                            dish.Name = item.Name;
-                                            dish.Recept = item.Recept;
-                                            dish.TypeID = item.TypeID;
-                                            dish.LittleDescription = item.LittleDescription;
-                                            dishes.Add(dish);
-                                        }
-                                    }
-
-                                }
-
-                            }
-                        }
-                    }
-                }
-            }
-            return dishes;
-        }
+        
 
         public string GetRecipesBot(List<DishS> recipes)
         {

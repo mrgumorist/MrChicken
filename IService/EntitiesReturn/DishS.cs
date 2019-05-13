@@ -7,6 +7,21 @@ using System.Threading.Tasks;
 
 namespace IService.EntitiesReturn
 {
+    class DishesEqualityComparer : IEqualityComparer<DishS>
+    {
+        public bool Equals(DishS x, DishS y)
+        {
+            // Two items are equal if their keys are equal.
+            return x.ID == y.ID;
+        }
+
+        public int GetHashCode(DishS obj)
+        {
+            return obj.ID.GetHashCode();
+        }
+    }
+
+
     [DataContract]
     public class DishS
     {

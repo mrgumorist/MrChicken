@@ -545,12 +545,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StopReceiving", ReplyAction="http://tempuri.org/IServiceBot/StopReceivingResponse")]
         System.Threading.Tasks.Task StopReceivingAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/GetUseAvailableReceptBot", ReplyAction="http://tempuri.org/IServiceBot/GetUseAvailableReceptBotResponse")]
-        IService.EntitiesReturn.DishS[] GetUseAvailableReceptBot(int UserId);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/GetUseAvailableReceptBot", ReplyAction="http://tempuri.org/IServiceBot/GetUseAvailableReceptBotResponse")]
-        System.Threading.Tasks.Task<IService.EntitiesReturn.DishS[]> GetUseAvailableReceptBotAsync(int UserId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -634,14 +628,6 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task StopReceivingAsync() {
             return base.Channel.StopReceivingAsync();
-        }
-        
-        public IService.EntitiesReturn.DishS[] GetUseAvailableReceptBot(int UserId) {
-            return base.Channel.GetUseAvailableReceptBot(UserId);
-        }
-        
-        public System.Threading.Tasks.Task<IService.EntitiesReturn.DishS[]> GetUseAvailableReceptBotAsync(int UserId) {
-            return base.Channel.GetUseAvailableReceptBotAsync(UserId);
         }
     }
 }

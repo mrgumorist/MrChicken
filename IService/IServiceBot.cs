@@ -23,8 +23,7 @@ namespace IService
         void StartReceiving();
         [OperationContract]
         void StopReceiving();
-        [OperationContract]
-        List<DishS> GetUseAvailableReceptBot(int UserId);
+        
         
     }
 

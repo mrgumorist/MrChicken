@@ -41,7 +41,8 @@ namespace Mr.Chicken.UserPages
 
         private void dataGridDishes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show(client.GetRecipesBot(rec));
+            var selectedProduct = dataGridDishes.SelectedItem as DishS;
+            MessageBox.Show(rec.First(d=>d.ID==selectedProduct.ID).Recept.ToString());
         }
     }
 }
