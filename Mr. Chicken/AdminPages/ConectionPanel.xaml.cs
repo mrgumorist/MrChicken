@@ -25,7 +25,6 @@ namespace Mr.Chicken.AdminPages
     {
         ObservableCollection<DishS> dishes = new ObservableCollection<DishS>();
         ProgrammServiceClient client = new ProgrammServiceClient();
-        List<TempProduct> products = new List<TempProduct>();
 
         static int ID = -1;
         public ConectionPanel()
@@ -33,45 +32,31 @@ namespace Mr.Chicken.AdminPages
             InitializeComponent();
             GetAsync();
         }
-        void OnChecked(object sender, RoutedEventArgs e)
-        {
-            TempProduct classObj = Displaying.SelectedItem as TempProduct;
-            if (products.Where(t => t.ProdID == classObj.ProdID).First().IsCheked == false)
-            {
-                products.Where(t => t.ProdID == classObj.ProdID).First().IsCheked = true;
-            }
-            else
-            {
-                products.Where(t => t.ProdID == classObj.ProdID).First().IsCheked = false;
-            }
-            Displaying.ItemsSource = null;
-            Displaying.ItemsSource = products;
-        }
+        
         private async void GetAsync()
         {
             dishes.Clear();
-            products.Clear();
             Displaying.ItemsSource = null;
             Displayy.ItemsSource = null;
             var list = await client.GetDishesSAsync();
+
+            var prod = await client.GetProductSSAsync();
+            Displaying.ItemsSource = prod;
+
+            
+
             foreach (var item in list)
             {
                 dishes.Add(item);
             }
-          //  MessageBox.Show(dishes.Count.ToString());
             Displayy.ItemsSource = dishes;
-            var prod = await client.GetProductSSAsync();
-            foreach (var item in prod)
-            {
-                products.Add(new TempProduct() { ProdID = item.ID, Name = item.Name });
-            }
-            Displaying.ItemsSource = products;
+          
         }
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             DishS classObj = Displayy.SelectedItem as DishS;
             ID = classObj.ID;
-            Displayy.IsEnabled = false;
+            Displayy.IsEnabled = false;            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -82,48 +67,91 @@ namespace Mr.Chicken.AdminPages
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            //Cancel checking
             Displaying.IsEnabled = true;
-            foreach (var item in products)
-            {
-                item.IsCheked = false;
-            }
-            Displaying.ItemsSource = products;
+            GetAsync();
+            
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        
+        private async void Displaying_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //Add Products
-            List<IntermediateS> intermediateS = new List<IntermediateS>();
-            foreach (var item in (List<TempProduct>)Displaying.ItemsSource)
+            if (MessageBox.Show("Do you want to add this product?", "ADD MENU", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                if (item.IsCheked == true)
-                    intermediateS.Add(new IntermediateS() { DishID = ID, ProductID = item.ProdID });
-            }
-            var arr = intermediateS.ToArray();
-            client.AddIntermidiatef(arr);
-            Displayy.IsEnabled = true;
-            Displaying.IsEnabled = true;
-            foreach (var item in products)
-            {
-                item.IsCheked = false;
-            }
+                if (Displaying.SelectedItem == null)
+                {
+                    return;
+                }
+                else
+                {
+                    var selectedProduct = Displaying.SelectedItem as ProductS;
 
-            MessageBox.Show("Succesfull aded");
-            Displayy.ItemsSource = dishes;
-            Displaying.ItemsSource = products;
+                    List<IntermediateS> intermediateS = new List<IntermediateS>();
+
+                    intermediateS.Add(new IntermediateS() { DishID = ID, ProductID = selectedProduct.ID });
+                    var arr = intermediateS.ToArray();
+                    await client.AddIntermidiatefAsync(arr);
+                    Displaying.IsEnabled = true;
+                                       
+                    MessageBox.Show(string.Format("Succesfull!", "MENU"));
+                    showInerProducts();
+                    
+
+                }
+            }
+            
         }
 
-    }
-    public class TempProduct
-    {
-        public TempProduct()
+        private async void MenuItem_Click_1(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("Do you want to delete this product?", "DELETE MENU", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                if (Displaying.SelectedItem == null)
+                {
+                    return;
+                }
+                else
+                {
+                    var selectedProduct = Displaying.SelectedItem as ProductS;
+                    await client.DeleteProductIntermediateByIDAsync(selectedProduct.Name);
+                    
+                    showInerProducts();
+                    MessageBox.Show(string.Format("Succesfull!", "MENU"));
+                }
+            }
+        }
+        private async void showInerProducts()
+        {
+            try
+            {
+                List<ProductS> productUser = new List<ProductS>();
+                ProductS p = new ProductS();
+                var Us_prod = await client.GetRecipeProdByNameAsync(ID);
+
+                var products = await client.GetProductSSAsync();
+
+
+                foreach (var item in Us_prod)
+                {
+                    var pr = (products.FirstOrDefault(p1 => p1.ID == item.ProductID));
+                    productUser.Add(pr);
+                }
+                Displaying.ItemsSource = productUser;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Empty!");
+            }
 
         }
-        public int ProdID { get; set;  }
-        public bool IsCheked { get; set; } = false;
-        public string Name { get; set; }
+
+        private void Displayy_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            DishS classObj = Displayy.SelectedItem as DishS;
+            ID = classObj.ID;
+            showInerProducts();
+        }
     }
+    
 }

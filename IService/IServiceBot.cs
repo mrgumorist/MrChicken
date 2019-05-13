@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IService.EntitiesReturn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
@@ -22,6 +23,9 @@ namespace IService
         void StartReceiving();
         [OperationContract]
         void StopReceiving();
+        [OperationContract]
+        List<DishS> GetUseAvailableReceptBot(int UserId);
+        
     }
 
     public interface IServiceBotCallback

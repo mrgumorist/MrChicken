@@ -19,6 +19,6 @@ namespace IService.Entities
         [Required, ForeignKey("ProductV")]
         public int ProductID { get; set; }
         public virtual Product ProductV { get; set; }
-        public DateTime AddedDate { get; set; }
+        //public DateTime AddedDate { get; set; }
     }
 }

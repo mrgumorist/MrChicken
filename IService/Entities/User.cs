@@ -29,6 +29,16 @@ namespace IService
         public DateTime DateOfBirth { get; set; }
         [Required]
         public bool DoesWantRecomendations { get; set; }
+
+        //[ForeignKey("RoleId")]
+        //public Role Role_ { get; set; }
+        //[ForeignKey("Role_")]
+        //public int RoleId { get; set; }
+        //[Required, ForeignKey("RoleV")]
+        //public int RoleID { get; set; }
+        //public virtual Role RoleV { get; set; }
+
+
         public virtual ICollection<EmailAccept> IEmails { get; set; }
         public virtual ICollection<UserProducts> userProducts { get; set; }
     }

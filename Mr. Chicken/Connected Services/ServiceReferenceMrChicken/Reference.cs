@@ -164,6 +164,54 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddIntermidiatef", ReplyAction="http://tempuri.org/IProgrammService/AddIntermidiatefResponse")]
         System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SetTelegramID", ReplyAction="http://tempuri.org/IProgrammService/SetTelegramIDResponse")]
+        void SetTelegramID(int userId, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/SetTelegramID", ReplyAction="http://tempuri.org/IProgrammService/SetTelegramIDResponse")]
+        System.Threading.Tasks.Task SetTelegramIDAsync(int userId, string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddUserProducts", ReplyAction="http://tempuri.org/IProgrammService/AddUserProductsResponse")]
+        void AddUserProducts(IService.EntitiesReturn.UserProductsS item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/AddUserProducts", ReplyAction="http://tempuri.org/IProgrammService/AddUserProductsResponse")]
+        System.Threading.Tasks.Task AddUserProductsAsync(IService.EntitiesReturn.UserProductsS item);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUserProducts", ReplyAction="http://tempuri.org/IProgrammService/GetUserProductsResponse")]
+        IService.EntitiesReturn.UserProductsS[] GetUserProducts(int Userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUserProducts", ReplyAction="http://tempuri.org/IProgrammService/GetUserProductsResponse")]
+        System.Threading.Tasks.Task<IService.EntitiesReturn.UserProductsS[]> GetUserProductsAsync(int Userid);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteProductByName", ReplyAction="http://tempuri.org/IProgrammService/DeleteProductByNameResponse")]
+        void DeleteProductByName(string prodName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteProductByName", ReplyAction="http://tempuri.org/IProgrammService/DeleteProductByNameResponse")]
+        System.Threading.Tasks.Task DeleteProductByNameAsync(string prodName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUseAvailableRecept", ReplyAction="http://tempuri.org/IProgrammService/GetUseAvailableReceptResponse")]
+        IService.EntitiesReturn.DishS[] GetUseAvailableRecept(int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetUseAvailableRecept", ReplyAction="http://tempuri.org/IProgrammService/GetUseAvailableReceptResponse")]
+        System.Threading.Tasks.Task<IService.EntitiesReturn.DishS[]> GetUseAvailableReceptAsync(int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetRecipeProdByName", ReplyAction="http://tempuri.org/IProgrammService/GetRecipeProdByNameResponse")]
+        IService.EntitiesReturn.IntermediateS[] GetRecipeProdByName(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetRecipeProdByName", ReplyAction="http://tempuri.org/IProgrammService/GetRecipeProdByNameResponse")]
+        System.Threading.Tasks.Task<IService.EntitiesReturn.IntermediateS[]> GetRecipeProdByNameAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteProductIntermediateByID", ReplyAction="http://tempuri.org/IProgrammService/DeleteProductIntermediateByIDResponse")]
+        void DeleteProductIntermediateByID(string prodName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/DeleteProductIntermediateByID", ReplyAction="http://tempuri.org/IProgrammService/DeleteProductIntermediateByIDResponse")]
+        System.Threading.Tasks.Task DeleteProductIntermediateByIDAsync(string prodName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetRecipesBot", ReplyAction="http://tempuri.org/IProgrammService/GetRecipesBotResponse")]
+        string GetRecipesBot(IService.EntitiesReturn.DishS[] recipes);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IProgrammService/GetRecipesBot", ReplyAction="http://tempuri.org/IProgrammService/GetRecipesBotResponse")]
+        System.Threading.Tasks.Task<string> GetRecipesBotAsync(IService.EntitiesReturn.DishS[] recipes);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -392,6 +440,70 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         public System.Threading.Tasks.Task AddIntermidiatefAsync(IService.EntitiesReturn.IntermediateS[] list) {
             return base.Channel.AddIntermidiatefAsync(list);
         }
+        
+        public void SetTelegramID(int userId, string id) {
+            base.Channel.SetTelegramID(userId, id);
+        }
+        
+        public System.Threading.Tasks.Task SetTelegramIDAsync(int userId, string id) {
+            return base.Channel.SetTelegramIDAsync(userId, id);
+        }
+        
+        public void AddUserProducts(IService.EntitiesReturn.UserProductsS item) {
+            base.Channel.AddUserProducts(item);
+        }
+        
+        public System.Threading.Tasks.Task AddUserProductsAsync(IService.EntitiesReturn.UserProductsS item) {
+            return base.Channel.AddUserProductsAsync(item);
+        }
+        
+        public IService.EntitiesReturn.UserProductsS[] GetUserProducts(int Userid) {
+            return base.Channel.GetUserProducts(Userid);
+        }
+        
+        public System.Threading.Tasks.Task<IService.EntitiesReturn.UserProductsS[]> GetUserProductsAsync(int Userid) {
+            return base.Channel.GetUserProductsAsync(Userid);
+        }
+        
+        public void DeleteProductByName(string prodName) {
+            base.Channel.DeleteProductByName(prodName);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductByNameAsync(string prodName) {
+            return base.Channel.DeleteProductByNameAsync(prodName);
+        }
+        
+        public IService.EntitiesReturn.DishS[] GetUseAvailableRecept(int UserId) {
+            return base.Channel.GetUseAvailableRecept(UserId);
+        }
+        
+        public System.Threading.Tasks.Task<IService.EntitiesReturn.DishS[]> GetUseAvailableReceptAsync(int UserId) {
+            return base.Channel.GetUseAvailableReceptAsync(UserId);
+        }
+        
+        public IService.EntitiesReturn.IntermediateS[] GetRecipeProdByName(int id) {
+            return base.Channel.GetRecipeProdByName(id);
+        }
+        
+        public System.Threading.Tasks.Task<IService.EntitiesReturn.IntermediateS[]> GetRecipeProdByNameAsync(int id) {
+            return base.Channel.GetRecipeProdByNameAsync(id);
+        }
+        
+        public void DeleteProductIntermediateByID(string prodName) {
+            base.Channel.DeleteProductIntermediateByID(prodName);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductIntermediateByIDAsync(string prodName) {
+            return base.Channel.DeleteProductIntermediateByIDAsync(prodName);
+        }
+        
+        public string GetRecipesBot(IService.EntitiesReturn.DishS[] recipes) {
+            return base.Channel.GetRecipesBot(recipes);
+        }
+        
+        public System.Threading.Tasks.Task<string> GetRecipesBotAsync(IService.EntitiesReturn.DishS[] recipes) {
+            return base.Channel.GetRecipesBotAsync(recipes);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -433,6 +545,12 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/StopReceiving", ReplyAction="http://tempuri.org/IServiceBot/StopReceivingResponse")]
         System.Threading.Tasks.Task StopReceivingAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/GetUseAvailableReceptBot", ReplyAction="http://tempuri.org/IServiceBot/GetUseAvailableReceptBotResponse")]
+        IService.EntitiesReturn.DishS[] GetUseAvailableReceptBot(int UserId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IServiceBot/GetUseAvailableReceptBot", ReplyAction="http://tempuri.org/IServiceBot/GetUseAvailableReceptBotResponse")]
+        System.Threading.Tasks.Task<IService.EntitiesReturn.DishS[]> GetUseAvailableReceptBotAsync(int UserId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -516,6 +634,14 @@ namespace Mr.Chicken.ServiceReferenceMrChicken {
         
         public System.Threading.Tasks.Task StopReceivingAsync() {
             return base.Channel.StopReceivingAsync();
+        }
+        
+        public IService.EntitiesReturn.DishS[] GetUseAvailableReceptBot(int UserId) {
+            return base.Channel.GetUseAvailableReceptBot(UserId);
+        }
+        
+        public System.Threading.Tasks.Task<IService.EntitiesReturn.DishS[]> GetUseAvailableReceptBotAsync(int UserId) {
+            return base.Channel.GetUseAvailableReceptBotAsync(UserId);
         }
     }
 }

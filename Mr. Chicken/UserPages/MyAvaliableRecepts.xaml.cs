@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IService.EntitiesReturn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,27 @@ namespace Mr.Chicken.UserPages
     /// </summary>
     public partial class MyAvaliableRecepts : Page
     {
-        public MyAvaliableRecepts()
+        int UserId;
+        
+        ServiceReferenceMrChicken.ProgrammServiceClient client =
+            new ServiceReferenceMrChicken.ProgrammServiceClient();
+        private DishS[] rec;
+
+        public MyAvaliableRecepts(int id)
         {
-            InitializeComponent();
+            UserId = id;
+            InitializeComponent();            
+        }
+
+        private async void Button_Click(object sender, RoutedEventArgs e)
+        {            
+                rec = await client.GetUseAvailableReceptAsync(UserId);
+                dataGridDishes.ItemsSource = rec;            
+        }
+
+        private void dataGridDishes_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show(client.GetRecipesBot(rec));
         }
     }
 }

@@ -32,10 +32,7 @@ namespace Mr.Chicken
 
 
             Update();
-            //TO DO! HIDE FIRST COLUMN
-            //dataGrid.Columns.Remove(dataGrid.Columns.First());
-            //dataGrid.Columns[$"{dataGrid.Columns.First().Header.ToString()}"].Visibility = Visibility.Hidden;
-            // MessageBox.Show(dataGrid.Columns.Count.ToString());
+            
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

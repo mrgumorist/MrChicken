@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IService.EntitiesReturn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,58 @@ namespace Mr.Chicken.UserPages
     /// </summary>
     public partial class MyInfo : Page
     {
-        public MyInfo()
+        ServiceReferenceMrChicken.ProgrammServiceClient client = new ServiceReferenceMrChicken.ProgrammServiceClient();
+        int UserId;
+        public MyInfo(int id)
         {
+            UserId = id;
             InitializeComponent();
+            LoadInfo(id);
+        }
+        private async void LoadInfo(int id)
+        {
+
+            var Users = await client.GetUsersAsync();
+            var UserInfo = Users.FirstOrDefault(u => u.ID == id);
+            List<UserS> users = new List<UserS>();
+            users.Add(UserInfo);
+            dataGrid.ItemsSource = null;
+            var Users_ = users.Select(u => new
+            {
+                u.ID,
+                u.Name,
+                u.Surname,
+                u.Login,
+                u.Password,
+                u.TelegramID,
+                u.Email,
+                u.ISConfirmed,
+                u.DateOfRegister,
+                u.DateOfBirth,
+                u.DoesWantRecomendations
+            }
+          );
+            dataGrid.ItemsSource = Users_;
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            EditUserInfo editUserInfo = new EditUserInfo(UserId);
+            editUserInfo.ShowDialog();
+        }
+
+        private async void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                await client.SetTelegramIDAsync(UserId, txtTelegramId.Text);
+                MessageBox.Show("Telegram id added!");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("WRONG ID!!!");
+            }
         }
     }
 }

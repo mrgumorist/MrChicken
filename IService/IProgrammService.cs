@@ -62,26 +62,30 @@ namespace IService
         void UpdateDish(DishS dish);
         [OperationContract]
         void DeleteDishByID(int ID);
-
         [OperationContract]
-        void StartPromotionBot(string message);
-        //[OperationContract]
-        //void StartBot();
-        //[OperationContract]
-        //void StopBot();
-        //[OperationContract(IsOneWay =true)]
-        //void GetStatusMsg(string msg);
-        //[OperationContract]
-        //List<string> GetUsersTelegramID();
+        void StartPromotionBot(string message);        
         [OperationContract]
         void AddIntermidiatef(IntermediateS[] list);
-        //[OperationContract]
-        //void StartPromotionBot(string message);
+        [OperationContract]
+        void SetTelegramID(int userId,string id);
+        [OperationContract]
+        void AddUserProducts(UserProductsS item);
+        [OperationContract]
+        List<UserProductsS> GetUserProducts(int Userid);
+        [OperationContract]
+        void DeleteProductByName(string prodName);
+        [OperationContract]
+        List<DishS> GetUseAvailableRecept(int UserId);
+        [OperationContract]
+        List<IntermediateS> GetRecipeProdByName(int id);
+        [OperationContract]
+        void DeleteProductIntermediateByID(string prodName);
+        [OperationContract]
+        string GetRecipesBot(List<DishS> recipes);
+
+
+
+
 
     }
-    //public interface IProgrammServiceCallback
-    //{
-    //    [OperationContract(IsOneWay =true)]
-    //    void AddMessage(string message);
-    //}
 }

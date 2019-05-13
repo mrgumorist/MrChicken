@@ -10,10 +10,28 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            
+            <RowDefinition Height="41"/>
+            <RowDefinition Height="41"></RowDefinition>
+            <RowDefinition Height="365*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             
         </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Background="Black" Content="Your avaliable recepts:" HorizontalContentAlignment="Center" Foreground="White" FontSize="25"></Label>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontSize="18" Click="Button_Click" Margin="0.4,0,0.2,-0.2" RenderTransformOrigin="0.501,0.502" Height="41" VerticalAlignment="Bottom">Get the recipe</Button>
+            <Button Grid.Column="1" Grid.ColumnSpan="2" Background="{x:Null}" Foreground="White" FontWeight="Bold" FontSize="18"  Margin="0.4,0,0.2,-0.2" RenderTransformOrigin="0.501,0.502" Height="41" VerticalAlignment="Bottom">Add telegramID</Button>
+            <TextBox Name="txtTelegramId" Grid.Column="3" Margin="0,5,0,5" FontSize="15" HorizontalContentAlignment="Center"  VerticalContentAlignment="Center">Enter id</TextBox>
+        </Grid>
+        <DataGrid Name="dataGridDishes" MouseDoubleClick="dataGridDishes_MouseDoubleClick" IsReadOnly="True" Grid.Row="3" Grid.Column="0" Background="{x:Null}" ColumnWidth="100*" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"></DataGrid>
+
     </Grid>
 </Page>

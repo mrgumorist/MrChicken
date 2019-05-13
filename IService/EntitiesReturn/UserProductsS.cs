@@ -16,7 +16,7 @@ namespace IService.EntitiesReturn
         public int UserID { get; set; }
         [DataMember]
         public int ProductID { get; set; }
-        [DataMember]
-        public DateTime AddedDate { get; set; }
+        //[DataMember]
+        //public DateTime AddedDate { get; set; }
     }
 }

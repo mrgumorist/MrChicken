@@ -52,5 +52,10 @@ namespace Mr.Chicken.AdminPages
             }));
           
         }
+
+        private void Page_ContextMenuClosing(object sender, ContextMenuEventArgs e)
+        {
+            client.StopReceiving();
+        }
     }
 }

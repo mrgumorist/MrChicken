@@ -17,7 +17,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <DataGrid IsEnabled="True" RowHeight="30" Name="Displayy" IsReadOnly="False" AutoGenerateColumns="False" Grid.Row="1" Background="{x:Null}" CanUserDeleteRows="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <DataGrid IsEnabled="True" MouseDoubleClick="Displayy_MouseDoubleClick" RowHeight="30" Name="Displayy" IsReadOnly="False" AutoGenerateColumns="False" Grid.Row="1" Background="{x:Null}" CanUserDeleteRows="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Choose" Click="MenuItem_Click"/>
@@ -28,8 +28,13 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <DataGrid RowHeight="30" Name="Displaying" IsReadOnly="False" AutoGenerateColumns="False" Grid.Row="1" Grid.Column="1" Background="{x:Null}" CanUserDeleteRows="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <DataGrid.Columns>
+        <DataGrid IsReadOnly="True" RowHeight="30" Name="Displaying" MouseDoubleClick="Displaying_MouseDoubleClick" Grid.Row="1" Grid.Column="1" Background="{x:Null}" CanUserDeleteRows="False" CanUserAddRows="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Delete" Click="MenuItem_Click_1"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+            <!--<DataGrid.Columns>
                 <DataGridTextColumn  Width="2*"  Header="Name" Binding="{Binding Name}" IsReadOnly="False"></DataGridTextColumn>
                 <DataGridCheckBoxColumn Header="Add"  Binding="{Binding IsChecked}" Width="*" IsReadOnly="False">
                     <DataGridCheckBoxColumn.CellStyle>
@@ -38,12 +43,11 @@
                         </Style>
                     </DataGridCheckBoxColumn.CellStyle>
                 </DataGridCheckBoxColumn>
-            </DataGrid.Columns>
+            </DataGrid.Columns>-->
 
         </DataGrid>
         <Button Background="{x:Null}" Foreground="White" FontSize="40" FontWeight="Bold" Click="Button_Click">Cancel Selecting</Button>
-        <Button Background="{x:Null}" Grid.Column="1" Foreground="White" FontSize="40" FontWeight="Bold" Click="Button_Click_1">Cancel Checking</Button>
-        <Button Background="{x:Null}" Grid.Row="2" Foreground="White" FontSize="40" FontWeight="Bold" Click="Button_Click_2">AddProducts</Button>
+        <Button Background="{x:Null}" Grid.Column="1" Foreground="White" FontSize="40" FontWeight="Bold" Click="Button_Click_1">Show Products</Button>
         <Grid Grid.Column="1" Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="269*"/>

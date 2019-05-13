@@ -137,11 +137,11 @@
     <Compile Include="UserPages\MyProducts.xaml.cs">
       <DependentUpon>MyProducts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserPages\TopRecepts.xaml.cs">
-      <DependentUpon>TopRecepts.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UserPages\UserStart.xaml.cs">
       <DependentUpon>UserStart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserWindow.xaml.cs">
+      <DependentUpon>UserWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="AdminPages\BotPanel.xaml">
       <SubType>Designer</SubType>
@@ -239,11 +239,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserPages\TopRecepts.xaml">
+    <Page Include="UserPages\UserStart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserPages\UserStart.xaml">
+    <Page Include="UserWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,9 +282,12 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\IService.Entities.Dish.datasource" />
     <None Include="Properties\DataSources\IService.EntitiesReturn.DishS.datasource" />
     <None Include="Properties\DataSources\IService.EntitiesReturn.EmailAcceptS.datasource" />
+    <None Include="Properties\DataSources\IService.EntitiesReturn.IntermediateS.datasource" />
     <None Include="Properties\DataSources\IService.EntitiesReturn.ProductS.datasource" />
+    <None Include="Properties\DataSources\IService.EntitiesReturn.UserProductsS.datasource" />
     <None Include="Properties\DataSources\IService.EntitiesReturn.UserS.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using IService.Entities;
+using IService.EntitiesReturn;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,17 +9,18 @@ using Telegram.Bot;
 using Telegram.Bot.Args;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
-
 namespace IService.MyBott
 {
     public class MyBot
     {       
+     
         private static ITelegramBotClient botClient;
         string statusMsg;
         string botToken;
         bool isStarted;
         public delegate void GetStatus(string message);
         public event GetStatus GetStatusMessage;
+        Context context = new Context();
         public bool IsStarted
         {
             get { return isStarted; }
@@ -60,7 +63,13 @@ namespace IService.MyBott
 
         public async void SendMsgToUser(string UserID,string msg)
         {
+            try
+            {
             await botClient.SendTextMessageAsync(Int32.Parse(UserID), msg);
+            }
+            catch (Exception)
+            {
+            }
         }
 
         private async void button_clickGetMyID(MessageEventArgs e)
@@ -69,16 +78,32 @@ namespace IService.MyBott
         }
         private async void button_clickGetRecipe(MessageEventArgs e)
         {
-            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки GET_RECIPE");
+            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Looking for recipe in DB...");
+            try
+            {
+                string id = e.Message.Chat.Id.ToString();
+            var user = context.users.FirstOrDefault(u => u.TelegramID == id);
+           
+                var recipes =  GetUseAvailableReceptBot(Int32.Parse(user.TelegramID));
+                var recps = GetRecipesBot(recipes);
+                await botClient.SendTextMessageAsync(e.Message.Chat.Id,"RECIPES: "+Environment.NewLine+ recps +Environment.NewLine);
+          
+            }
+            catch (Exception)
+            {
+             await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Cant find recipe, maybe you are not registred!!!");
+            }
+
+
         }
-        private async void button_clickAddProduct(MessageEventArgs e)
-        {
-            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки AddProduct");
-        }
-        private async void button_clickDeleteProduct(MessageEventArgs e)
-        {
-            await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки DelleteProduct");
-        }
+        //private async void button_clickAddProduct(MessageEventArgs e)
+        //{
+        //    await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки AddProduct");
+        //}
+        //private async void button_clickDeleteProduct(MessageEventArgs e)
+        //{
+        //    await botClient.SendTextMessageAsync(e.Message.Chat.Id, "Вітаю Обробка кнопки DelleteProduct");
+        //}
 
 
         private async void BotClient_OnCallbackQuery(object sender, CallbackQueryEventArgs e)
@@ -86,7 +111,11 @@ namespace IService.MyBott
             string buttonText = e.CallbackQuery.Data;
             string name = $"{e.CallbackQuery.From.FirstName} {e.CallbackQuery.From.LastName}";
             GetStatusMessage($"{name} нажав на кнопку {buttonText}" + Environment.NewLine);
-            if (buttonText == "Puts1")
+            if (buttonText == "Button1")
+            {
+                await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Puts1");
+            }
+            if (buttonText == "Button2")
             {
                 await botClient.SendTextMessageAsync(e.CallbackQuery.Message.Chat.Id, "Puts1");
             }
@@ -107,14 +136,14 @@ namespace IService.MyBott
             {
                 button_clickGetMyID(e);
             }
-            if (e.Message.Text == "Add product" + "\U0001F4E6")//Обробка кнопки
-            {
-                button_clickAddProduct(e);
-            }
-            if (e.Message.Text == "Delete product" + "")//Обробка кнопки
-            {
-                button_clickDeleteProduct(e);
-            }
+            //if (e.Message.Text == "Add product" + "\U0001F4E6")//Обробка кнопки
+            //{
+            //    button_clickAddProduct(e);
+            //}
+            //if (e.Message.Text == "Delete product" + "")//Обробка кнопки
+            //{
+            //    button_clickDeleteProduct(e);
+            //}
 
             if (message.Type != MessageType.Text || UserMsg == null)
             {
@@ -139,13 +168,13 @@ namespace IService.MyBott
                     {
                         new[]
                         {
-                            InlineKeyboardButton.WithUrl("Porn Hub","http://pornhub.com"),
-                            InlineKeyboardButton.WithUrl("Porn Hub2","http://pornhub.com")
+                            InlineKeyboardButton.WithUrl("Some web","http://google.com"),
+                            InlineKeyboardButton.WithUrl("Some web2","http://google.com")
                         },
                         new[]
                         {
-                            InlineKeyboardButton.WithCallbackData("Puts1"),
-                            InlineKeyboardButton.WithCallbackData("Puts2")
+                            InlineKeyboardButton.WithCallbackData("Button1"),
+                            InlineKeyboardButton.WithCallbackData("Button2")
 
                         }
                     });
@@ -158,12 +187,12 @@ namespace IService.MyBott
                         new[]
                         {
                             new KeyboardButton("Get the recipe"+"\U0001F34F"),
-                            new KeyboardButton("Add product"+"\U0001F4E6")
+                            //new KeyboardButton("Add product"+"\U0001F4E6")
                         },
                         new[]
                         {
                             new KeyboardButton("Get my id "+"\U0001F194") ,
-                            new KeyboardButton("Delete product"+"")
+                            //new KeyboardButton("Delete product"+"")
                         }
 
 
@@ -175,13 +204,7 @@ namespace IService.MyBott
                     await botClient.SendTextMessageAsync(message.Chat.Id, "©Mr.Chicken");
                     break;
                 default:
-                    //var responce = apiAi.TextRequest(message.Text);
-                    //string answer = responce.Result.Fulfillment.Speech;
-                    //if (answer == "")
-                    //{
-                    //    answer = "Вибач, я тебе не розумію";
-                    //}
-                    //await botClient.SendTextMessageAsync(message.Chat.Id, answer);
+                    
                     break;
             }
 
@@ -191,6 +214,102 @@ namespace IService.MyBott
             //).ConfigureAwait(false);
         }
 
+        private List<DishS> GetUseAvailableReceptBot(int UserId)
+        {
+            //var UserProducts = context.userProducts.Select();
+
+            var Users = (from n in context.users
+                         where n.TelegramID == UserId.ToString()
+                         select n).ToList();
+            int usid = Users.First().ID;
+            var UserProducts =
+                 (from n in context.userProducts
+                  where n.UserID == usid
+                  select n).ToList();
+
+            var dishIntermed =
+                (from di in context.intermediate
+                 select di).ToList();
+
+            List<DishS> dishes = new List<DishS>();
+
+            UserProducts ul = new UserProducts();
+            int checker = 1;
+            int uniqChecker = -1;
+
+            List<Intermediate> I = new List<Intermediate>();
+            List<UserProducts> P = new List<UserProducts>();
+
+            var pDishes = context.dishes.ToList();
+            foreach (var dsh in pDishes)
+            {
+
+                int productIntermediateCount = 0;
+                foreach (var item in context.intermediate)
+                {
+                    if (item.DishID == dsh.ID)
+                        productIntermediateCount++;
+                }
+
+                foreach (var us_Prod in UserProducts)
+                {
+                    for (int i = 0; i < dishIntermed.Count; i++)
+                    {
+                        if (us_Prod.ProductID == dishIntermed[i].ProductID && uniqChecker != us_Prod.ProductID)
+                        {
+                            uniqChecker = us_Prod.ProductID;
+                            I.Add(dishIntermed[i]);
+                            P.Add(us_Prod);
+                            if (productIntermediateCount == I.Count)
+                            {
+                                int chance = 0;
+                                foreach (var Is in I)
+                                {
+                                    foreach (var Ps in P)
+                                    {
+                                        if (Is.ProductID == Ps.ProductID)
+                                        {
+                                            chance++;
+                                        }
+                                    }
+                                }
+
+                                if (chance == productIntermediateCount)
+                                {
+
+                                    foreach (var item in context.dishes)
+                                    {
+                                        if (item.ID == dishIntermed[i].DishID)
+                                        {
+                                            var dish = new DishS();
+                                            dish.ID = item.ID;
+                                            dish.Name = item.Name;
+                                            dish.Recept = item.Recept;
+                                            dish.TypeID = item.TypeID;
+                                            dish.LittleDescription = item.LittleDescription;
+                                            dishes.Add(dish);
+                                        }
+                                    }
+
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            return dishes;
+        }
+
+        public string GetRecipesBot(List<DishS> recipes)
+        {
+            string recipe = "";
+            foreach (var item in recipes)
+            {
+                recipe += item.Name+Environment.NewLine +item.Recept + Environment.NewLine;
+            }
+            return recipe;
+        }
 
         public void Stop()
         {

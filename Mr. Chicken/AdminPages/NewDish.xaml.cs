@@ -35,34 +35,34 @@ namespace Mr.Chicken.AdminPages
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //File dialog
-            System.Windows.Forms.OpenFileDialog choofdlog = new System.Windows.Forms.OpenFileDialog
-            {
-                Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp",
-                FilterIndex = 1,
-                Multiselect = true
+            //System.Windows.Forms.OpenFileDialog choofdlog = new System.Windows.Forms.OpenFileDialog
+            //{
+            //    Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp",
+            //    FilterIndex = 1,
+            //    Multiselect = true
             
-            };
-            Bytes = null;
-            choofdlog.ShowDialog();
+            //};
+            //Bytes = null;
+            //choofdlog.ShowDialog();
 
-            if (File.Exists(choofdlog.FileName))
-            {
-                using (FileStream fs = new FileStream(choofdlog.FileName, FileMode.Open, FileAccess.Read))
-                {
-                    // Create a byte array of file stream length
-                    byte[] bytes = System.IO.File.ReadAllBytes(choofdlog.FileName);
-                    //Read block of bytes from stream into the byte array
-                    fs.Read(bytes, 0, System.Convert.ToInt32(fs.Length));
-                    //Close the File Stream
-                    fs.Close();
-                    Bytes = bytes;
-                    Image.Source = Helper.ByteToImage(Bytes);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please, Choose file");
-            }
+            //if (File.Exists(choofdlog.FileName))
+            //{
+            //    using (FileStream fs = new FileStream(choofdlog.FileName, FileMode.Open, FileAccess.Read))
+            //    {
+            //        // Create a byte array of file stream length
+            //        byte[] bytes = System.IO.File.ReadAllBytes(choofdlog.FileName);
+            //        //Read block of bytes from stream into the byte array
+            //        fs.Read(bytes, 0, System.Convert.ToInt32(fs.Length));
+            //        //Close the File Stream
+            //        fs.Close();
+            //        Bytes = bytes;
+            //        Image.Source = Helper.ByteToImage(Bytes);
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please, Choose file");
+            //}
             
         }
 
@@ -72,7 +72,7 @@ namespace Mr.Chicken.AdminPages
             if(Name.Text!=""&&Recept.Text!= "" && Littledescription.Text!= "" && Bytes!=null)
             {
                DishS dish =  (await client.GetEmptyDishSAsync());
-                dish.Image = Bytes;
+                //dish.Image = Bytes;
                 dish.LittleDescription = Littledescription.Text;
                 dish.Name = Name.Text;
                 dish.Recept = Recept.Text;

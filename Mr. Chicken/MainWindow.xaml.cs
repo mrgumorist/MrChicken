@@ -75,6 +75,10 @@ namespace Mr.Chicken
             if (id != -1)
             {
                 MessageBox.Show("Succesfull!");
+                UserWindow userWindow = new UserWindow(id);
+                Hide();
+                userWindow.ShowDialog();
+                Show();
             }
             else
             {

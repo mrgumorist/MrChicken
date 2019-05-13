@@ -18,8 +18,8 @@ namespace IService.EntitiesReturn
         public string LittleDescription { get; set; }
         [DataMember]
         public string Recept { get; set; }
-        [DataMember]
-        public byte[] Image { get; set; }
+        //[DataMember]
+        //public byte[] Image { get; set; }
         [DataMember]
         public int TypeID { get; set; }
     }

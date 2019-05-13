@@ -20,8 +20,11 @@ namespace Mr.Chicken
     /// </summary>
     public partial class AdminPanel : Window
     {
+        ServiceReferenceMrChicken.ServiceBotClient client;
         public AdminPanel()
         {
+            var instanceContext = new System.ServiceModel.InstanceContext(this);
+            client = new ServiceReferenceMrChicken.ServiceBotClient(instanceContext);
             InitializeComponent();
         }
 
@@ -67,6 +70,6 @@ namespace Mr.Chicken
         {
             MainFrame.Content = null;
             MainFrame.Content = new BotPanel();
-        }
+        }                 
     }
 }
